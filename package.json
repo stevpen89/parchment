@@ -2,7 +2,22 @@
   "name": "parchment",
   "version": "0.1.0",
   "private": true,
+  "main": "server/server.js",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3035"
+    },
+    "/auth/callback": {
+      "target": "http://localhost:3035"
+    }
+  },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "massive": "^5.5.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
