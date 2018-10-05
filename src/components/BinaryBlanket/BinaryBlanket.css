@@ -1,0 +1,124 @@
+h3{
+	width:60px;
+}
+input{
+	margin:3px;
+	border-radius:4px;
+	width:150px;
+}
+.binary-blanket{
+	display:flex;
+	flex-direction:row-reverse;
+	align-items: center;
+}
+.level1{
+	margin:10px;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-evenly;
+	width:20%;
+	height:80%;}
+.level2{
+	margin:10px;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-evenly;
+	width:20%;
+	height:80%;}
+.level3{
+	margin:10px;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-evenly;
+	width:20%;
+	height:80%;}
+.level4{
+	margin:10px;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-evenly;
+	width:20%;
+	height:80%;
+}
+.binary-person{
+	margin:5px;
+	border: 1px solid green;
+	background-color:rgba(19, 59, 21, 0.233);
+	display:flex;
+	flex-direction:column;
+}
+.binary-pair{
+	display:flex;
+	flex-direction:column;
+	border: 1px solid green;
+	background-color:rgba(19, 59, 21, 0.233);
+}
+.inner-level-1{
+
+}
+.inner-level-2{
+	margin:180px 0;
+}
+.inner-level-3{
+	margin:60px 0;
+}
+.inner-level-4{
+	margin:3px 0;
+}
+.connector-wrapper-1{
+	width:30px;
+	height:1300px;
+	display:flex;
+	flex-direction:column;
+	justify-content: space-between;
+	align-items: center;
+}
+.connector-wrapper-2{
+	width:30px;
+	height:1150px;
+	display:flex;
+	flex-direction:column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.connector-wrapper-3{
+	width:30px;
+	height:1070px;
+	display:flex;
+	flex-direction:column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.connector1-2{
+	border-left:1px solid blue;
+	border-top:1px solid blue;
+	border-bottom:1px solid blue;
+	height:470px;
+	width:15px;
+	margin-top:410px;
+}
+.connector2-3{	
+	border-left:1px solid blue;
+	border-top:1px solid blue;
+	border-bottom:1px solid blue;
+	height:225px;
+	width:15px;
+}
+.connector3-4{	
+	border-left:1px solid blue;
+	border-top:1px solid blue;
+	border-bottom:1px solid blue;
+	height:120px;
+	width:15px;}
+.name{
+	width:60%;
+}
+.dates{
+	display:flex;
+	flex-direction:column;
+	width:40%;
+}
+.person{
+	display:flex;
+	flex-direction:row;
+}
