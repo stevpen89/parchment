@@ -39,8 +39,6 @@
 	background: rgba(0,0,0,0.15);
 }
 
-.menu a {
+.menu ul a {
 	color: black;
-	text-decoration: none;
-	cursor: default;
 }
