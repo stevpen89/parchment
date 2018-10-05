@@ -21,9 +21,28 @@
 	user-select: none;
 }
 
+.nav > * {
+	font-family: 'Open Sans Condensed', sans-serif;
+	letter-spacing: 2px;
+}
+
 .nav a {
 	text-transform: uppercase;
 	padding-right: 25px;
+}
+
+.nav-left, .nav-right {
+	width: 200px;
+}
+
+.nav-left {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.nav-right {
+	display: flex;
+	justify-content: flex-end;
 }
 
 .menu-button {
@@ -31,8 +50,18 @@
 	opacity: .75;
 	transition: .25s;
 	cursor: default;
+	z-index: 3;
 }
 
 .menu-button:hover {
 	opacity: 1;
+}
+
+.menu-icon {
+	-webkit-text-stroke: 1px black;
+	color: transparent;
+}
+
+.menu-icon:hover {
+	color: black;
 }

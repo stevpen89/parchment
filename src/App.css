@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Varela+Round');
 
 .app {
   font-family: 'Varela Round', sans-serif;
@@ -6,4 +6,9 @@
 
 .app > * {
   margin-top: 75px;
+}
+
+a {
+  text-decoration: none;
+	cursor: default;
 }
