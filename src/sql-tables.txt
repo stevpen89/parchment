@@ -1,0 +1,31 @@
+• SQL Tables
+
+users
+ admin BOOLEAN
+
+orders
+ order_id      SERIAL PRIMARY KEY
+ user_id       REFERENCES
+ purchase_date TEXT
+ product_sku   REFERENCES
+ order_details JSON (color, custom text)
+
+products
+  product_sku      PRIMARY KEY
+  product_name     VARCHAR (200)
+  product_tags     JSON --['missionary', 'texas']
+  product_image    TEXT
+  product_thumbs   JSON --['http://url.com','http://url.com','http://url.com']
+  product_desc     VARCHAR(10000)
+
+trees
+ tree_id   PRIMARY KEY
+ user_id   INTEGER
+ user_tree JSON object
+
+• Sessions Objects
+  • Cart
+    • user_id		INTEGER
+    • sku		ARRAY [56, 47]
+    • customized	JSON ['customized text', 'asdfasd']
+		•	JSON ['flower-pattern', '#541b788']
