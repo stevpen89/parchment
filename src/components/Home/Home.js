@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import Nav from '../../components/Nav/Nav'
 import Carousel from '../Carousel/Carousel'
+import './Home.css'
 
 class Home extends Component {
 	constructor(){
@@ -8,14 +10,16 @@ class Home extends Component {
 	}
 	render() {
 		return (
-			<div>
-				This is Home
+			<div style={{marginTop: 0}}>
+				<Nav/>
 				<Carousel/>
-				<div>Insert Banner Image1 Here</div>
-				<div>Insert Banner Image2 Here</div>
-				<div>Insert Banner Image3 Here</div>
-				<div>Insert Banner Image4 Here</div>
-			</div>
+				<div className="banners">
+					<div className="banner-1"></div>
+					<div className="banner-2"></div>
+					<div className="banner-3"></div>
+					<div className="banner-4"></div>
+				</div>
+		  </div>
 		)
 	}
 }

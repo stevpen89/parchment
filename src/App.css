@@ -3,3 +3,7 @@
 .app {
   font-family: 'Varela Round', sans-serif;
 }
+
+.app > * {
+  margin-top: 75px;
+}

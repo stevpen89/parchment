@@ -1,20 +1,46 @@
 .menu {
-	width: 0px;
-	height: 100vh;
-	background: rgba(32, 178, 170, .95);
-	position: absolute;
-	top: 0;
+	height: calc(100vh - 75px);
+	position: fixed;
+	bottom: 0;
 	left: 0;
-	z-index: 1;
-	padding-top: 75px;
+	z-index: 2;
 	transition: .5s;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	color: white;
+	background: white;
 }
 
-.menu-open {
-	width: 300px;
-	padding: 100px 25px;
+.menu-container {
+	width: calc(100% + 25px);
+	height: calc(100vh - 75px);
+	overflow: hidden;
+}
+
+.menu-content {
+	width: calc(100% - 25px);
+	height: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #333;
+	overflow: hidden;
+	box-shadow: 5px 0px 25px 0px rgba(0,0,0,0.15);
+	margin: 0 0 0 0;
+}
+
+.menu ul {
+	width: 100%;
+	letter-spacing: 1px;
+}
+
+.menu li {
+	padding: 20px;
+	transition: .25s;
+}
+
+.menu li:hover {
+	background: rgba(0,0,0,0.15);
+}
+
+.menu a {
+	color: black;
+	text-decoration: none;
+	cursor: default;
 }
