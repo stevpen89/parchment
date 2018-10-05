@@ -1,0 +1,29 @@
+.nav {
+	height: 75px;
+	width: 100%;
+	padding: 0 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background: lightseagreen;
+	color: white;
+	position: relative;
+	z-index: 2;
+}
+
+.nav a {
+	text-transform: uppercase;
+	padding-right: 25px;
+}
+
+.menu-button {
+	font-size: 26px;
+	opacity: .75;
+	transition: .25s;
+	cursor: default;
+}
+
+.menu-button:hover {
+	opacity: 1;
+}
