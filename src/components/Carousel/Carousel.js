@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Carousel.css'
 
 class Carousel extends Component {
 	constructor(){
@@ -7,8 +8,7 @@ class Carousel extends Component {
 	}
 	render() {
 		return (
-			<div>
-				This is Carousel
+			<div className="carousel">
 			</div>
 		)
 	}

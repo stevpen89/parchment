@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
 import './Menu.css'
 
 class Menu extends Component {
@@ -10,14 +11,18 @@ class Menu extends Component {
 	render() {
 		const {menuOpen} = this.props
 		return (
-			<div className={menuOpen ? `menu menu-open` : `menu`}>
-				<ul>
-					<li>Home</li>
-					<li>Products</li>
-					<li>About</li>
-					<li>Contact</li>
-				</ul>
-			</div>
+				<frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount="1.6rem" class='menu' style={menuOpen ? {width: `300px`} : {width: `0px`}}>
+				<div className="menu-container">
+					<div className="menu-content">
+						<ul>
+							<Link to="/"><li>Home</li></Link>
+							<Link to="/products"><li>Products</li></Link>
+							<Link to="/about"><li>About</li></Link>
+							<Link to="/contact"><li>Contact</li></Link>
+						</ul>
+					</div>
+				</div>
+				</frosted-glass>
 		)
 	}
 }

@@ -1,0 +1,24 @@
+.banners div {
+	height: 300px;
+	width: 110vw;
+	position: relative;
+	left: -5vw;
+	padding: 0 5vw;
+	background-size: cover;
+}
+
+.banner-1 {
+	background: url(https://images.unsplash.com/photo-1538440486292-f2bb478be0ac?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d63e193fc912428b1f0156a3684541ea&auto=format&fit=crop&w=1920&q=80) center;
+}
+
+.banner-2 {
+	background: url(https://images.unsplash.com/photo-1524207874394-5ec7c8c8e1a6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c8d4c4827a57ddae90992cbc143e5597&auto=format&fit=crop&w=1920&q=80) center;
+}
+
+.banner-3 {
+	background: url(https://images.unsplash.com/photo-1534559733674-bf89abe1dda5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1c50243a98c119772a4735ef33d9f800&auto=format&fit=crop&w=1920&q=80) center;
+}
+
+.banner-4 {
+ background: url(https://images.unsplash.com/photo-1506368153642-f361edca71a1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c6581db801bfa0bdba7299aadd4eda8&auto=format&fit=crop&w=1920&q=80) center;
+}
