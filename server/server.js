@@ -2,7 +2,7 @@
 
 const //CONTROLLERS
       auth0Controller = require ( './controllers/auth0Controller' ),
-      // s3Controller    = require ( './controllers/s3Controller'    )
+      s3Controller    = require ( './controllers/s3Controller'    )
       //NODE MODULES
       express         = require ( 'express'         ),
       session         = require ( 'express-session' ),
