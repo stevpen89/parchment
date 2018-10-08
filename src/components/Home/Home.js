@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Nav from '../../components/Nav/Nav'
 import Carousel from '../Carousel/Carousel'
 import './Home.css'
 
@@ -10,14 +9,12 @@ class Home extends Component {
 	}
 	render() {
 		return (
-			<div style={{marginTop: 0}}>
-				<Nav/>
+			<div>
 				<Carousel/>
-				<div className="banners">
-					<div className="banner-1"></div>
-					<div className="banner-2"></div>
-					<div className="banner-3"></div>
-					<div className="banner-4"></div>
+				<div className="heros">
+					<div className="hero-1"></div>
+					<div className="hero-2"></div>
+					<div className="hero-3"></div>
 				</div>
 		  </div>
 		)

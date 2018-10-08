@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Nav from '../../components/Nav/Nav'
 import Filters from '../Filters/Filters'
 import BabyBlanket from '../BabyBlanket/BabyBlanket'
 import CrazyBlanket from '../CrazyBlanket/CrazyBlanket'
@@ -14,8 +13,7 @@ class Products extends Component {
 	}
 	render() {
 		return (
-			<div>
-				<Nav/>
+			<div className="content">
 				This is Products
 				<Filters/>
 				<BabyBlanket/>

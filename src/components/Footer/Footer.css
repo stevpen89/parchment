@@ -1,0 +1,7 @@
+.footer {
+	height: 575px;
+	margin-bottom: -500px;
+	padding: 30px calc(5vw + 30px);
+	color: white;
+	background-color: #222;
+}

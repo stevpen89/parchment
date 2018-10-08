@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Nav from '../../components/Nav/Nav'
 
 class AboutUs extends Component {
 	constructor(){
@@ -8,8 +7,7 @@ class AboutUs extends Component {
 	}
 	render() {
 		return (
-			<div>
-			<Nav />
+			<div className="content">
 				This is AboutUs
 			</div>
 		)
