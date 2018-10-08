@@ -1,10 +1,40 @@
 .carousel {
-	width: 110vw;
-	height: calc(500px + 5vh);
-	position: relative;
-	left: -5vw;
 	margin-top: -5vh;
-	padding: 0 5vw;
-	background: url(https://images.unsplash.com/photo-1527784281695-866fa715d9d8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bded84be13698c646b75dca4189a4c86&auto=format&fit=crop&w=1920&q=80) center;
+	height: calc(575px + 5vh);
+	padding: calc(125px + 5vh) calc(5vw + 50px);
+	/* background: url(https://images.unsplash.com/photo-1527784281695-866fa715d9d8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bded84be13698c646b75dca4189a4c86&auto=format&fit=crop&w=1920&q=80) center; */
+	background: url(https://images.unsplash.com/photo-1527176930608-09cb256ab504?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=69fee3fae74c1151324d09aa5034e7b7&auto=format&fit=crop&w=1953&q=80) center;
 	background-size: cover;
+}
+
+.carousel h1 {
+	text-transform: uppercase;
+	font-size: 80px;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.carousel a {
+	letter-spacing: 1px;
+	font-size: 18px;
+	padding: 5px;
+	/* text-transform: uppercase; */
+}
+
+.carousel button {
+	margin: 20px 0;
+	padding: 10px 60px;
+	color: #333;
+	border: 2px #333 solid;
+	background: transparent;
+	border-radius: 30px;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+
+.carousel button:hover {
+	color: white;
+	background: #333;
 }

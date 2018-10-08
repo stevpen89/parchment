@@ -9,6 +9,9 @@ class Carousel extends Component {
 	render() {
 		return (
 			<div className="carousel">
+				<h1>Parchment</h1>
+				<a>Lorem ipsum dolor sit amet, consectetur elit.</a><br />
+				<button>Check it out</button>
 			</div>
 		)
 	}

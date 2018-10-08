@@ -1,14 +1,30 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Varela+Round');
 
-.app {
-  font-family: 'Varela Round', sans-serif;
+body {
+  width: 110vw;
+  overflow-x: hidden;
+  background: #222;
 }
 
-.app > * {
-  margin-top: 75px;
+.app {
+  width: 110vw;
+  left: -5vw;
+  position: relative;
+  font-family: 'Varela Round', sans-serif;
+  background: white;
+}
+
+button, input {
+  font-family: 'Varela Round', sans-serif;
+  outline: none;
+  transition: .25s;
 }
 
 a {
   text-decoration: none;
 	cursor: default;
+}
+
+.content {
+  padding: 75px 5vw 0 5vw;
 }
