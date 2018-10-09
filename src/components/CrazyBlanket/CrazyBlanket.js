@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import CrazyCard from './CrazyCard'
 
 class CrazyBlanket extends Component {
 	constructor () {
 		super();
 		this.state = {
-			familyTree: {},
-			results:{},
-			resultsArr:[]
+			familyTree: [],
 		}
 	}
 
@@ -23,38 +22,15 @@ class CrazyBlanket extends Component {
 	editCard   (cardId,changes) {axios.put(`/${cardId}`)} // this put line needs logic to take it's "changes" and send them to DB
 	deleteCard (cardId) {axios.delete(`/${cardId}`)}
 
-	builder(){
-		let sqlResults = {one:1,two:2,three:3}
-		let arrayOfResults = []
-		for(let x in sqlResults){ 
-			arrayOfResults.push(x)}
-
-		// this.setState({resultsArr:arrayOfResults})
-		
-		return this.state.resultsArr.map((x)=>{
-			return
-			<CrazyBlanket
-				cardId={x.card_id}
-				name={x.card_name}
-				birth={x.card_birth}
-				death={x.card_death}
-				sname={x.spouse_name}
-				sbirth={x.spouse_birth}
-				sdeath={x.spouse_death}
-				addCard={this.addCard.bind(this)} 
-				editCard={this.editCard.bind(this)} 
-				deleteCard={this.deleteCard.bind(this)}
-				key={x.card_id}
-			/>
-		})
-	}
-	
-
 	render() {
+		console.log(this.state.familyTree)
 		return (
 			<div>
 				This is Crazy Blanket
-				{this.builder()}
+				{this.state.familyTree ? 
+				this.state.familyTree.map((x)=><CrazyCard 
+				{...x} 
+				key={x.card_id}/>):null}
 			</div>
 		)
 	}
