@@ -4,7 +4,7 @@ module.exports = {
 		const {tree_id} = req.params;
 
 		db.cards.card_read([tree_id])
-			.then(node => res.status(200).send(node))
+			.then(card => res.status(200).send(card))
 			.catch(err => console.log(`Error Message: ${err}`))
 	},
 
@@ -14,7 +14,7 @@ module.exports = {
 		const {tree_id, parent_id} = req.body;
 
 		db.cards.card_create([user_id, tree_id, parent_id])
-			.then(trip => res.status(200).send(trip[0]))
+			.then(card => res.status(200).send(card[0]))
 			.catch(err => console.log(`Error Message: ${err}`))
 	},
 
@@ -24,7 +24,7 @@ module.exports = {
 		const {card_id} = req.params;
 
 		db.cards.card_edit([card_name, card_birth, card_death, spouse_name, spouse_birth, spouse_death, card_id])
-			.then(node => res.status(200).send(node))
+			.then(card => res.status(200).send(card))
 			.catch(err => console.log(`Error Message: ${err}`))
 	},
 
@@ -33,7 +33,7 @@ module.exports = {
 		const {card_id} = req.params;
 
 		db.cards.card_delete([card_id])
-			.then(node => res.status(200).send(node))
+			.then(card => res.status(200).send(card))
 			.catch(err => console.log(`Error Message: ${err}`))
 	},
 }

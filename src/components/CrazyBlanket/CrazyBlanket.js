@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import { connect } from 'react-redux'
+import axios from 'axios'
 
 class CrazyBlanket extends Component {
 	constructor () {
 		super();
 		this.state = {
+			familyTree: {},
 			results:{},
 			resultsArr:[]
 		}
 	}
 
-	componentDidMount() {axios.get(`/1`, (res) => {
-		this.setState({familyTree: res.data})
-	})}
+	componentDidMount() {
+		const tree_id = 1
+		axios.get( `/api/cards/${tree_id}`, (res) => { this.setState({familyTree: res.data}) } )
+		console.log(this.state.familyTree)
+	}
 
 	addCard    ()       {}															  // this should add a new blank card to the cards table, then it 
 																												// needs to get all cards with the matching tree ID which makes the tree
@@ -57,4 +61,5 @@ class CrazyBlanket extends Component {
 	}
 }
 
-export default CrazyBlanket
+function mapStateToProps ( state ) {return { user_id: state.user_id }};
+export default connect ( mapStateToProps )( CrazyBlanket );
