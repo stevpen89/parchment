@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setUser, deleteUser } from '../../ducks/reducer'
+import axios from 'axios'
 import Menu from '../Menu/Menu'
 import logo from './logo.svg'
 import './Nav.css'
@@ -12,15 +15,29 @@ class Nav extends Component {
 			scrolled: true,
 			refresh: true
 		}
+		this.login = this.login.bind(this);
+		this.logout = this.logout.bind(this);
 		this.openMenu = this.openMenu.bind(this);
 		this.refreshMenu = this.refreshMenu.bind(this);
 	}
 
-	componentDidMount() {this.scrollPage()}
+	componentDidMount() {
+		axios.get('/api/user-data').then(response => this.props.setUser(response.data));
+		this.scrollPage();
+	}
 	//watches for changing url, if seen, refresh the menu
 	componentWillMount() {this.unlisten = this.props.history.listen((location, action) => {this.refreshMenu()})}
 	//unmounts the url listener
-  componentWillUnmount() {this.unlisten()}
+	componentWillUnmount() {this.unlisten()}
+
+  //authZero
+  login() {
+    const { REACT_APP_DOMAIN, REACT_APP_CLIENT_ID } = process.env;
+    const url = `${window.location.origin}/auth/callback`;
+    window.location = `https://${REACT_APP_DOMAIN}/authorize?client_id=${REACT_APP_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${url}&response_type=code`
+	}
+	
+  logout() { axios.get('/api/logout').then(() => { this.props.deleteUser() }) }
 	
 	//opens and closes the menu
 	openMenu () {this.setState({menuOpen: !this.state.menuOpen});}
@@ -35,8 +52,9 @@ class Nav extends Component {
 	}
 
 	render() {
-		const {openMenu} = this
+		const {openMenu, login, logout} = this
 		const {menuOpen, scrolled, refresh} = this.state
+		const {user_id} = this.props
 		if (refresh) {
 		return (
 			<div>
@@ -45,7 +63,12 @@ class Nav extends Component {
 						<div className="nav-left" onClick={() => openMenu()}><i className="fas fa-bars menu-button menu-icon"></i></div>
 						<div><Link to="/"><img src={logo} alt="parchment" height="90px" className="menu-button"/></Link></div>
 						<div className="nav-right">
-							<a className="menu-button">Login</a>
+							{
+								user_id ?
+								<a className="menu-button" onClick={() => logout()}>Logout</a>
+								:
+								<a className="menu-button" onClick={() => login()}>Login</a>
+							}
 							<i className="fas fa-shopping-bag menu-button menu-icon"></i>
 						</div>
 					</div>
@@ -57,4 +80,5 @@ class Nav extends Component {
 	}
 }
 
-export default withRouter(Nav)
+function mapStateToProps  ( state ) {return { user_id: state.user_id }};
+export default withRouter ( connect ( mapStateToProps, { setUser, deleteUser } )(Nav) );

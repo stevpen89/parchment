@@ -7,10 +7,10 @@
     "/api": {
       "target": "http://localhost:3035"
     },
-    "/auth/callback": {
+    "/cards": {
       "target": "http://localhost:3035"
     },
-    "/cards": {
+    "/auth/callback": {
       "target": "http://localhost:3035"
     }
   },

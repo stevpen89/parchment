@@ -26,7 +26,7 @@ class CrazyBlanket extends Component {
 		for(let x in sqlResults){ 
 			arrayOfResults.push(x)}
 
-		this.setState({resultsArr:arrayOfResults})
+		// this.setState({resultsArr:arrayOfResults})
 		
 		return this.state.resultsArr.map((x)=>{
 			return
