@@ -2,7 +2,8 @@
 
 const //CONTROLLERS
       auth0Controller = require ( './controllers/auth0Controller' ),
-      s3Controller    = require ( './controllers/s3Controller'    )
+      s3Controller    = require ( './controllers/s3Controller'    ),
+      cardsController = require ( './controllers/cardsController' )
       //NODE MODULES
       express         = require ( 'express'         ),
       session         = require ( 'express-session' ),
@@ -26,6 +27,12 @@ app.use ( session ({ secret: SESSION_SECRET, resave: false, saveUninitialized: f
 app.get ( '/auth/callback', auth0Controller.auth   );
 app.get ( '/api/user-data', auth0Controller.user   );
 app.get ( '/api/logout',    auth0Controller.logout );
+
+//CARD ENDPOINTS
+app.get    ( '/cards/:tree_id', cardsController.read   );
+app.post   ( '/cards/:user_id', cardsController.create );
+app.put    ( '/cards/:node_id', cardsController.edit   );
+app.delete ( '/cards/:node_id', cardsController.delete );
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {
