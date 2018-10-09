@@ -37,6 +37,9 @@ module.exports = {
     }
   },
 
-  user: (req, res) => {req.session.user ? res.status(200).send(req.session.user) : null},
-  logout: (req, res) => {req.session.destroy()}
+  //sends the user session back to write to redux
+  user: (req, res) => { req.session.user ? res.status(200).send(req.session.user) : null },
+
+  //destroys the user session
+  logout: (req, res) => { return req.session.destroy() }
 }

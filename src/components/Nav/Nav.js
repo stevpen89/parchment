@@ -22,13 +22,18 @@ class Nav extends Component {
 	}
 
 	componentDidMount() {
+		//writes the user object to redux
 		axios.get('/api/user-data').then(response => this.props.setUser(response.data));
+
+		//detects if user is at the top of the page or not
 		this.scrollPage();
 	}
+
 	//watches for changing url, if seen, refresh the menu
-	componentWillMount() {this.unlisten = this.props.history.listen((location, action) => {this.refreshMenu()})}
+	componentWillMount() { this.unlisten = this.props.history.listen((location, action) => {this.refreshMenu()}) }
+
 	//unmounts the url listener
-	componentWillUnmount() {this.unlisten()}
+	componentWillUnmount() { this.unlisten() }
 
   //authZero
   login() {
@@ -36,13 +41,16 @@ class Nav extends Component {
     const url = `${window.location.origin}/auth/callback`;
     window.location = `https://${REACT_APP_DOMAIN}/authorize?client_id=${REACT_APP_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${url}&response_type=code`
 	}
-	
-  logout() { axios.get('/api/logout').then(() => { this.props.deleteUser() }) }
+
+	//clears redux and deletes the session
+	logout() { axios.get('/api/logout').then(this.props.deleteUser()) }
 	
 	//opens and closes the menu
-	openMenu () {this.setState({menuOpen: !this.state.menuOpen});}
+	openMenu () { this.setState({menuOpen: !this.state.menuOpen}) }
+
 	//refreshes the menu to avoid the frosted glass bug
-	refreshMenu () {setTimeout(() => {this.setState({refresh: false})}, 0); setTimeout(() => {this.setState({refresh: true})}, 0)}
+	refreshMenu () { setTimeout(() => {this.setState({refresh: false})}, 0); setTimeout(() => {this.setState({refresh: true})}, 0) }
+
 	//changes the nav's style if page is scrolled
 	scrollPage () {
 		document.addEventListener('scroll', () => {
@@ -52,9 +60,9 @@ class Nav extends Component {
 	}
 
 	render() {
-		const {openMenu, login, logout} = this
-		const {menuOpen, scrolled, refresh} = this.state
-		const {user_id} = this.props
+		const { openMenu, login, logout } = this
+		const { menuOpen, scrolled, refresh } = this.state
+		const { user_id } = this.props
 		if (refresh) {
 		return (
 			<div>
@@ -76,9 +84,9 @@ class Nav extends Component {
 				<Menu menuOpen={menuOpen}/>
 			</div>
 		)}
-		else {return (<div></div>)}
+		else { return (<div></div>) }
 	}
 }
 
-function mapStateToProps  ( state ) {return { user_id: state.user_id }};
+function mapStateToProps  ( state ) { return { user_id: state.user_id } };
 export default withRouter ( connect ( mapStateToProps, { setUser, deleteUser } )(Nav) );
