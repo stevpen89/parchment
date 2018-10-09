@@ -9,6 +9,9 @@
     },
     "/auth/callback": {
       "target": "http://localhost:3035"
+    },
+    "/cards": {
+      "target": "http://localhost:3035"
     }
   },
   "dependencies": {
