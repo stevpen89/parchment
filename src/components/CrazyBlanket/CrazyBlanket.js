@@ -14,8 +14,7 @@ class CrazyBlanket extends Component {
 
 	componentDidMount() {
 		const tree_id = 1
-		axios.get( `/api/cards/${tree_id}`, (res) => { this.setState({familyTree: res.data}) } )
-		console.log(this.state.familyTree)
+		axios.get(`/cards/${tree_id}`).then(res => this.setState({familyTree: res.data}))
 	}
 
 	addCard    ()       {}															  // this should add a new blank card to the cards table, then it 
