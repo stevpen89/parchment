@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 
 class CrazyCard extends Component {
 	constructor(props){
@@ -24,9 +23,10 @@ class CrazyCard extends Component {
 
 	}
 
-	trackChanges()
+	trackChanges(){}
 
 	render() {
+		console.log(this.props)
 		return (
 			<div onBlur={()=>this.props.editCard(this.props.cardId,this.state)}>
 				<div>
@@ -37,9 +37,9 @@ class CrazyCard extends Component {
 				</div>
 				<div>
 					<div>
-						<div>{this.props.name}</div>
-						<div>{this.props.birth}</div>
-						<div>{this.props.death}</div>
+						<div>{this.props.card_name}</div>
+						<div>{this.props.card_birth}</div>
+						<div>{this.props.card_death}</div>
 					</div>
 					<div>
 						<input onClick={(e)=>this.trackChanges(e.target.value)} placeholder="name"/>
@@ -47,11 +47,11 @@ class CrazyCard extends Component {
 						<input onClick={(e)=>this.trackChanges(e.target.value)} placeholder="death year"/>
 					</div>
 				</div>
-				{this.state.spouseToggle ? <div>
+				{this.state.spouseToggle || this.props.spouse_name ? <div>
 					<div>
-						<div>{this.props.sname}</div>
-						<div>{this.props.sbirth}</div>
-						<div>{this.props.sdeath}</div>
+						<div>{this.props.spouse_name}</div>
+						<div>{this.props.spouse_birth}</div>
+						<div>{this.props.spouse_death}</div>
 					</div>
 					<div>
 						<input onClick={(e)=>this.trackChanges(e.target.value)} placeholder="spouse's name"/>
