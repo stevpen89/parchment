@@ -1,6 +1,6 @@
 const initialState = {
   user_id      : 1,
-  user_name    : null,
+  user_name    : 'Steven Penfield',
   user_email   : null,
   auth_id      : null,
   auth_picture : 'https://lh4.googleusercontent.com/-WtSvKjFYiXM/AAAAAAAAAAI/AAAAAAAAAHc/fXzUoy8H42A/photo.jpg',
@@ -8,8 +8,8 @@ const initialState = {
   saved        : false
 }
 
-const SET_USER    = "SET_USER";
-const DELETE_USER = "DELETE_USER";
+const SET_USER      = "SET_USER";
+const DELETE_USER   = "DELETE_USER";
 const SAVED_MESSAGE = "SAVED_MESSAGE";
 
 export function setUser(val)   { return { type: SET_USER, payload: val } }
