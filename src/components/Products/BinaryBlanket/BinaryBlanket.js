@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {savedMessage} from '../../../ducks/reducer'
 import axios from 'axios'
 import './BinaryBlanket.css'
 import PairCard from './PairCard'
@@ -67,23 +68,17 @@ class BinaryBlanket extends Component {
 				spouse_birth : null,
 				spouse_death : null,
 				o1           : this.state
-		})
-		this.savedMessage();
+		}).then(() => this.savedMessage())
 	}
 
 	savedMessage () {
-		let saved = true;
-		setTimeout(() => {this.setState({saved: false})}, 5000);
-		return (
-			<frosted-glass overlay-color="rgba(255,255,255,.25)" blur-amount=".75rem" class={saved ? `saved-message-container saved-message-visible` : `saved-message-container`}>
-				<div className="saved-message"><a>Family Tree Saved</a></div>
-			</frosted-glass>
-		)
+		this.props.savedMessage()
+		setTimeout(() => {this.props.savedMessage()}, 3000);
 	}
 
 	render() {
-		const {saved} = this.state;
-		console.log(this.state)
+		const {saved} = this.props;
+		console.log(this.props)
 		return (
 			<div className="binary-blanket-wrapper">
 				<div className="binary-header"><h1>Enter in your family tree</h1></div>
@@ -183,11 +178,13 @@ class BinaryBlanket extends Component {
 					</div>
 				</div>
 				<div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
-				{/* {this.savedMessage()} */}
+				<frosted-glass overlay-color="rgba(255,255,255,.25)" blur-amount=".5rem" class="saved-message-container" style={saved ? {opacity: `1`} : {opacity: `0`}}>
+					<div className="saved-message"><a>Changes Saved</a></div>
+				</frosted-glass>
 			</div>
 		)
 	}
 }
 
-function mapStateToProps ( state ) {return { user_id: state.user_id }};
-export default connect ( mapStateToProps )( BinaryBlanket );
+function mapStateToProps ( state ) {return { user_id: state.user_id, saved: state.saved }};
+export default connect ( mapStateToProps, {savedMessage} )( BinaryBlanket );

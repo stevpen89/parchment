@@ -1,0 +1,46 @@
+.user-menu {
+	width: 200px;
+	position: fixed;
+	top: 75px;
+	right: 0px;
+	z-index: 1;
+	transition: .5s;
+	overflow: hidden;
+	border-radius: 0 0 0 3px;
+	box-shadow: 5px 0px 25px 0px rgba(0,0,0,0.15);
+	cursor: default;
+}
+
+.user-menu-container {
+	width: calc(100% + 25px);
+	height: calc(100vh - 75px);
+}
+
+.user-menu-content {
+	width: calc(100% - 25px);
+	height: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #333;
+	overflow: hidden;
+	margin: 0 0 0 0;
+	text-align: center;
+}
+
+.user-menu ul {
+	width: 100%;
+	letter-spacing: 1px;
+}
+
+.user-menu li {
+	padding: 20px;
+	transition: .25s;
+}
+
+.user-menu li:hover {
+	background: rgba(0,0,0,0.15);
+}
+
+.user-menu ul a {
+	color: black;
+}

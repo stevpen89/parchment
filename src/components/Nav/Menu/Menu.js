@@ -3,11 +3,6 @@ import {Link} from 'react-router-dom';
 import './Menu.css'
 
 class Menu extends Component {
-	constructor(){
-		super()
-		this.state={}
-	}
-	
 	render() {
 		const {menuOpen} = this.props
 		return (
