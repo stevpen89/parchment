@@ -66,7 +66,7 @@ class Nav extends Component {
 		if (refresh) {
 		return (
 			<div>
-				<frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount={scrolled ? `1.6rem` : `1.6rem`} class="nav-container">
+				<frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount={scrolled ? `.75rem` : `.75rem`} class="nav-container">
 					<div className="nav">
 						<div className="nav-left" onClick={() => openMenu()}><i className="fas fa-bars menu-button menu-icon"></i></div>
 						<div><Link to="/"><img src={logo} alt="parchment" height="90px" className="menu-button"/></Link></div>

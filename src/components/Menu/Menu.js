@@ -11,7 +11,7 @@ class Menu extends Component {
 	render() {
 		const {menuOpen} = this.props
 		return (
-				<frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount="1.6rem" class='menu' style={menuOpen ? {width: `300px`} : {width: `0px`}}>
+				<frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount=".75rem" class='menu' style={menuOpen ? {width: `300px`} : {width: `0px`}}>
 				<div className="menu-container">
 					<div className="menu-content">
 						<ul>

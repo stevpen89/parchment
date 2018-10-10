@@ -29,10 +29,10 @@ app.get ( '/api/user-data', auth0Controller.user   );
 app.get ( '/api/logout',    auth0Controller.logout );
 
 //CARD ENDPOINTS
-app.get    ( '/cards/:tree_id', cardsController.read   );
-app.post   ( '/cards/:user_id', cardsController.create );
-app.put    ( '/cards/:card_id', cardsController.edit   );
-app.delete ( '/cards/:card_id', cardsController.delete );
+app.get    ( '/cards/:type/:user_id', cardsController.read   );
+app.post   ( '/cards/:user_id',       cardsController.create );
+app.put    ( '/cards/:card_id',       cardsController.edit   );
+app.delete ( '/cards/:card_id',       cardsController.delete );
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {

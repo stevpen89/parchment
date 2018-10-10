@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Filters.css'
 
 class Filters extends Component {
 	constructor(){
@@ -8,7 +9,7 @@ class Filters extends Component {
 	render() {
 		return (
 			<div>
-				This is Filters
+				<div className="products-banner"></div>
 			</div>
 		)
 	}

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import Filters from '../Filters/Filters'
-import BabyBlanket from '../BabyBlanket/BabyBlanket'
-import CrazyBlanket from '../CrazyBlanket/CrazyBlanket'
-import BinaryBlanket from '../BinaryBlanket/BinaryBlanket'
+import Filters from './Filters/Filters'
+import BabyBlanket from './BabyBlanket/BabyBlanket'
+import CrazyBlanket from './CrazyBlanket/CrazyBlanket'
+import BinaryBlanket from './BinaryBlanket/BinaryBlanket'
+import SingleBlanket from './SingleBlanket/SingleBlanket'
 
 class Products extends Component {
 	constructor(){
@@ -14,7 +15,6 @@ class Products extends Component {
 	render() {
 		return (
 			<div className="content">
-				This is Products
 				<Filters/>
 				<BabyBlanket/>
 				<CrazyBlanket/>

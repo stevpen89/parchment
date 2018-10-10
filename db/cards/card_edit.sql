@@ -1,8 +1,9 @@
 UPDATE cards
-   SET card_name=$1,
-	     card_birth=$2,
-			 card_death=$3,
-			 spouse_name=$4,
-			 spouse_birth=$5,
-			 spouse_death=$6
- WHERE card_id=$7;
+   SET card_name=$2,
+	     card_birth=$3,
+			 card_death=$4,
+			 spouse_name=$5,
+			 spouse_birth=$6,
+			 spouse_death=$7,
+			 o1=$8
+ WHERE card_id=$1;
