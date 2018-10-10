@@ -1,7 +1,7 @@
 .menu {
 	height: calc(100vh - 75px);
 	position: fixed;
-	bottom: 0;
+	top: 75px;
 	left: 0;
 	z-index: 3;
 	transition: .5s;
