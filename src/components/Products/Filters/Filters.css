@@ -1,0 +1,10 @@
+.products-banner {
+	width: 110vw;
+	left: -5vw;
+	position: relative;
+	margin-top: calc(-5vh + -75px);
+	height: calc(775px + 5vh);
+	padding: calc(125px + 5vh) calc(5vw + 50px);
+	background: url(https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf3ecd34b3757e384e703b2e79243fb7&auto=format&fit=crop&w=2689&q=80) top;
+	background-size: cover;
+}

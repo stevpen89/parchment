@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class PairCard extends Component {
+class SingleCard extends Component {
 	render() {
 		return (
 			<div className="person">
@@ -17,4 +17,4 @@ class PairCard extends Component {
 	}
 }
 
-export default PairCard
+export default SingleCard

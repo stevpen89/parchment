@@ -1,3 +1,3 @@
 SELECT * FROM cards
-WHERE tree_id=$1
+WHERE tree_type=$1 AND user_id=$2
 ORDER BY card_id;

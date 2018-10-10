@@ -12,8 +12,8 @@ class CrazyBlanket extends Component {
 	}
 
 	componentDidMount() {
-		const tree_id = 1
-		axios.get(`/cards/${tree_id}`).then(res => this.setState({familyTree: res.data}))
+		const tree_type = 1
+		axios.get(`/cards/${tree_type}`).then(res => this.setState({familyTree: res.data}))
 	}
 
 	addCard    ()       {}															  // this should add a new blank card to the cards table, then it 
@@ -23,7 +23,6 @@ class CrazyBlanket extends Component {
 	deleteCard (cardId) {axios.delete(`/${cardId}`)}
 
 	render() {
-		console.log(this.state.familyTree)
 		return (
 			<div>
 				This is Crazy Blanket
