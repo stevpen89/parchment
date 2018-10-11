@@ -11,9 +11,9 @@ module.exports = {
 	create: (req, res) => {
 		const db = req.app.get('db');
 		const {user_id} = req.params;
-		const {tree_type, parent_id} = req.body;
+		const {tree_type, parent_id, o1} = req.body;
 
-		db.cards.card_create([user_id, tree_type, parent_id])
+		db.cards.card_create([user_id, tree_type, parent_id, o1])
 			.then(card => res.status(200).send(card[0]))
 			.catch(err => console.log(`Error Message: ${err}`))
 	},
