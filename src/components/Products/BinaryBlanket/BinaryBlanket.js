@@ -93,7 +93,6 @@ class BinaryBlanket extends Component {
 
 	render() {
 		const { saved } = this.props;
-		console.log('this.props', this.props)
 		return (
 			<div className="binary-blanket">
 				<div className="binary-header"><h1>Enter in your family tree</h1></div>

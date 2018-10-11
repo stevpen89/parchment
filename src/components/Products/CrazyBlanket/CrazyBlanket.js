@@ -10,22 +10,49 @@ class CrazyBlanket extends Component {
 		this.state = {
 			count:1,
 			familyTree: 
-			[ {name:"bob",id:1,parent:0},{name:"sourkraut",id:2,parent:1},{name:"conehead",id:3,parent:1},
-				{name:"joe",id:4,parent:2},{name:"wumbus",id:5,parent:2},{name:"agent j",id:6,parent:3},
-				{name:"mike",id:7,parent:3},{name:"crumch",id:8,parent:3},{name:"leatherneck",id:9,parent:7},
-				{name:"tuna",id:10,parent:7},{name:"singapore",id:11,parent:7},{name:"gobbler",id:12,parent:7} ]
+			[ {card_name:'hello',id:1,parent_id:0},{id:2,parent_id:1},{id:3,parent_id:1},
+				{id:4,parent_id:2},{id:5,parent_id:2},{id:6,parent_id:3},
+				{id:7,parent_id:3},{id:8,parent_id:3},{id:9,parent_id:7},
+				{id:10,parent_id:7},{id:11,parent_id:7},{id:12,parent_id:7} ]
 		}
+		this.addChild = this.addChild.bind(this)
+		this.editCard = this.editCard.bind(this)
+		this.deleteCard = this.deleteCard.bind(this)
 	}
 
 	componentDidMount() {
-		const tree_type = 1
-		axios.get(`/cards/${tree_type}`).then(res => this.setState({familyTree: res.data}))
+		// this.setState({count:2})
+		// this.updateFamilyTree();
 	}
 
-	addCard    ()       {}															  // this should add a new blank card to the cards table, then it 
-																												// needs to get all cards with the matching tree ID which makes the tree
-																												// reRender any new cards
-	editCard   (cardId,changes) {axios.put(`/${cardId}`)} // this put line needs logic to take it's "changes" and send them to DB
+	updateFamilyTree() {
+		const {user_id} = this.props;
+		axios.get(`/cards/crazy/${user_id}`).then(res => this.setState({familyTree: 'hello'}))
+		console.log(this.state)
+	}
+
+	addChild (parent_id, state) {
+		const {card_name, card_birth, card_death, spouse_name, spouse_birth, spouse_death} = state
+		const {user_id} = this.props;
+		const {familyTree} = this.state;
+		let newTree = [...familyTree];
+
+		axios.put(`/cards/${user_id}`, {
+			user_id,
+			tree_type:'crazy',
+			parent_id,
+			// card_name,
+			// card_birth,
+			// card_death,
+			// spouse_name,
+			// spouse_birth,
+			// spouse_death
+		})
+		.then((res) => {
+			this.updateFamilyTree();
+		})
+	}
+	editCard (cardId,changes) {axios.put(`/${cardId}`)} // this put line needs logic to take it's "changes" and send them to DB
 	deleteCard (cardId) {axios.delete(`/${cardId}`)}
 
 	render() {
@@ -37,7 +64,11 @@ class CrazyBlanket extends Component {
 				this.state.familyTree.map((x)=><CrazyCard 
 				{...x} 
 				key={x.card_id}/>):null} */}
-				<TrialCard id={this.state.familyTree[0].id} parent={this.state.familyTree[0].parent} tree={this.state.familyTree} name={this.state.familyTree[0].name}/>
+				{this.state.familyTree.map((x)=>{
+					return x.parent_id === 0 ? 
+					<TrialCard tree={this.state.familyTree}{...x} addChild={this.addChild} editCard={this.editCard} deleteCard={this.deleteCard}/>:
+					null
+				})}
 			</div>
 		)
 	}

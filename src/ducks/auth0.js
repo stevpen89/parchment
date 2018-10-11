@@ -1,5 +1,5 @@
 const initialState = {
-  user_id      : 2,
+  user_id      : 1,
   user_name    : 'Steven Penfield',
   user_email   : null,
   auth_id      : null,
