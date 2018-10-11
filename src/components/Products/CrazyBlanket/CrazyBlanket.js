@@ -37,7 +37,7 @@ class CrazyBlanket extends Component {
 				this.state.familyTree.map((x)=><CrazyCard 
 				{...x} 
 				key={x.card_id}/>):null} */}
-				<TrialCard id={1} parent={this.state.familyTree[0].parent} tree={this.state.familyTree} name={this.state.familyTree[0].name}/>
+				<TrialCard id={this.state.familyTree[0].id} parent={this.state.familyTree[0].parent} tree={this.state.familyTree} name={this.state.familyTree[0].name}/>
 			</div>
 		)
 	}
