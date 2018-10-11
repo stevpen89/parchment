@@ -35,5 +35,5 @@ class CrazyBlanket extends Component {
 	}
 }
 
-function mapStateToProps ( state ) {return { user_id: state.user_id }};
+function mapStateToProps ( state ) {return { user_id: state.auth0.user_id }};
 export default connect ( mapStateToProps )( CrazyBlanket );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setUser, deleteUser } from '../../ducks/reducer'
+import { setUser, deleteUser } from '../../ducks/auth0'
 import axios from 'axios'
 import Menu from './Menu/Menu'
 import UserMenu from './UserMenu/UserMenu'
@@ -97,5 +97,5 @@ class Nav extends Component {
 	}
 }
 
-function mapStateToProps  ( state ) { return { user_id: state.user_id, auth_picture: state.auth_picture } };
+function mapStateToProps  ( state ) { return { user_id: state.auth0.user_id, auth_picture: state.auth0.auth_picture } };
 export default withRouter ( connect ( mapStateToProps, { setUser, deleteUser } )(Nav) );

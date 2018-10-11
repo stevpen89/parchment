@@ -19,6 +19,7 @@ class Products extends Component {
 				<BabyBlanket/>
 				<CrazyBlanket/>
 				<BinaryBlanket/>
+				<SingleBlanket/>
 			</div>
 		)
 	}
