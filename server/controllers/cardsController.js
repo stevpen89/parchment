@@ -4,7 +4,7 @@ module.exports = {
 		const {type, user_id} = req.params;
 
 		db.cards.card_read([type, user_id])
-			.then(card => res.status(200).send(card[0]))
+			.then(card => res.status(200).send(card))
 			.catch(err => console.log(`Error Message: ${err}`))
 	},
 

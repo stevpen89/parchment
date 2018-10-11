@@ -16,7 +16,6 @@ class TrialCard extends Component {
 
 	handleInput(val,target){
 		this.setState({[target]:val})
-		console.log(this.props.id,this.state)
 	}
 
 	addSpouse(){
@@ -30,7 +29,6 @@ class TrialCard extends Component {
 
 
 	render() {
-		console.log(this.props)
 		const {card_name, card_birth, card_death, spouse_name, spouse_birth, spouse_death} = this.state
 		return (
 			<div style={{padding:"10px 0 0 40px", background:"rgba(0,50,25,.2)"}}>
@@ -55,8 +53,8 @@ class TrialCard extends Component {
 					
 				{this.props.tree ? 
 				this.props.tree.map((x)=>{
-					return x.parent_id === this.props.id ?
-					<TrialCard tree={this.props.tree} {...x} key={x.id} addChild={this.props.addChild} editCard={this.props.editCard} deleteCard={this.props.deleteCard}/>:
+					return x.parent_id === this.props.card_id ?
+					<TrialCard tree={this.props.tree} {...x} key={x.card_id} addChild={this.props.addChild} editCard={this.props.editCard} deleteCard={this.props.deleteCard}/>:
 					null
 				}): 
 				null

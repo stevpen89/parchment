@@ -26,7 +26,6 @@ class CrazyCard extends Component {
 	trackChanges(){}
 
 	render() {
-		console.log(this.props)
 		return (
 			<div onBlur={()=>this.props.editCard(this.props.cardId,this.state)}>
 				<div>

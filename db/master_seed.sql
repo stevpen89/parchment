@@ -88,7 +88,7 @@ CREATE TABLE products (
   product_tags     JSON,
   product_image    TEXT,
   product_thumbs   JSON,
-  product_desc     VARCHAR(10000)
+  product_desc     VARCHAR(8000)
 );
 
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
