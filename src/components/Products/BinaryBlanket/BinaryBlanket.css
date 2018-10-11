@@ -1,15 +1,15 @@
-h1 {
+.binary-blanket h1 {
 	font-size: 28px;
 	margin-top: 40px;
 	letter-spacing: 4px;
 	text-transform: uppercase;
 }
 
-h3{
+.binary-blanket h3{
 	width:60px;
 }
 
-input{
+.binary-blanket input{
 	padding: 5px;
 	width:100%;
 	border: none;
@@ -18,14 +18,14 @@ input{
 	background: rgba(255,255,255,.5);
 }
 
-input:focus{background: rgba(255,255,255,1)}
+.binary-blanket input:focus{background: rgba(255,255,255,1)}
 
-.binary-blanket-wrapper {
+.binary-blanket {
 	/* background: linear-gradient(to bottom, rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.85) 100%), center url(https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf3ecd34b3757e384e703b2e79243fb7&auto=format&fit=crop&w=2689&q=80); */
 	background-color: rgba(0,0,0,.1);
 }
 
-.binary-blanket{
+.binary-blanket .binary-blanket-content {
 	display:flex;
 	flex-direction:row-reverse;
 	align-items: center;
@@ -33,7 +33,7 @@ input:focus{background: rgba(255,255,255,1)}
 	height: 1170px;
 }
 
-.level1, .level2, .level3, .level4 {
+.binary-blanket .level1, .binary-blanket .level2, .binary-blanket .level3, .binary-blanket .level4 {
 	margin:10px;
 	display:flex;
 	flex-direction:column;
@@ -41,7 +41,7 @@ input:focus{background: rgba(255,255,255,1)}
 	width:20%;
 }
 
-.binary-pair{
+.binary-blanket .binary-pair{
 	display:flex;
 	flex-direction:column;
 	background-color:#A9BA9D;
@@ -51,12 +51,12 @@ input:focus{background: rgba(255,255,255,1)}
 	overflow: hidden;
 }
 
-.inner-level-1 {}
-.inner-level-2 {margin:180px 0;}
-.inner-level-3 {margin:60px 0;}
-.inner-level-4 {margin:3px 0;}
+.binary-blanket .inner-level-1 {}
+.binary-blanket .inner-level-2 {margin:180px 0;}
+.binary-blanket .inner-level-3 {margin:60px 0;}
+.binary-blanket .inner-level-4 {margin:3px 0;}
 
-.connector-wrapper-1, .connector-wrapper-2, .connector-wrapper-3 {
+.binary-blanket .connector-wrapper-1, .binary-blanket .connector-wrapper-2, .binary-blanket .connector-wrapper-3 {
 	width:30px;
 	display:flex;
 	flex-direction:column;
@@ -64,28 +64,28 @@ input:focus{background: rgba(255,255,255,1)}
 	justify-content: space-evenly;	
 }
 
-.connector-wrapper-1 {height:1300px; justify-content: space-between;}
-.connector-wrapper-2 {height:1300px;}
-.connector-wrapper-3 {height:1300px;}
+.binary-blanket .connector-wrapper-1 {height:1300px; justify-content: space-between;}
+.binary-blanket .connector-wrapper-2 {height:1300px;}
+.binary-blanket .connector-wrapper-3 {height:1300px;}
 
 
-.connector1-2, .connector2-3, .connector3-4 {
+.binary-blanket .connector1-2, .connector2-3, .connector3-4 {
 	border-left:2px solid rgba(0,0,0,0.15);
 	border-top:2px solid rgba(0,0,0,0.15);
 	border-bottom:2px solid rgba(0,0,0,0.15);
 	width: 15px;
 }
 
-.connector1-2 {height:470px; margin-top:410px;}
-.connector2-3 {height:225px;}
-.connector3-4 {height:120px;}
+.binary-blanket .connector1-2 {height:470px; margin-top:410px;}
+.binary-blanket .connector2-3 {height:225px;}
+.binary-blanket .connector3-4 {height:120px;}
 
-.person{
+.binary-blanket .person{
 	display:flex;
 	flex-direction:row;
 }
 
-.person h3{
+.binary-blanket .person h3{
 	margin: 5px;
 	letter-spacing: 3px;
 	font-size: 16px;
@@ -95,13 +95,13 @@ input:focus{background: rgba(255,255,255,1)}
 	text-align: center;
 }
 
-.name {
+.binary-blanket .name {
 	width:50%;
 	padding: 5px;
 	padding-right: 5px;
 }
 
-.dates{
+.binary-blanket .dates{
 	display:flex;
 	flex-direction:column;
 	width:50%;
@@ -109,20 +109,20 @@ input:focus{background: rgba(255,255,255,1)}
 	padding-left: 5px;
 }
 
-.date-inputs {
+.binary-blanket .date-inputs {
 	border-radius: 3px;
 	overflow: hidden;
 	/* border: 2px solid rgba(0,0,0,0.15); */
 }
 
-.date-inputs input {border-radius: 0px; border: 0px solid rgba(0,0,0,0.15);}
+.binary-blanket .date-inputs input {border-radius: 0px; border: 0px solid rgba(0,0,0,0.15);}
 
-.binary-header, .save-div {
+.binary-blanket .binary-header, .save-div {
 	display: flex;
 	justify-content: center;
 }
 
-.save-div button {
+.binary-blanket .save-div button {
 	margin: 20px 0;
 	padding: 10px 60px;
 	color: #333;
@@ -135,12 +135,12 @@ input:focus{background: rgba(255,255,255,1)}
 	letter-spacing: 2px;
 }
 
-.save-div button:hover {
+.binary-blanket .save-div button:hover {
 	color: white;
 	background: #333;
 }
 
-.saved-message-container {
+.binary-blanket .saved-message-container {
 	height: 55px;
 	width: 100%;
 	position: fixed;
@@ -151,7 +151,7 @@ input:focus{background: rgba(255,255,255,1)}
 	transition: .5s;
 }
 
-.saved-message {
+.binary-blanket .saved-message {
 	height: 55px;
 	width: 100%;
 	display: flex;
@@ -161,7 +161,7 @@ input:focus{background: rgba(255,255,255,1)}
 	user-select: none;
 }
 
-.saved-message a {
+.binary-blanket .saved-message a {
 	letter-spacing: 2px;
 	text-transform: uppercase;
 }

@@ -21,5 +21,5 @@ class UserMenu extends Component {
 	}
 }
 
-function mapStateToProps  ( state ) { return { user_name: state.user_name } };
+function mapStateToProps  ( state ) { return { user_name: state.auth0.user_name } };
 export default connect ( mapStateToProps )(UserMenu);
