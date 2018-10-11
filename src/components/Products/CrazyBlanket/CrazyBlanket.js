@@ -10,10 +10,16 @@ class CrazyBlanket extends Component {
 		this.state = {
 			count:1,
 			familyTree: 
-			[ {card_name:'hello',id:1,parent_id:0},{id:2,parent_id:1},{id:3,parent_id:1},
-				{id:4,parent_id:2},{id:5,parent_id:2},{id:6,parent_id:3},
-				{id:7,parent_id:3},{id:8,parent_id:3},{id:9,parent_id:7},
-				{id:10,parent_id:7},{id:11,parent_id:7},{id:12,parent_id:7} ]
+			[ 
+				{card_id:1,user_id:1,tree_type:'crazy',parent_id:0,card_name:'bob',card_birth:'1990',card_death:'2020',spouse_name:'gerbabella',spouse_birth:'1990',spouse_death:'2020'},
+				{card_id:2,user_id:1,tree_type:'crazy',parent_id:1,card_name:'bob',card_birth:'1990',card_death:'2020',spouse_name:'gerbabella',spouse_birth:'1990',spouse_death:'2020'},
+				{card_id:3,user_id:1,tree_type:'crazy',parent_id:1,card_name:'bob',card_birth:'1990',card_death:'2020',spouse_name:'gerbabella',spouse_birth:'1990',spouse_death:'2020'},
+				{card_id:4,user_id:1,tree_type:'crazy',parent_id:1,card_name:'bob',card_birth:'1990',card_death:'2020',spouse_name:'gerbabella',spouse_birth:'1990',spouse_death:'2020'},
+				{card_id:5,user_id:1,tree_type:'crazy',parent_id:2,card_name:'bob',card_birth:'1990',card_death:'2020',spouse_name:'gerbabella',spouse_birth:'1990',spouse_death:'2020'},
+				{card_id:6,user_id:1,tree_type:'crazy',parent_id:2,card_name:'bob',card_birth:'1990',card_death:'2020',spouse_name:'gerbabella',spouse_birth:'1990',spouse_death:'2020'},
+				{card_id:7,user_id:1,tree_type:'crazy',parent_id:4,card_name:'bob',card_birth:'1990',card_death:'2020',spouse_name:'gerbabella',spouse_birth:'1990',spouse_death:'2020'},
+				{card_id:8,user_id:1,tree_type:'crazy',parent_id:4,card_name:'bob',card_birth:'1990',card_death:'2020',spouse_name:'gerbabella',spouse_birth:'1990',spouse_death:'2020'}
+			]
 		}
 		this.addChild = this.addChild.bind(this)
 		this.editCard = this.editCard.bind(this)
@@ -28,11 +34,10 @@ class CrazyBlanket extends Component {
 	updateFamilyTree() {
 		const {user_id} = this.props;
 		axios.get(`/cards/crazy/${user_id}`).then(res => this.setState({familyTree: 'hello'}))
-		console.log(this.state)
 	}
 
 	addChild (parent_id, state) {
-		const {card_name, card_birth, card_death, spouse_name, spouse_birth, spouse_death} = state
+		// const {card_name, card_birth, card_death, spouse_name, spouse_birth, spouse_death} = state
 		const {user_id} = this.props;
 		const {familyTree} = this.state;
 		let newTree = [...familyTree];
@@ -66,7 +71,7 @@ class CrazyBlanket extends Component {
 				key={x.card_id}/>):null} */}
 				{this.state.familyTree.map((x)=>{
 					return x.parent_id === 0 ? 
-					<TrialCard tree={this.state.familyTree}{...x} addChild={this.addChild} editCard={this.editCard} deleteCard={this.deleteCard}/>:
+					<TrialCard tree={this.state.familyTree}{...x} addChild={this.addChild} editCard={this.editCard} deleteCard={this.deleteCard} key={x.card_id}/>:
 					null
 				})}
 			</div>
