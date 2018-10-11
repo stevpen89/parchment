@@ -76,7 +76,6 @@ class SingleBlanket extends Component {
 
 	render() {
 		const {saved} = this.props;
-		console.log(this.state)
 		return (
 			<div className="single-blanket">
 				<div className="single-header"><h1>Enter in your family tree</h1></div>
