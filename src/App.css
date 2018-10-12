@@ -26,5 +26,6 @@ a {
 }
 
 .content {
+  /* display:flex; */
   padding: 75px 5vw 0 5vw;
 }

@@ -10,6 +10,7 @@ class Filters extends Component {
 		return (
 			<div>
 				<div className="products-banner"></div>
+				
 			</div>
 		)
 	}
