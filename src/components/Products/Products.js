@@ -18,8 +18,8 @@ class Products extends Component {
 				<Filters/>
 				<BabyBlanket/>
 				<CrazyBlanket/>
-				<BinaryBlanket/>
-				<SingleBlanket/>
+				{/* <BinaryBlanket/> */}
+				{/* <SingleBlanket/> */}
 			</div>
 		)
 	}

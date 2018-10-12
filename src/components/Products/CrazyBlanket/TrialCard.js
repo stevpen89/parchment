@@ -4,10 +4,11 @@ class TrialCard extends Component {
 	constructor(props){
 		super(props)
 		this.state={
-			spouseToggle :false,
+			card_id      : props.card_id,
 			card_name    : props.card_name,
 			card_birth   : props.card_birth,
 			card_death   : props.card_death,
+			spouse_added : props.spouse_added,
 			spouse_name  : props.spouse_name,
 			spouse_birth : props.spouse_birth,
 			spouse_death : props.spouse_death
@@ -18,36 +19,31 @@ class TrialCard extends Component {
 		this.setState({[target]:val})
 	}
 
-	addSpouse(){
+	editingCard(){
 		this.setState({spouseToggle:true})
 	}
 
-	deleteSpouse(){
-		this.setState({spouseToggle:false})
-		//this nulls the spouse fields as the toggle closes.
-	}
-
-
 	render() {
-		const {card_name, card_birth, card_death, spouse_name, spouse_birth, spouse_death} = this.state
+		const {card_name, card_birth, card_death, spouse_added, spouse_name, spouse_birth, spouse_death} = this.state
+		const {card_id, addChild, editCard, deleteCard} = this.props
 		return (
 			<div style={{padding:"10px 0 0 40px", background:"rgba(0,50,25,.2)"}}>
 				<div>
 					<div>
-						<button onClick={()=>this.props.addChild(this.props.parent_id,this.state)}>Add Child</button>
-						<button onClick={()=>this.addSpouse()}>Add Spouse</button>
-						<button onClick={()=>this.deleteSpouse()}>Delete Spouse</button>
-						<button onClick={()=>this.props.deleteCard()}>Delete Card</button>
+						<button onClick={()=>addChild(card_id)}>Add Child</button>
+						<button onClick={()=>{this.setState({spouse_added: true});  editCard(true, this.state)}}>Add Spouse</button>
+						<button onClick={()=>{this.setState({spouse_added: false}); editCard(false, this.state)}}>Delete Spouse</button>
+						<button onClick={()=>deleteCard(card_id)}>Delete Card</button>
 					</div>
 					<div>
-						<input onChange={(e)=>this.handleInput(e.target.value,'card_name')} placeholder="name" value={card_name}/>
-						<input onChange={(e)=>this.handleInput(e.target.value,'card_birth')} placeholder="birth" value={card_birth}/>
-						<input onChange={(e)=>this.handleInput(e.target.value,'card_death')} placeholder="death" value={card_death}/>
+						<input onChange={(e)=>this.handleInput(e.target.value,'card_name')}  onBlur={() => editCard(spouse_added, this.state)} placeholder="name" value={card_name}/>
+						<input onChange={(e)=>this.handleInput(e.target.value,'card_birth')} onBlur={() => editCard(spouse_added, this.state)} placeholder="birth" value={card_birth}/>
+						<input onChange={(e)=>this.handleInput(e.target.value,'card_death')} onBlur={() => editCard(spouse_added, this.state)} placeholder="death" value={card_death}/>
 					</div>
-					{this.state.spouseToggle ? <div>
-						<input onChange={(e)=>this.handleInput(e.target.value,'spouse_name')} placeholder="spouse name" value={spouse_name}/>
-						<input onChange={(e)=>this.handleInput(e.target.value,'spouse_birth')} placeholder="spouse birth" value={spouse_birth}/>
-						<input onChange={(e)=>this.handleInput(e.target.value,'spouse_death')} placeholder="spouse death" value={spouse_death}/>
+					{spouse_added ? <div>
+						<input onChange={(e)=>this.handleInput(e.target.value,'spouse_name')}  onBlur={() => editCard(spouse_added, this.state)} placeholder="spouse name" value={spouse_name}/>
+						<input onChange={(e)=>this.handleInput(e.target.value,'spouse_birth')} onBlur={() => editCard(spouse_added, this.state)} placeholder="spouse birth" value={spouse_birth}/>
+						<input onChange={(e)=>this.handleInput(e.target.value,'spouse_death')} onBlur={() => editCard(spouse_added, this.state)} placeholder="spouse death" value={spouse_death}/>
 					</div> : null}
 				</div>
 					
