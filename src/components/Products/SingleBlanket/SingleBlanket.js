@@ -35,9 +35,9 @@ class SingleBlanket extends Component {
 		const {user_id, setSingle, setSingleID} = this.props
 		axios.get(`/cards/single/${user_id}`)
 			.then((res) => {
-				if (res.data.o1) {
-					this.setState(res.data.o1);
-					setSingleID(res.data.card_id);
+				if (res.data[0].o1) {
+					this.setState(res.data[0].o1);
+					setSingleID(res.data[0].card_id);
 					setSingle(true);
 				}
 				else { setSingle(false) }
