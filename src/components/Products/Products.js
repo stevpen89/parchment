@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Filters from './Filters/Filters'
+import ProductMap from './ProductMap/ProductMap'
 import BabyBlanket from './BabyBlanket/BabyBlanket'
 import CrazyBlanket from './CrazyBlanket/CrazyBlanket'
 import BinaryBlanket from './BinaryBlanket/BinaryBlanket'
@@ -16,8 +17,9 @@ class Products extends Component {
 		return (
 			<div className="content">
 				<Filters/>
-				<BabyBlanket/>
-				<CrazyBlanket/>
+				<ProductMap/>
+				{/* <BabyBlanket/> */}
+				{/* <CrazyBlanket/> */}
 				{/* <BinaryBlanket/> */}
 				{/* <SingleBlanket/> */}
 			</div>
