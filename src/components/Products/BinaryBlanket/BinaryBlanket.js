@@ -52,7 +52,6 @@ class BinaryBlanket extends Component {
 		const {user_id, setBinary, setBinaryID} = this.props
 		axios.get(`/cards/binary/${user_id}`)
 			.then((res) => {
-				console.log(res.data[0].o1)
 				if (res.data[0].o1) {
 					this.setState(res.data[0].o1);
 					setBinaryID(res.data[0].card_id);
@@ -60,7 +59,6 @@ class BinaryBlanket extends Component {
 				}
 				else { setBinary(false) }
 			})
-			
 	}
 
 	changeHandler(target,val){
