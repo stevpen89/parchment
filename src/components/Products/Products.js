@@ -17,9 +17,9 @@ class Products extends Component {
 		return (
 			<div className="content">
 				<Filters/>
-				<ProductMap/>
+				{/* <ProductMap/> */}
 				{/* <BabyBlanket/> */}
-				{/* <CrazyBlanket/> */}
+				<CrazyBlanket/>
 				{/* <BinaryBlanket/> */}
 				{/* <SingleBlanket/> */}
 			</div>
