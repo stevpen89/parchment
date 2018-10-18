@@ -116,6 +116,16 @@ class CrazyBlanket extends Component {
 	render() {
 		return (
 			<div>
+				{/* <CrazyCard
+					cardIndex    = {0}
+					currentDepth = {1}
+					tree         = {this.state.familyTree}
+					addChild     = {this.addChild}
+					editCard     = {this.editCard}
+					deleteCard   = {this.deleteCard}
+					duplicates   = {this.state.duplicates}
+				/> */}
+
 				{this.state.familyTree ? this.state.familyTree.map((x, i)=>{
 					return x.parent_id === 0 ? 
 					<CrazyCard       {...x}
