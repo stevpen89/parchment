@@ -1,0 +1,64 @@
+.crazy-inputs {
+	width: 100%;
+	padding: 0 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.crazy-inputs-card, .crazy-inputs-spouse {
+	overflow: hidden;
+	border-radius: 3px;
+	width: 100%;
+	margin: 10px 0;
+}
+
+.crazy-inputs-spouse {
+	margin-left: 10px;
+}
+
+.crazy-buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0 20px;
+}
+
+.crazy-button-set {
+	display: flex;
+	flex-direction: column;
+}
+
+.crazy-card input {
+	padding: 5px;
+	width: 100%;
+	border: none;
+	background: rgba(255,255,255,.5);
+	text-transform: capitalize;
+}
+
+.crazy-card input:focus {background: rgba(255,255,255,1)}
+
+.crazy-card button {
+	border: none;
+	border-radius: 30px;
+	padding: 7px 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background: rgba(255,255,255,.5);
+	transition: .25s;
+	white-space: pre;
+}
+
+.crazy-card button:hover {
+	background: rgba(255,255,255,.75);
+}
+
+.crazy-card button:disabled {
+	background: rgba(255,255,255,.25);
+}
+
+.crazy-card-add-child {width: 150px;}
+.crazy-card-spouse {width: 190px;}
+.crazy-card-delete {width: 120px;}

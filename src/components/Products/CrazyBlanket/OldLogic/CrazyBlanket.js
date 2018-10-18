@@ -2,26 +2,30 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import CrazyCard from './CrazyCard'
-import './CrazyBlanket.css'
 
 class CrazyBlanket extends Component {
 	constructor () {
 		super();
-		this.state      = {familyTree : [], refresh: true}
-		this.addChild   = this.addChild.bind(this)
-		this.editCard   = this.editCard.bind(this)
-		this.deleteCard = this.deleteCard.bind(this)
+		this.state = {
+			count      : 1,
+			familyTree : [],
+			duplicates : []
+		}
+		this.addChild       = this.addChild.bind(this)
+		this.editCard       = this.editCard.bind(this)
+		this.deleteCard     = this.deleteCard.bind(this)
+		this.findDuplicates = this.findDuplicates.bind(this)
 	}
 
 	componentDidMount() {this.userExists()}
 
-	//checks if the user exists
 	userExists () {
 		const {user_id} = this.props;
 		axios
 			.get(`/cards/crazy/${user_id}`)
 			.then(res => {
 				if (res.data[0]) {
+					this.findDuplicates(res.data);
 					this.setState({familyTree: res.data})
 				}
 				else {
@@ -32,18 +36,16 @@ class CrazyBlanket extends Component {
 			});
 	}
 
-	//refreshes the entire tree
 	updateFamilyTree () {
 		const {user_id} = this.props;
 		axios
 			.get(`/cards/crazy/${user_id}`)
 			.then(res => {
-				this.refresh();
+				this.findDuplicates(res.data);
 				this.setState({familyTree: res.data});
 			})
 	}
 
-	//creates a new child relative to the current card
 	addChild (card_id) {
 		const {user_id}    = this.props;
 		const {familyTree} = this.state;
@@ -56,13 +58,12 @@ class CrazyBlanket extends Component {
 				parent_id : card_id
 			})
 			.then((res) => {
-				this.updateFamilyTree();
 				newTree.push(res.data);
 				this.setState({familyTree: newTree});
+				this.findDuplicates(newTree);
 			})
 	}
 
-	//edits a card
 	editCard (spouse_added, state) {
 		const {
 			card_id,
@@ -86,36 +87,50 @@ class CrazyBlanket extends Component {
 		})
 	}
 	
-	//deletes the card based off of the card's id
 	deleteCard (card_id) {
+		//deletes the card based off of the card's id
 		axios
 			.delete(`/cards/${card_id}`)
 			.then(() => this.updateFamilyTree());
 	}
 
+	findDuplicates (familyTree) {
+		//write parent ids to an index
+		let familyTreeIndexes = [];
+		for (let i in familyTree) {familyTreeIndexes.push(familyTree[i].parent_id)}
 
-	refresh () { setTimeout(() => {this.setState({refresh: false})}, 0); setTimeout(() => {this.setState({refresh: true})}, 0) }
+		//check for parent id duplicates
+		Array.prototype.getDuplicates = function () {
+			var duplicates = {};
+			for (var i = 0; i < this.length; i++) {
+				if (duplicates.hasOwnProperty(this[i])) {duplicates[this[i]].push(i)}
+				else if (this.lastIndexOf(this[i]) !== i) {duplicates[this[i]] = [i]}
+			}
+			return duplicates;
+		};
+
+		let duplicates = familyTreeIndexes.getDuplicates();
+		this.setState({duplicates});
+	}
 
 	render() {
-		const {refresh} = this.state
-		if (refresh) {
-			return (
-				<div className="crazy-blanket">
-					{this.state.familyTree ? this.state.familyTree.map((x, i)=>{
-						return x.parent_id === 0 ? 
-						<CrazyCard     {...x}
-							key        = {x.card_id}
-							depth      = {1}
-							tree       = {this.state.familyTree}
-							addChild   = {this.addChild}
-							editCard   = {this.editCard}
-							deleteCard = {this.deleteCard}
-						/> : null
-					}) : null }
-				</div>
-			)
-		}
-		else { return (<div></div>) }
+		return (
+			<div>
+				{this.state.familyTree ? this.state.familyTree.map((x, i)=>{
+					return x.parent_id === 0 ? 
+					<CrazyCard       {...x}
+						key          = {x.card_id}
+						cardIndex    = {i}
+						currentDepth = {1}
+						tree         = {this.state.familyTree}
+						addChild     = {this.addChild}
+						editCard     = {this.editCard}
+						deleteCard   = {this.deleteCard}
+						duplicates   = {this.state.duplicates}
+					/> : null
+				}) : null }
+			</div>
+		)
 	}
 }
 

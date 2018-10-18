@@ -3,41 +3,38 @@ import React from 'react';
 function CrazyCardCSS(props) {
 
 	const styles = {
-		height         : 200,
-		width          : 520,
-		marginTop      : 40,
-		lineWidth      : 40,
+		height         : 130,
+		width          : 500,
+		padding        : 10,
+		lineWidth      : 20,
 		lineBackground : '#CACCCE',
 	}
 
-	const { depth, totalChildren, lastChildCount, card_id } = props
-	const { height, width, marginTop, lineWidth, lineBackground } = styles;
-	const heightFormula = (totalChildren * height) - (lastChildCount * height) + (height/2) + (marginTop / 2);
+	const { totalChildren, lastChildCount, card_id } = props
+	const { height, width, padding, lineWidth, lineBackground } = styles;
+	const heightFormula = (totalChildren * height) - (lastChildCount * height) + (height/2);
 	
 	return (
 		<style>
 
 			{`
 				.card-spacer-1 {display: none;}
-				.crazy-card-1 {margin-left: -${lineWidth}px;}
-				.crazy-card {margin-left: ${lineWidth * 2}px;}
+				.crazy-card-content input {width: 100%;}
+				.crazy-card-${card_id} {margin-left: ${lineWidth * 2}px;}
 
-				.crazy-card-wrapper {
+				.crazy-card-wrapper-${card_id} {
 					height         : ${height}px;
 					display        : flex;
 					align-items    : flex-end;
 					flex-direction : row;
 				}
 
-				.crazy-card-content-${card_id} {
+				.crazy-card-content {
 					width            : ${width}px;
-					height           : ${height - marginTop}px;
-					display          : flex;
-					justify-content  : center;
-					align-items      : center;
-					flex-direction   : column;
+					height           : ${height - (padding * 2)}px;
 					border-radius    : 3px;
-					background-color : rgb(${169}, ${186}, ${(depth * 7) + 157});
+					padding          : 10px;
+					background-color : #A9BA9D;
 				}
 
 				.card-spacer-${card_id} {
@@ -47,11 +44,9 @@ function CrazyCardCSS(props) {
 					justify-content : center;
 				}
 
-				.card-line {
+				.card-line-${card_id} {
 					height     : 2px;
 					width      : ${lineWidth}px;
-					position   : relative;
-					top        : ${marginTop / 2}px;
 					background : ${lineBackground};
 				}
 
@@ -64,7 +59,7 @@ function CrazyCardCSS(props) {
 					background    : ${lineBackground};
 				}
 				
-				${totalChildren < 0 ? `
+				${totalChildren <= 0 ? `
 					
 					.crazy-card-underline-${card_id} {
 						height        : 0px;
@@ -73,7 +68,7 @@ function CrazyCardCSS(props) {
 
 					` : null}
 			`}
-
+			
 		</style>
 	)
 }
