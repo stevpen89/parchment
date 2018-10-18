@@ -118,15 +118,15 @@ class CrazyBlanket extends Component {
 			<div>
 				{this.state.familyTree ? this.state.familyTree.map((x, i)=>{
 					return x.parent_id === 0 ? 
-					<CrazyCard      {...x}
-						key         = {x.card_id}
-						cardIndex   = {i}
-						depth       = {1}
-						tree        = {this.state.familyTree}
-						addChild    = {this.addChild}
-						editCard    = {this.editCard}
-						deleteCard  = {this.deleteCard}
-						duplicates  = {this.state.duplicates}
+					<CrazyCard       {...x}
+						key          = {x.card_id}
+						cardIndex    = {i}
+						currentDepth = {1}
+						tree         = {this.state.familyTree}
+						addChild     = {this.addChild}
+						editCard     = {this.editCard}
+						deleteCard   = {this.deleteCard}
+						duplicates   = {this.state.duplicates}
 					/> : null
 				}) : null }
 			</div>
