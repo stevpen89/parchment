@@ -15,6 +15,7 @@ class CrazyCard extends Component {
 			spouse_name    : props.spouse_name,
 			spouse_birth   : props.spouse_birth,
 			spouse_death   : props.spouse_death,
+
 			currentDepth   : props.currentDepth,
 			maxDepth       : props.maxDepth,
 			totalChildren  : props.totalChildren,
@@ -129,24 +130,25 @@ class CrazyCard extends Component {
 							<button onClick={()=>deleteCard(card_id)}>Delete Card</button>
 						</div>
 						<div>
-							{'Card Position: ' + this.state.firstOrLast}<br />
+							{/* {'Card Position: ' + this.state.firstOrLast}<br />
 							{'Total Children: ' + this.state.totalChildren}<br />
 							{'Last Child Count: ' + this.state.lastChildCount}<br /><br /><br />
 							{'Current Depth: ' + this.state.currentDepth}<br />
 							{'Maximum Card Depth: ' + this.state.maxDepth}<br />
-							{'Number of Direct Children: ' + JSON.stringify(this.props.duplicates[this.props.card_id] ? this.props.duplicates[this.props.card_id].length : 1)}<br />
-							<input onChange={(e)=>this.handleInput(e.target.value,'card_name')}  onBlur={() => editCard(spouse_added, this.state)} placeholder="name" value={card_name}/>
-							<input onChange={(e)=>this.handleInput(e.target.value,'card_birth')} onBlur={() => editCard(spouse_added, this.state)} placeholder="birth" value={card_birth}/>
+							{'Number of Direct Children: ' + JSON.stringify(this.props.duplicates[this.props.card_id] ? this.props.duplicates[this.props.card_id].length : 1)}<br /> */}
+							<input onChange={(e)=>this.handleInput(e.target.value,'card_name')}  onBlur={() => editCard(spouse_added, this.state)} placeholder="name" value={card_name}/><br />
+							<input onChange={(e)=>this.handleInput(e.target.value,'card_birth')} onBlur={() => editCard(spouse_added, this.state)} placeholder="birth" value={card_birth}/><br />
 							<input onChange={(e)=>this.handleInput(e.target.value,'card_death')} onBlur={() => editCard(spouse_added, this.state)} placeholder="death" value={card_death}/>
 						</div>
 						{spouse_added ? <div>
-							<input onChange={(e)=>this.handleInput(e.target.value,'spouse_name')}  onBlur={() => editCard(spouse_added, this.state)} placeholder="spouse name" value={spouse_name}/>
-							<input onChange={(e)=>this.handleInput(e.target.value,'spouse_birth')} onBlur={() => editCard(spouse_added, this.state)} placeholder="spouse birth" value={spouse_birth}/>
+							<input onChange={(e)=>this.handleInput(e.target.value,'spouse_name')}  onBlur={() => editCard(spouse_added, this.state)} placeholder="spouse name" value={spouse_name}/><br />
+							<input onChange={(e)=>this.handleInput(e.target.value,'spouse_birth')} onBlur={() => editCard(spouse_added, this.state)} placeholder="spouse birth" value={spouse_birth}/><br />
 							<input onChange={(e)=>this.handleInput(e.target.value,'spouse_death')} onBlur={() => editCard(spouse_added, this.state)} placeholder="spouse death" value={spouse_death}/>
 						</div>
 						: null}
 					 </div>
 				</div>
+					 <div className={`crazy-card-underline-${card_id}`}></div>
 				{
 					this.props.tree ? 
 						this.props.tree.map((x, i)=>{
