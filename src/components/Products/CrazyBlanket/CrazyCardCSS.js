@@ -10,16 +10,14 @@ function CrazyCardCSS(props) {
 		lineBackground : '#CACCCE',
 	}
 
-	const { depth, totalChildren, lastChildCount, card_id } = props
+	const { depth, totalChildren, lastChildCount, card_id, parent_id } = props
 	const { height, width, marginTop, lineWidth, lineBackground } = styles;
-	const heightFormula = (totalChildren * height) - (lastChildCount * height) + (height/2) + (marginTop / 2);
+	const heightFormula = (totalChildren * height) - (lastChildCount * height) + (height / 2) + (marginTop / 2);
 	
 	return (
 		<style>
 
 			{`
-				.card-spacer-1 {display: none;}
-				.crazy-card-1 {margin-left: -${lineWidth}px;}
 				.crazy-card {margin-left: ${lineWidth * 2}px;}
 
 				.crazy-card-wrapper {
@@ -63,6 +61,11 @@ function CrazyCardCSS(props) {
 					left          : ${lineWidth * 2}px;
 					background    : ${lineBackground};
 				}
+
+				${parent_id === 0 ? `
+					.card-spacer-${card_id} {display: none;}
+					.crazy-card-${card_id} {margin-left: -${lineWidth}px;}
+				` : null}
 				
 				${totalChildren < 0 ? `
 					
@@ -72,8 +75,12 @@ function CrazyCardCSS(props) {
 					}
 
 					` : null}
-			`}
 
+					@media only screen and (max-width: 800px) {
+						.crazy-card {margin-left: ${lineWidth * 2}px;}
+						.card-line {width: ${lineWidth / 2}px;}
+					}
+			`}
 		</style>
 	)
 }
