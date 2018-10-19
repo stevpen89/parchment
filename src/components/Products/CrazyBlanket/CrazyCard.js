@@ -94,7 +94,7 @@ class CrazyCard extends Component {
 
 	render() {
 		const {card_name, card_birth, card_death, spouse_added, spouse_name, spouse_birth, spouse_death, depth, totalChildren, lastChildCount} = this.state
-		const {card_id, addChild, editCard, deleteCard} = this.props
+		const {card_id, parent_id, addChild, editCard, deleteCard} = this.props
 		return (
 			<div className="crazy-card">
 				<CrazyCardCSS
@@ -102,6 +102,7 @@ class CrazyCard extends Component {
 					totalChildren  = {totalChildren}
 					lastChildCount = {lastChildCount}
 					card_id        = {card_id}
+					parent_id      = {parent_id}
 				/>
 				<div className={`crazy-card-${card_id}`}>
 					<div className="crazy-card-wrapper">
@@ -144,7 +145,7 @@ class CrazyCard extends Component {
 								}
 								<button
 									onClick={()=>deleteCard(card_id)}
-									disabled={totalChildren >= 0 ? true : false}
+									disabled={totalChildren >= 0 || parent_id === 0 ? true : false}
 									className="crazy-card-delete">
 									<i class="fas fa-trash-alt"></i>  Delete
 								</button>
