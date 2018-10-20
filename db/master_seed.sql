@@ -93,7 +93,15 @@ CREATE TABLE products (
 );
 
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
-VALUES ('texas journal', '{"tags":["texas","flavor town"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'This journal is real texas stuff');
+VALUES ('Binary Family History Blanket', '{"tags":["blanket","binary","animals","geometric"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
+VALUES ('Parents and Kids Family History Blanket', '{"tags":["blanket","inverted","family","geometric","geneaology"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
+VALUES ('Personalized Missionary Journal', '{"tags":["journal","missionary","state","alabama"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
+VALUES ('Bear Baby Blanket', '{"tags":["blanket","baby","animals","geometric"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
+VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
 
 SELECT * FROM products;
 

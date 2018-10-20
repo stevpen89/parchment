@@ -10,10 +10,12 @@ class Menu extends Component {
 				<div className="menu-container">
 					<div className="menu-content">
 						<ul>
-							<Link to="/"><li>Home</li></Link>
-							<Link to="/products"><li>Products</li></Link>
-							<Link to="/about"><li>About</li></Link>
-							<Link to="/contact"><li>Contact</li></Link>
+							<Link to="/"><li><i class="fas fa-home"></i> Home</li></Link>
+							<Link to="/products"><li><i class="fas fa-shopping-basket"></i> Products</li></Link>
+							<Link to="/products"><li><i class="fas fa-book-open"></i> Journals</li></Link>
+							<Link to="/products"><li><i class="fas fa-bed"></i> Blankets</li></Link>
+							<Link to="/about"><li><i class="fas fa-info-circle"></i> About</li></Link>
+							<Link to="/contact"><li><i class="fas fa-users"></i> Contact</li></Link>
 						</ul>
 					</div>
 				</div>

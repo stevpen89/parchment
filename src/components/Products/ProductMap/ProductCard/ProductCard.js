@@ -1,28 +1,27 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 class ProductCard extends Component {
 
-	productDetailsSwitch(arr){
-		switch(arr){
-			case arr.includes('baby'):
-				return <div>this is a baby blanket</div>
-				
-			case arr.includes('history'):
-				return <div>this is a family history blanket</div>
-				
-			case arr.includes('missionary'):
-				return <div>this is a missionary journal</div>
-				
-			case arr.includes('everyday'):
-				return <div>this is an everyday journal</div>
-				
-			default: 
-				<div>internal error...</div>
+	productDetailsSwitch(){
+		let {product_tags,product_sku} = this.props
+			if(product_tags.includes('inverted')){
+				return <Link to={`/products/${product_sku}/inverted`}><button>this is a inverted blanket</button></Link>}
 
-		}
-		
+			else if(product_tags.includes('binary')){
+				return <Link to={`/products/${product_sku}/binary`}><button>this is a binary blanket</button></Link>}
+
+			else if(product_tags.includes('single')){
+				return <Link to={`/products/${product_sku}/single`}><button>this is a single blanket</button></Link>}
+				
+			else if(product_tags.includes('baby')){
+				return <Link to={`/products/${product_sku}/baby`}><button>this is a baby blanket</button></Link>}
+				
+			else if(product_tags.includes('journal')){
+				return <Link to={`/products/${product_sku}/journal`}><button>this is a journal</button></Link>}
 			
-	}
+			else
+				<div>internal error...</div>}
 
 	render() {
 		const {product_sku,product_name,
@@ -36,7 +35,7 @@ class ProductCard extends Component {
 					<div>{product_name}</div>
 					<div>{product_price}</div>
 				</div>
-				{this.productDetailsSwitch(product_tags)}
+				{this.productDetailsSwitch()}
 			</div>
 		)
 	}
