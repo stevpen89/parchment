@@ -10,6 +10,9 @@
     "/cards": {
       "target": "http://localhost:3035"
     },
+    "/products": {
+      "target": "http://localhost:3035"
+    },
     "/auth/callback": {
       "target": "http://localhost:3035"
     }

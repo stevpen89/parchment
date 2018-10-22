@@ -1,0 +1,21 @@
+.product-card{
+	height:100%;
+	width:fit-content
+}
+.product-card-footer{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+/* .product-name{
+
+} */
+.product-desc-price{
+	display:flex;
+	justify-content: space-between;
+	width:450px;
+}
+/* .product-button-holder{
+
+} */

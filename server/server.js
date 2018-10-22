@@ -4,6 +4,7 @@ const //CONTROLLERS
       auth0Controller = require ( './controllers/auth0Controller' ),
       // s3Controller    = require ( './controllers/s3Controller'    ),
       cardsController = require ( './controllers/cardsController' )
+      productsController = require ( './controllers/productsController' )
       //NODE MODULES
       express         = require ( 'express'         ),
       session         = require ( 'express-session' ),
@@ -33,6 +34,9 @@ app.get    ( '/cards/:type/:user_id', cardsController.read   );
 app.post   ( '/cards/:user_id',       cardsController.create );
 app.put    ( '/cards/:card_id',       cardsController.edit   );
 app.delete ( '/cards/:card_id',       cardsController.delete );
+
+//PRODUCTS ENDPOINTS
+app.get('/products',productsController.readAll)
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {
