@@ -8,6 +8,12 @@ import Products from './components/Products/Products'
 import AboutUs  from './components/AboutUs/AboutUs'
 import Contact  from './components/Contact/Contact'
 import Footer   from './components/Footer/Footer'
+import CrazyBlanket from './components/Products/CrazyBlanket/CrazyBlanket'
+import BinaryBlanket from './components/Products/BinaryBlanket/BinaryBlanket'
+import SingleBlanket from './components/Products/SingleBlanket/SingleBlanket'
+import Journal from './components/Products/Journal/Journal'
+import BabyBlanket from './components/Products/BabyBlanket/BabyBlanket'
+import ProductDetails from './components/Products/ProductMap/ProductDetails/ProductDetails'
 
 class App extends Component {
   render() {
@@ -16,10 +22,20 @@ class App extends Component {
       <div className="app">
         <Nav />
         <Switch>
-          <Route exact path = "/"   component={Home}    />
-          <Route path = "/products" component={Products}/>
-          <Route path = "/about"    component={AboutUs} />
-          <Route path = "/contact"  component={Contact} />
+          <Route exact path = "/"                   component={Home}    />
+          <Route exact path = "/products"                 component={Products}/>
+          <Route exact path = "/products/:sku/inverted"   component={ProductDetails}/>
+          <Route exact path = "/products/:sku/binary"     component={ProductDetails}/>
+          <Route exact path = "/products/:sku/single"     component={ProductDetails}/>
+          <Route exact path = "/products/:sku/baby"       component={ProductDetails}/>
+          <Route exact path = "/products/:sku/journal"    component={ProductDetails}/>
+          <Route path = "/products/:sku/inverted/customize"   component={CrazyBlanket}/>
+          <Route path = "/products/:sku/binary/customize"     component={BinaryBlanket}/>
+          <Route path = "/products/:sku/single/customize"     component={SingleBlanket}/>
+          <Route path = "/products/:sku/baby/customize"       component={BabyBlanket}/>
+          <Route path = "/products/:sku/journal/customize"    component={Journal}/>
+          <Route path = "/about"                    component={AboutUs} />
+          <Route path = "/contact"                  component={Contact} />
         </Switch>
       <Footer />
       </div>

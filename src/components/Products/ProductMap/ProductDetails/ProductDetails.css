@@ -1,0 +1,44 @@
+.details-container{
+	display:flex;
+	height:93vh;
+	width:100%;
+}
+.details-image-container{
+	height:100%;
+	width:66%;
+	position:relative;
+	top:75px;
+	background-image: url('https://images.unsplash.com/photo-1523171067267-bb96f975c4bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f5543be1a7ff160fb20a46b4881860c8&auto=format&fit=crop&w=700&q=80');
+	background-position:center;
+	background-size:cover;
+	display:flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items:flex-end;
+	
+}
+.details-product-information{
+	height:100%;
+	width:33%;
+	position:relative;
+	top:75px;
+	display:flex;
+	flex-direction:column;
+}
+.details-product-data{
+	border:1px solid red;
+	background-color:black;
+	color:chartreuse;
+	display:flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items:center;
+}
+.details-product-thumbnail{
+	height:200px;
+	width:200px;
+	border: 3px solid hotpink;
+	background-color:black;
+	color:chartreuse;
+
+}
