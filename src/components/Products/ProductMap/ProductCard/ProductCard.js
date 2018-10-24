@@ -24,12 +24,12 @@ class ProductCard extends Component {
 			else
 				<div>internal error...</div>}
 
-	render() {
+	contentRender(){
 		const {	product_sku,product_name,
-						product_tags,product_image,
-						product_thumbs,product_desc,
-						product_price} = this.props
-		return (
+			product_tags,product_image,
+			product_thumbs,product_desc,
+			product_price} = this.props
+		return(
 			<div className="product-card">
 				<div style={{height:'inherit', width:'500px',overflow:'hidden'}}><img src="https://data.whicdn.com/images/306991532/large.jpg"/></div>
 				<div className="product-card-footer">
@@ -37,6 +37,15 @@ class ProductCard extends Component {
 					<div className="product-desc-price"><div>{product_desc}</div><div>{product_price}</div></div>
 					<div className="product-button-holder">{this.productDetailsSwitch()}</div>
 				</div>
+			</div>)
+		
+	}
+
+	render() {
+
+		return (
+			<div className="product-card">
+				{this.contentRender()}
 			</div>
 		)
 	}

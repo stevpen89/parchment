@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import './BabyBlanket.css'
 
 class BabyBlanket extends Component {
 	render() {
 		return (
-			<div>
-				This is BabyBlanket
+			<div className="babyblanket-editor-wrapper">
+				This is the BabyBlanket Editor
 			</div>
 		)
 	}
