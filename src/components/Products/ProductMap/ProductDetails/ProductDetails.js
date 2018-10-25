@@ -43,24 +43,26 @@ class ProductDetails extends Component {
 		const {product} = this.state
 		console.log(this.props.match)
 		return (
-			<div className="details-container">
-				<div className="details-image-container">
-				{this.state.product[0] 
-					? this.state.product[0].product_thumbs.thumbnails.map((x,y)=>
+			<div className="content">
+				<div className="details-container">
+					<div className="details-image-container">
+					{this.state.product[0] 
+						? this.state.product[0].product_thumbs.thumbnails.map((x,y)=>
 						<div className="details-product-thumbnail">thumbnail {y+1} -- {x}</div>) 
-					: null}
-				</div>
-				<div className="details-product-information">
-					{this.state.product[0] ? 
-					<div>
-						<div className="details-product-data">{product[0].product_sku}</div>
-						<div className="details-product-data">{product[0].product_desc}</div>
-						<div className="details-product-data">{product[0].product_image}</div>
-						<div className="details-product-data">{product[0].product_price}</div>
-						{product[0].product_tags.tags.map((x,y)=><div className="details-product-data">tag:{y+1} -- {x}</div>)}
-						<div className="details-product-data">{this.editorSwitch()}</div>
+						: null}
 					</div>
-					: null}
+					<div className="details-product-information">
+						{this.state.product[0] ? 
+						<div>
+							<div className="details-product-data">{product[0].product_sku}</div>
+							<div className="details-product-data">{product[0].product_desc}</div>
+							<div className="details-product-data">{product[0].product_image}</div>
+							<div className="details-product-data">{product[0].product_price}</div>
+							{product[0].product_tags.tags.map((x,y)=><div className="details-product-data">tag:{y+1} -- {x}</div>)}
+							<div className="details-product-data">{this.editorSwitch()}</div>
+						</div>
+						: null}
+					</div>
 				</div>
 			</div>
 		)

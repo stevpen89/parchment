@@ -128,26 +128,26 @@ class CrazyCard extends Component {
 								<button
 									onClick={()=>addChild(card_id)}
 									className="crazy-card-add-child">
-									<i class="fas fa-child"></i>  Add Child
+									<i className="fas fa-child"></i>  Add Child
 								</button>
 								{spouse_added ? null :
 									<button
 										onClick={()=>{this.setState({spouse_added: true}); editCard(true, this.state)}}
 										className="crazy-card-spouse">
-										<i class="fas fa-heart"></i>  Add Spouse
+										<i className="fas fa-heart"></i>  Add Spouse
 									</button>}
 								{spouse_added ? 
 									<button
 										onClick={()=>{this.setState({spouse_added: false}); editCard(false, this.state)}}
 										className="crazy-card-spouse">
-										<i class="fas fa-minus-circle"></i>  Delete Spouse
+										<i className="fas fa-minus-circle"></i>  Delete Spouse
 									</button> : null
 								}
 								<button
 									onClick={()=>deleteCard(card_id)}
 									disabled={totalChildren >= 0 || parent_id === 0 ? true : false}
 									className="crazy-card-delete">
-									<i class="fas fa-trash-alt"></i>  Delete
+									<i className="fas fa-trash-alt"></i>  Delete
 								</button>
 							</div>
 						</div>
