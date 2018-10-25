@@ -10,7 +10,7 @@ class Filters extends Component {
 		return (
 			<div>
 				<div className="products-banner"></div>
-				<div className="side-bar">
+				{/* <div className="side-bar">
 					<input className="product-search" placeholder="Search"/><br />
 					<input type="checkbox" value="missionary" /><a>Missionary</a><br />
 					<input type="checkbox" value="missionary" /><a>Everyday</a><br />
@@ -24,7 +24,7 @@ class Filters extends Component {
 						<option>Texas</option>
 						<option>Alabama</option>
 					</select><br />
-				</div>
+				</div> */}
 			</div>
 		)
 	}

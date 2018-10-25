@@ -1,5 +1,54 @@
 .journal-editor-wrapper{
 	height:500px;
-	width:500px;
-	background-color:chartreuse;
+	width:100%;
+	background-color:rgba(0,0,0,.25);
+}
+
+.journal-selector {
+	border-radius: 30px;
+	overflow: hidden;
+	width: auto;
+	float: left;
+	margin: 10px;
+	background-color:rgba(0,0,0,.25);
+}
+
+
+.journal-button {
+	border: none;
+	background: rgba(0,0,0,0);
+	padding: 5px 10px;
+}
+
+.journal-button-selected {
+	background: rgba(0,0,0,.25);
+}
+
+.journal-input {
+	background: rgba(0,0,0,.25);
+	position: relative;
+	width: 200px;
+	height: 200px;
+	transition: .2s;
+	border-radius: 3px;
+}
+
+.journal-slider {
+	padding-bottom: 25px;
+	width: 200px;
+}
+
+.journal-controls a {
+	margin: 10px;
+}
+
+.journal-controls input {
+	width: 25px;
+	text-align: center;
+	border: none;
+	border-radius: 3px;
+}
+
+.journal-controls input:focus {
+	background: rgba(0,0,0,.25);
 }
