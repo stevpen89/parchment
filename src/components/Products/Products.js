@@ -18,6 +18,10 @@ class Products extends Component {
 			<div className="content">
 				<Filters/>
 				<ProductMap/>
+				{/* <BabyBlanket/> */}
+				{/* <CrazyBlanket/> */}
+				{/* <BinaryBlanket/> */}
+				{/* <SingleBlanket/> */}
 			</div>
 		)
 	}
