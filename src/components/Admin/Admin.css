@@ -1,0 +1,139 @@
+.admin-wrapper{
+	margin:75px 0 0 0;
+	background-color:aqua;
+	width:100%;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+.admin-selector-wrapper{
+	font-size:30px;
+	height: 150px;
+	width: 100%;
+	display:flex;
+}
+.admin-selector{
+	height:100%;
+	width:50%;
+	border:3px white solid;
+	border-radius:10px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.add-wrapper{
+	height:300px;
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	color:black;
+}
+.edit-wrapper{
+	height:300px;
+	width:100%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	color:black;
+}
+.type-selector-wrapper{
+	width:91%;
+	height:200px;
+	display:flex;
+}
+.type-selector-option{
+	width:25%;
+	height:100%;
+	border:3px solid red;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	font-size:40px;
+}
+.product-name-wrapper{
+	width:92%;
+	height:200px;
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.product-name-label{
+	height:100%;
+	width:25%;
+	background-color:transparent;
+	display:flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+}
+.product-name-input{
+	height:50%;
+	width:75%;
+}
+.product-tags-wrapper{
+	width:92%;
+	height:200px;
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.product-tags-label-1{
+	height:100%;
+	width:25%;
+	background-color:transparent;
+	display:flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+}
+.product-tags-label-2{
+	height:100%;
+	width:25%;
+	background-color:transparent;
+	display:flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+	border:3px solid red;
+}
+.product-tags-input{
+	height:50%;
+	width:50%;
+}
+.current-tags{
+	height:200px;
+	width:92%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.tag-button-wrapper{
+	height:200px;
+	width:92%;
+	display:flex;
+}
+.tag-half{
+	font-size:30px;
+	height:100%;
+	width:50%;
+	display:flex;
+	justify-content: center;
+	align-items:center;
+}
+.image-button-wrapper{
+	height:200px;
+	width:92%;
+	display:flex;
+}
+.image-half{
+	font-size:30px;
+	height:100%;
+	width:50%;
+	display:flex;
+	justify-content: center;
+	align-items:center;
+}

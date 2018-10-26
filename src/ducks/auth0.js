@@ -4,7 +4,7 @@ const initialState = {
   user_email   : null,
   auth_id      : null,
   auth_picture : 'https://lh4.googleusercontent.com/-WtSvKjFYiXM/AAAAAAAAAAI/AAAAAAAAAHc/fXzUoy8H42A/photo.jpg',
-  user_admin   : null
+  user_admin   : 'admin'
 }
 
 const SET_USER      = "SET_USER";
