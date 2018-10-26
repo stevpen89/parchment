@@ -14,6 +14,7 @@ import SingleBlanket  from './components/Products/SingleBlanket/SingleBlanket'
 import Journal        from './components/Products/Journal/Journal'
 import BabyBlanket    from './components/Products/BabyBlanket/BabyBlanket'
 import ProductDetails from './components/Products/ProductMap/ProductDetails/ProductDetails'
+import Admin          from './components/Admin/Admin'
 
 class App extends Component {
   render() {
@@ -34,6 +35,7 @@ class App extends Component {
             <Route       path = "/products/:sku/single/customize"     component={SingleBlanket}/>
             <Route       path = "/products/:sku/baby/customize"       component={BabyBlanket}/>
             <Route       path = "/products/:sku/journal/customize"    component={Journal}/>
+            <Route       path = "/admin"                              component={Admin} />
             <Route       path = "/about"                              component={AboutUs} />
             <Route       path = "/contact"                            component={Contact} />
           </Switch>
