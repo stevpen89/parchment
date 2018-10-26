@@ -2,6 +2,7 @@
 	height:500px;
 	width:100%;
 	background-color:rgba(0,0,0,.25);
+	position: relative;
 }
 
 .journal-selector {
@@ -26,11 +27,21 @@
 
 .journal-input {
 	background: rgba(0,0,0,.25);
-	position: relative;
+	position: absolute;
 	width: 200px;
 	height: 200px;
 	transition: .2s;
 	border-radius: 3px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.journal-input a {
+	color: white;
+	font-size: 3rem;
+	user-select: none;
 }
 
 .journal-slider {

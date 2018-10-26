@@ -8,40 +8,48 @@ class Journal extends Component {
 		super()
 		this.state = {
 			i: 0,
-			inputs: [{x: 0, y: 0, w: 25, h: 25}, {x: 0, y: 0, w: 25, h: 25}, {x: 0, y: 0, w: 25, h: 25}],
-			x: 0,
-			y: 0,
-			w: 25,
-			h: 15
+			inputs: [{x: 0, y: 0, w: 25, h: 25, input: ''}],
 		}
 	}
 
-	handleInput (val,target) {this.setState({[target]:val})}
+	handleInput (val,target) {
+		const {inputs, i} = this.state
+		let newInputs = [...inputs]
+		
+		newInputs[i][target] = val
+		this.setState({inputs: newInputs})
+	}
 	
 	addInput () {
-		let newInputs = [...this.state.inputs];
-		newInputs.push({x: 0, y: 0, w: 25, h: 25});
-		this.setState({inputs: newInputs});
+		let inputs = [...this.state.inputs];
+		inputs.push({x: 0, y: 0, w: 25, h: 25, input: ''});
+		this.setState({inputs, i: inputs.length-1});
 	}
 
 	removeInput () {
-		let newInputs = [...this.state.inputs];
-		// newInputs.splice();
+		let inputs = [...this.state.inputs];
+		inputs.splice(this.state.i, 1);
+		this.setState({inputs, i: 0});
 	}
 
 	render() {
-		console.log(this.state)
-		const {x, y, w, h, inputs} = this.state
+		const {i, inputs} = this.state
 		return (
 			<div className="content">
 				<div className="journal-editor-wrapper">
-					<div className="journal-input" style={{top: `${y}%`, left: `${x}%`, width: `${w}%`, height: `${h}%`}}></div>
+					{inputs.map((x, i) => {
+						return (
+							<div className="journal-input" style={{top: `${x.y}%`, left: `${x.x}%`, width: `${x.w}%`, height: `${x.h}%`}}>
+								<a>{i + 1}</a>
+							</div>
+						)
+					})}
 				</div>
 
 				<div className="journal-controls">
 
 					<button onClick={() => this.addInput()}>Add Input</button>
-					<button>Remove Input</button><br />
+					<button onClick={() => this.removeInput()}>Remove Input</button><br />
 
 					<div className="journal-selector">
 					{inputs.map((x, i) => {
@@ -51,18 +59,21 @@ class Journal extends Component {
 					})}
 					</div><br /><br /><br />
 
-					<a>x axis: <input onChange={(e)=>this.handleInput(e.target.value,'x')} placeholder="x" value={x}></input>%</a>
-					<Slider min={0} max={95} value={x} className="journal-slider" onChange={(e)=>this.handleInput(e,'x')}/>
+					<a>x axis: <input onChange={(e)=>this.handleInput(e.target.value,'x')} value={inputs[i].x}></input>%</a>
+					<Slider min={0} max={95} value={inputs[i].x} className="journal-slider" onChange={(e)=>this.handleInput(e,'x')}/>
 
-					<a>y axis: <input onChange={(e)=>this.handleInput(e.target.value,'y')} placeholder="y" value={y}></input>%</a>
-					<Slider min={0} max={95} value={y} className="journal-slider" onChange={(e)=>this.handleInput(e,'y')}/>
+					<a>y axis: <input onChange={(e)=>this.handleInput(e.target.value,'y')} value={inputs[i].y}></input>%</a>
+					<Slider min={0} max={95} value={inputs[i].y} className="journal-slider" onChange={(e)=>this.handleInput(e,'y')}/>
 
-					<a>width: <input onChange={(e)=>this.handleInput(e.target.value,'w')} placeholder="w" value={w}></input>%</a>
-					<Slider min={5} max={100 - x} value={w} className="journal-slider" onChange={(e)=>this.handleInput(e,'w')}/>
+					<a>width: <input onChange={(e)=>this.handleInput(e.target.value,'w')} value={inputs[i].w}></input>%</a>
+					<Slider min={5} max={100 - inputs[i].x} value={inputs[i].w} className="journal-slider" onChange={(e)=>this.handleInput(e,'w')}/>
 
-					<a>height: <input onChange={(e)=>this.handleInput(e.target.value,'h')} placeholder="h" value={h}></input>%</a>
-					<Slider min={5} max={100 - y} value={h} className="journal-slider" onChange={(e)=>this.handleInput(e,'h')}/>
+					<a>height: <input onChange={(e)=>this.handleInput(e.target.value,'h')} value={inputs[i].h}></input>%</a>
+					<Slider min={5} max={100 - inputs[i].y} value={inputs[i].h} className="journal-slider" onChange={(e)=>this.handleInput(e,'h')}/>
 				</div>
+
+				<a>Preset Name:</a><input></input>
+				<button>Save Preset</button>
 			</div>
 		)
 	}
