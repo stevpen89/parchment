@@ -1,1 +1,2 @@
-select * from products where product_sku = $1
+SELECT * FROM products
+WHERE product_sku = $1;

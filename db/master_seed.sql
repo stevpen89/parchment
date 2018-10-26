@@ -89,19 +89,20 @@ CREATE TABLE products (
   product_tags     JSON,
   product_image    TEXT,
   product_thumbs   JSON,
-  product_desc     VARCHAR(8000)
+  product_desc     VARCHAR(8000),
+  o1               TEXT
 );
 
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
 VALUES ('Binary Family History Blanket', '{"tags":["blanket","binary","animals","geometric"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
 VALUES ('Parents and Kids Family History Blanket', '{"tags":["blanket","inverted","family","geometric","geneaology"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
-INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
-VALUES ('Personalized Missionary Journal', '{"tags":["journal","missionary","state","alabama"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
+VALUES ('Personalized Missionary Journal', '{"tags":["journal","missionary","state","alabama"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '[{"x":0,"y":0,"w":25,"h":25,"input":""}]');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
 VALUES ('Bear Baby Blanket', '{"tags":["blanket","baby","animals","geometric"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
-INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
-VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
+VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'http://image.jpg', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '[{"x":0,"y":0,"w":25,"h":25,"input":""}]');
 
 SELECT * FROM products;
 
