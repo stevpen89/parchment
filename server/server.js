@@ -36,8 +36,9 @@ app.put    ( '/cards/:card_id',       cardsController.edit   );
 app.delete ( '/cards/:card_id',       cardsController.delete );
 
 //PRODUCTS ENDPOINTS
-app.get('/products',        productsController.readAll)
-app.get('/products/:sku',   productsController.readSingle)
+app.get ( '/products',              productsController.readAll     );
+app.get ( '/products/:sku',         productsController.readSingle  );
+app.put ( '/products/journal/:sku', productsController.editJournal );
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {
