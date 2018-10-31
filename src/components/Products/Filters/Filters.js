@@ -28,6 +28,7 @@ class Filters extends Component {
 				this.props.setProducts(res.data)
 			})
 		}
+		else {this.updateTags();}
 	}
 
   componentWillMount() {
