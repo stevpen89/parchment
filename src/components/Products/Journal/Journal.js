@@ -35,10 +35,6 @@ class Journal extends Component {
 		return (
 			<div className="content">
         		This is the journal customizer.
-						{this.state.product.o1 === '4'
-						? <a>Hello </a>
-						: null}
-						{this.inputMaker()}
 			</div>
 		)
 	}
