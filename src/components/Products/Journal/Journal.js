@@ -28,7 +28,7 @@ class Journal extends Component {
 	}
 
 	inputMaker(){
-		
+
 	}
 
 	render() {
