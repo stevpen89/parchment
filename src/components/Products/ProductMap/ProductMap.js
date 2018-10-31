@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import './ProductMap.css'
 import ProductCard from './ProductCard/ProductCard'
 import { connect } from 'react-redux'

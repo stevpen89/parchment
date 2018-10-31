@@ -25,10 +25,7 @@ class ProductCard extends Component {
 				<div>internal error...</div>}
 
 	contentRender(){
-		const {	product_sku,product_name,
-			product_tags,product_image,
-			product_thumbs,product_desc,
-			product_price} = this.props
+		const {	product_name, product_image, product_desc, product_price } = this.props
 		return(
 			<div className="product-card">
 				<div style={{background: `url(${product_image}) center`, backgroundSize: `cover`}} className="product-image">

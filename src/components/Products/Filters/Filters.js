@@ -23,8 +23,11 @@ class Filters extends Component {
 	}
 
 	componentDidMount () {
-    this.routeChange();
-    this.updateTags();
+		if (this.props.match.params.type === undefined) {
+			axios.get(`/products`).then((res)=>{
+				this.props.setProducts(res.data)
+			})
+		}
 	}
 
   componentWillMount() {
@@ -86,11 +89,12 @@ class Filters extends Component {
 	addTag () {
 		let tempTags = this.state.tags.slice(0)
 		let inputArr = this.state.tagInput.toLowerCase().split(/[ ,]+/)
-		if (inputArr.length + this.state.tags.length <= 10) {
+		if (inputArr.length + this.state.tags.length <= 10 && this.state.tagInput !== '') {
 			inputArr.map(x=>tempTags.push(x))
       this.setState({tags:tempTags, tagInput: '', tagWarning: false});
       this.getProducts(tempTags)
 		}
+		else if (this.state.tagInput === '') {return null}
 		else {
 			this.setState({tagWarning: true});
     }
@@ -133,8 +137,8 @@ class Filters extends Component {
 
 				<div className="search-area">
 					<input className="tag-input" onChange={(e) => handleInput(e.target.value)} value={tagInput} onKeyDown={this.keyPress} placeholder="Search with tags"/>
-					<button onClick={() => addTag()} className="add-tags-button"><i class="fas fa-tags"></i> Add Tag</button>
-					<button onClick={() => clearTags()} className="clear-tags-button"><i class="fas fa-backspace"></i></button>
+					<button onClick={() => addTag()} className="add-tags-button"><i className="fas fa-tags"></i> Add Tag</button>
+					<button onClick={() => clearTags()} className="clear-tags-button"><i className="fas fa-backspace"></i></button>
 				</div>				
 				<div className="tag-wrapper">
 					{tags.map((x,y)=>

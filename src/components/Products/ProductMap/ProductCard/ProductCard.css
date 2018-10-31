@@ -34,7 +34,8 @@
 .product-name {
 	font-size: 20px;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
+	line-height: 26px;
 	padding-bottom: 15px;
 }
 

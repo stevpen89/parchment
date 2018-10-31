@@ -1,44 +1,90 @@
 .details-container{
 	display:flex;
-	height:93vh;
+	height: calc(100vh - 75px);
 	width:100%;
+	margin-top: -75px;
+	margin-bottom: 75px;
 }
 .details-image-container{
-	height:100%;
 	width:66%;
 	position:relative;
 	top:75px;
-	background-image: url('https://images.unsplash.com/photo-1523171067267-bb96f975c4bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f5543be1a7ff160fb20a46b4881860c8&auto=format&fit=crop&w=700&q=80');
-	background-position:center;
-	background-size:cover;
 	display:flex;
 	flex-direction:row;
 	justify-content: center;
 	align-items:flex-end;
-	
+}
+.details-thumbnail-wrapper {
+	overflow: hidden;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 25px;
 }
 .details-product-information{
-	height:100%;
 	width:33%;
 	position:relative;
 	top:75px;
 	display:flex;
 	flex-direction:column;
+	position: relative;
 }
 .details-product-data{
-	border:1px solid red;
-	background-color:black;
-	color:chartreuse;
+	width: 100%;
+	color: #333;
 	display:flex;
 	flex-direction:row;
 	justify-content: center;
+	flex-wrap: wrap;
 	align-items:center;
+	width: 100%;
+	overflow: hidden;
+	padding: 5px;
 }
-.details-product-thumbnail{
-	height:200px;
-	width:200px;
-	border: 3px solid hotpink;
-	background-color:black;
-	color:chartreuse;
 
+.details-customize-button button {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background: #333;
+	color: white;
+	border: none;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 20px;
+}
+
+.details-customize-button button:hover {
+	background: #222;
+}
+
+.details-tag {
+	margin: 3px;
+	padding: 3px 10px;
+	border-radius: 3px;
+	height: 25px;
+	background: rgba(0, 0, 0, .25);
+	border: 1px solid rgba(0, 0, 0, .25);
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: default;
+	transition: .15s;
+	color: #333;
+}
+
+.details-tag:hover {
+	background: rgba(0, 0, 0, .35);
+}
+
+.details-product-thumbnail{
+	height:100px;
+	width:200px;
+	background-color: rgba(255,255,255,.75);
+	color:#333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
