@@ -1,16 +1,16 @@
 // DEPENDENCIES
 
 const //CONTROLLERS
-      auth0Controller = require ( './controllers/auth0Controller' ),
-      // s3Controller    = require ( './controllers/s3Controller'    ),
-      cardsController = require ( './controllers/cardsController' )
+      auth0Controller    = require ( './controllers/auth0Controller' ),
+      s3Controller       = require ( './controllers/s3Controller'    ),
+      cardsController    = require ( './controllers/cardsController' )
       productsController = require ( './controllers/productsController' )
       //NODE MODULES
-      express         = require ( 'express'         ),
-      session         = require ( 'express-session' ),
-      bodyParser      = require ( 'body-parser'     ),
-      massive         = require ( 'massive'         )
-                        require ( 'dotenv' ).config();
+      express            = require ( 'express'         ),
+      session            = require ( 'express-session' ),
+      bodyParser         = require ( 'body-parser'     ),
+      massive            = require ( 'massive'         )
+                           require ( 'dotenv' ).config();
 
 //SERVER SETUP
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
@@ -21,13 +21,13 @@ app.use ( express.static(`${__dirname}/../build`) );
 app.use ( bodyParser.json() );
 app.use ( session ({ secret: SESSION_SECRET, resave: false, saveUninitialized: false }) );
 
-//AMAZON S3
-// s3Controller.bucket();
-
 //AUTH0 ENDPOINTS
 app.get ( '/auth/callback', auth0Controller.auth   );
 app.get ( '/api/user-data', auth0Controller.user   );
 app.get ( '/api/logout',    auth0Controller.logout );
+
+//AMAZON S3 ENDPOITNS
+app.get ( '/s3/signature', s3Controller.signature );
 
 //CARD ENDPOINTS
 app.get    ( '/cards/:type/:user_id', cardsController.read   );

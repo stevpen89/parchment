@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ImageUploader from './ImageUploader'
 import './Admin.css'
 
 class Admin extends Component {
@@ -97,6 +98,7 @@ class Admin extends Component {
 					<div className="admin-selector" onClick={()=>this.selectMode('edit')}>EDIT</div>
 				</div>
 				{this.addOrEdit()}
+				<ImageUploader />
 			</div>
 		)
 	}

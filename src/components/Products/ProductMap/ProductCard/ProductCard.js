@@ -31,7 +31,7 @@ class ProductCard extends Component {
 			product_price} = this.props
 		return(
 			<div className="product-card">
-				<div style={{height:'inherit', width:'500px',overflow:'hidden'}}><img src="https://data.whicdn.com/images/306991532/large.jpg"/></div>
+				<div style={{height:'inherit', width:'500px',overflow:'hidden'}}><img src="https://pbs.twimg.com/profile_images/878962163737665537/OLAUQNQe_400x400.jpg"/></div>
 				<div className="product-card-footer">
 					<div className="product-name">{product_name}</div>
 					<div className="product-desc-price"><div>{product_desc}</div><div>{product_price}</div></div>
