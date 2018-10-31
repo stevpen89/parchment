@@ -9,6 +9,7 @@ class Admin extends Component {
 			addEdit:'add',
 			selectedType:'',
 			productName:'',
+			productPrice:0,
 			tagName:'',
 			currentTags:['bob','tuna','taryn','samich']
 		}
@@ -29,6 +30,10 @@ class Admin extends Component {
 
 	handleName(val){
 		this.setState({productName:val})
+	}
+
+	handlePrice(val){
+		this.setState({productPrice:val})
 	}
 
 	handleTag(val){
@@ -60,6 +65,12 @@ class Admin extends Component {
 					Product Name:
 				</div>
 				<input className="product-name-input" onChange={e=>this.handleName(e.target.value)} placeholder="Product Name Here..."/>
+			</div>
+			<div className="product-name-wrapper">
+				<div className="product-name-label">
+					Product Price:
+				</div>
+				<input className="product-name-input" onChange={e=>this.handlePrice(e.target.value)} placeholder="Product Price Here..."/>
 			</div>
 			<div className="product-tags-wrapper">
 				<div className="product-tags-label-1">

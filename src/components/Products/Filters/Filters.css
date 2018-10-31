@@ -43,3 +43,30 @@
 	background: rgba(255, 255, 255, 1);
 	outline: 0px;
 }
+
+.tag {
+	margin: 3px;
+	border-radius: 3px;
+	height: 25px;
+	background: rgba(0, 0, 0, .25);
+	border: 1px solid rgba(0, 0, 0, .25);
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tag a {
+	padding: 3px 10px;
+}
+
+.tag button {
+	background: transparent;
+	height: 100%;
+	border: none;
+	padding-left: 0px;
+}
+
+.tag-input {
+	
+}
