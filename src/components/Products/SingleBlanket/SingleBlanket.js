@@ -77,94 +77,96 @@ class SingleBlanket extends Component {
 	render() {
 		const {saved} = this.props;
 		return (
-			<div className="single-blanket">
-				<div className="single-header"><h1>Enter in your family tree</h1></div>
-				<div className="single-blanket-content">
-					<div className="level4">
-						<div className="single inner-level-4">
-							<SingleCard n={'a1a1'} valn={this.state.a1a1} d1={'a1a1d1'} vald1={this.state.a1a1d1} d2={'a1a1d2'} vald2={this.state.a1a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+			<div className="content">
+				<div className="single-blanket">
+					<div className="single-header"><h1>Enter in your family tree</h1></div>
+					<div className="single-blanket-content">
+						<div className="level4">
+							<div className="single inner-level-4">
+								<SingleCard n={'a1a1'} valn={this.state.a1a1} d1={'a1a1d1'} vald1={this.state.a1a1d1} d2={'a1a1d2'} vald2={this.state.a1a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+							</div>
+							<div className="single inner-level-4">
+								<SingleCard n={'a1a2'} valn={this.state.a1a2} d1={'a1a2d1'} vald1={this.state.a1a2d1} d2={'a1a2d2'} vald2={this.state.a1a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+							</div>
+							<div className="single inner-level-4">
+								<SingleCard n={'a1b1'} valn={this.state.a1b1} d1={'a1b1d1'} vald1={this.state.a1b1d1} d2={'a1b1d2'} vald2={this.state.a1b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+							</div>
+							<div className="single inner-level-4">
+								<SingleCard n={'a1b2'} valn={this.state.a1b2} d1={'a1b2d1'} vald1={this.state.a1b2d1} d2={'a1b2d2'} vald2={this.state.a1b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+							</div>
+							<div className="single inner-level-4">
+								<SingleCard n={'a2a1'} valn={this.state.a2a1} d1={'a2a1d1'} vald1={this.state.a2a1d1} d2={'a2a1d2'} vald2={this.state.a2a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+							</div>
+							<div className="single inner-level-4">
+								<SingleCard n={'a2a2'} valn={this.state.a2a2} d1={'a2a2d1'} vald1={this.state.a2a2d1} d2={'a2a2d2'} vald2={this.state.a2a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+							</div>
+							<div className="single inner-level-4">
+								<SingleCard n={'a2b1'} valn={this.state.a2b1} d1={'a2b1d1'} vald1={this.state.a2b1d1} d2={'a2b1d2'} vald2={this.state.a2b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+							</div>
+							<div className="single inner-level-4">
+								<SingleCard n={'a2b2'} valn={this.state.a2b2} d1={'a2b2d1'} vald1={this.state.a2b2d1} d2={'a2b2d2'} vald2={this.state.a2b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+							</div>
 						</div>
-						<div className="single inner-level-4">
-							<SingleCard n={'a1a2'} valn={this.state.a1a2} d1={'a1a2d1'} vald1={this.state.a1a2d1} d2={'a1a2d2'} vald2={this.state.a1a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+
+						<div className="connector-wrapper-3">
+							<div className="connector3-4"></div>
+							<div className="connector3-4"></div>
+							<div className="connector3-4"></div>
+							<div className="connector3-4"></div>
 						</div>
-						<div className="single inner-level-4">
-							<SingleCard n={'a1b1'} valn={this.state.a1b1} d1={'a1b1d1'} vald1={this.state.a1b1d1} d2={'a1b1d2'} vald2={this.state.a1b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+
+		{/* // sanity spacing */}
+
+						<div className="level3">
+							<div className="single inner-level-3">
+								<SingleCard n={'a1a'} valn={this.state.a1a} d1={'a1ad1'} vald1={this.state.a1ad1} d2={'a1ad2'} vald2={this.state.a1ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+							</div>
+							<div className="single inner-level-3">
+								<SingleCard n={'a1b'} valn={this.state.a1b} d1={'a1bd1'} vald1={this.state.a1bd1} d2={'a1bd2'} vald2={this.state.a1bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+							</div>
+							<div className="single inner-level-3">
+								<SingleCard n={'a2a'} valn={this.state.a2a} d1={'a2ad1'} vald1={this.state.a2ad1} d2={'a2ad2'} vald2={this.state.a2ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+							</div>
+							<div className="single inner-level-3">
+								<SingleCard n={'a2b'} valn={this.state.a2b} d1={'a2bd1'} vald1={this.state.a2bd1} d2={'a2bd2'} vald2={this.state.a2bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+							</div>
 						</div>
-						<div className="single inner-level-4">
-							<SingleCard n={'a1b2'} valn={this.state.a1b2} d1={'a1b2d1'} vald1={this.state.a1b2d1} d2={'a1b2d2'} vald2={this.state.a1b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+						<div className="connector-wrapper-2">
+							<div className="connector2-3"></div>
+							<div className="connector2-3"></div>
 						</div>
-						<div className="single inner-level-4">
-							<SingleCard n={'a2a1'} valn={this.state.a2a1} d1={'a2a1d1'} vald1={this.state.a2a1d1} d2={'a2a1d2'} vald2={this.state.a2a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+
+
+		{/* // sanity spacing */}
+
+						<div className="level2">
+							<div className="single inner-level-2">
+								<SingleCard n={'a1'} valn={this.state.a1} d1={'a1d1'} vald1={this.state.a1d1} d2={'a1d2'} vald2={this.state.a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+							</div>
+							<div className="single inner-level-2">
+								<SingleCard n={'a2'} valn={this.state.a2} d1={'a2d1'} vald1={this.state.a2d1} d2={'a2d2'} vald2={this.state.a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+							</div>
 						</div>
-						<div className="single inner-level-4">
-							<SingleCard n={'a2a2'} valn={this.state.a2a2} d1={'a2a2d1'} vald1={this.state.a2a2d1} d2={'a2a2d2'} vald2={this.state.a2a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+
+						<div className="connector-wrapper-1">
+							<div className="connector1-2"></div>
 						</div>
-						<div className="single inner-level-4">
-							<SingleCard n={'a2b1'} valn={this.state.a2b1} d1={'a2b1d1'} vald1={this.state.a2b1d1} d2={'a2b1d2'} vald2={this.state.a2b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-						</div>
-						<div className="single inner-level-4">
-							<SingleCard n={'a2b2'} valn={this.state.a2b2} d1={'a2b2d1'} vald1={this.state.a2b2d1} d2={'a2b2d2'} vald2={this.state.a2b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+
+		{/* // sanity spacing */}
+
+						<div className="level1">
+							<div className="single inner-level-1">
+								<SingleCard n={'a'} valn={this.state.a} d1={'ad1'} vald1={this.state.ad1} d2={'ad2'} vald2={this.state.ad2} callback={this.changeHandler.bind(this)}/>
+							</div>
 						</div>
 					</div>
 
-					<div className="connector-wrapper-3">
-						<div className="connector3-4"></div>
-						<div className="connector3-4"></div>
-						<div className="connector3-4"></div>
-						<div className="connector3-4"></div>
-					</div>
-
-	{/* // sanity spacing */}
-
-					<div className="level3">
-						<div className="single inner-level-3">
-							<SingleCard n={'a1a'} valn={this.state.a1a} d1={'a1ad1'} vald1={this.state.a1ad1} d2={'a1ad2'} vald2={this.state.a1ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-						</div>
-						<div className="single inner-level-3">
-							<SingleCard n={'a1b'} valn={this.state.a1b} d1={'a1bd1'} vald1={this.state.a1bd1} d2={'a1bd2'} vald2={this.state.a1bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="single inner-level-3">
-							<SingleCard n={'a2a'} valn={this.state.a2a} d1={'a2ad1'} vald1={this.state.a2ad1} d2={'a2ad2'} vald2={this.state.a2ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-						</div>
-						<div className="single inner-level-3">
-							<SingleCard n={'a2b'} valn={this.state.a2b} d1={'a2bd1'} vald1={this.state.a2bd1} d2={'a2bd2'} vald2={this.state.a2bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-					</div>
-					<div className="connector-wrapper-2">
-						<div className="connector2-3"></div>
-						<div className="connector2-3"></div>
-					</div>
-
-
-	{/* // sanity spacing */}
-
-					<div className="level2">
-						<div className="single inner-level-2">
-							<SingleCard n={'a1'} valn={this.state.a1} d1={'a1d1'} vald1={this.state.a1d1} d2={'a1d2'} vald2={this.state.a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-						</div>
-						<div className="single inner-level-2">
-							<SingleCard n={'a2'} valn={this.state.a2} d1={'a2d1'} vald1={this.state.a2d1} d2={'a2d2'} vald2={this.state.a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-					</div>
-
-					<div className="connector-wrapper-1">
-						<div className="connector1-2"></div>
-					</div>
-
-	{/* // sanity spacing */}
-
-					<div className="level1">
-						<div className="single inner-level-1">
-							<SingleCard n={'a'} valn={this.state.a} d1={'ad1'} vald1={this.state.ad1} d2={'ad2'} vald2={this.state.ad2} callback={this.changeHandler.bind(this)}/>
-						</div>
-					</div>
+					<div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
+					<frosted-glass overlay-color="rgba(255,255,255,.25)" blur-amount=".5rem" class="saved-message-container" style={saved ? {opacity: `1`} : {opacity: `0`}}>
+						<div className="saved-message"><a>Changes Saved</a></div>
+					</frosted-glass>
+					
 				</div>
-
-				<div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
-				<frosted-glass overlay-color="rgba(255,255,255,.25)" blur-amount=".5rem" class="saved-message-container" style={saved ? {opacity: `1`} : {opacity: `0`}}>
-					<div className="saved-message"><a>Changes Saved</a></div>
-				</frosted-glass>
-				
 			</div>
 		)
 	}

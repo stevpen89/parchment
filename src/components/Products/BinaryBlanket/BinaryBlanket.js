@@ -93,110 +93,112 @@ class BinaryBlanket extends Component {
 	render() {
 		const { saved } = this.props;
 		return (
-			<div className="binary-blanket">
-				<div className="binary-header"><h1>Enter in your family tree</h1></div>
-				<div className="binary-blanket-content">
-					<div className="level4">
-						<div className="binary-pair inner-level-4">
-							<PairCard n={'a1a1'} valn={this.state.a1a1} d1={'a1a1d1'} vald1={this.state.a1a1d1} d2={'a1a1d2'} vald2={this.state.a1a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'a1a2'} valn={this.state.a1a2} d1={'a1a2d1'} vald1={this.state.a1a2d1} d2={'a1a2d2'} vald2={this.state.a1a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-4">
-							<PairCard n={'a1b1'} valn={this.state.a1b1} d1={'a1b1d1'} vald1={this.state.a1b1d1} d2={'a1b1d2'} vald2={this.state.a1b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'a1b2'} valn={this.state.a1b2} d1={'a1b2d1'} vald1={this.state.a1b2d1} d2={'a1b2d2'} vald2={this.state.a1b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-4">
-							<PairCard n={'a2a1'} valn={this.state.a2a1} d1={'a2a1d1'} vald1={this.state.a2a1d1} d2={'a2a1d2'} vald2={this.state.a2a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'a2a2'} valn={this.state.a2a2} d1={'a2a2d1'} vald1={this.state.a2a2d1} d2={'a2a2d2'} vald2={this.state.a2a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-4">
-							<PairCard n={'a2b1'} valn={this.state.a2b1} d1={'a2b1d1'} vald1={this.state.a2b1d1} d2={'a2b1d2'} vald2={this.state.a2b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'a2b2'} valn={this.state.a2b2} d1={'a2b2d1'} vald1={this.state.a2b2d1} d2={'a2b2d2'} vald2={this.state.a2b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-4">
-							<PairCard n={'b1a1'} valn={this.state.b1a1} d1={'b1a1d1'} vald1={this.state.b1a1d1} d2={'b1a1d2'} vald2={this.state.b1a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'b1a2'} valn={this.state.b1a2} d1={'b1a2d1'} vald1={this.state.b1a2d1} d2={'b1a2d2'} vald2={this.state.b1a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-4">
-							<PairCard n={'b1b1'} valn={this.state.b1b1} d1={'b1b1d1'} vald1={this.state.b1b1d1} d2={'b1b1d2'} vald2={this.state.b1b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'b1b2'} valn={this.state.b1b2} d1={'b1b2d1'} vald1={this.state.b1b2d1} d2={'b1b2d2'} vald2={this.state.b1b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-4">
-							<PairCard n={'b2a1'} valn={this.state.b2a1} d1={'b2a1d1'} vald1={this.state.b2a1d1} d2={'b2a1d2'} vald2={this.state.b2a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'b2a2'} valn={this.state.b2a2} d1={'b2a2d1'} vald1={this.state.b2a2d1} d2={'b2a2d2'} vald2={this.state.b2a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-4">
-							<PairCard n={'b2b1'} valn={this.state.b2b1} d1={'b2b1d1'} vald1={this.state.b2b1d1} d2={'b2b1d2'} vald2={this.state.b2b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'b2b2'} valn={this.state.b2b2} d1={'b2b2d1'} vald1={this.state.b2b2d1} d2={'b2b2d2'} vald2={this.state.b2b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-					</div>
+			<div className="content">
+        <div className="binary-blanket">
+          <div className="binary-header"><h1>Enter in your family tree</h1></div>
+          <div className="binary-blanket-content">
+            <div className="level4">
+              <div className="binary-pair inner-level-4">
+                <PairCard n={'a1a1'} valn={this.state.a1a1} d1={'a1a1d1'} vald1={this.state.a1a1d1} d2={'a1a1d2'} vald2={this.state.a1a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'a1a2'} valn={this.state.a1a2} d1={'a1a2d1'} vald1={this.state.a1a2d1} d2={'a1a2d2'} vald2={this.state.a1a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-4">
+                <PairCard n={'a1b1'} valn={this.state.a1b1} d1={'a1b1d1'} vald1={this.state.a1b1d1} d2={'a1b1d2'} vald2={this.state.a1b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'a1b2'} valn={this.state.a1b2} d1={'a1b2d1'} vald1={this.state.a1b2d1} d2={'a1b2d2'} vald2={this.state.a1b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-4">
+                <PairCard n={'a2a1'} valn={this.state.a2a1} d1={'a2a1d1'} vald1={this.state.a2a1d1} d2={'a2a1d2'} vald2={this.state.a2a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'a2a2'} valn={this.state.a2a2} d1={'a2a2d1'} vald1={this.state.a2a2d1} d2={'a2a2d2'} vald2={this.state.a2a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-4">
+                <PairCard n={'a2b1'} valn={this.state.a2b1} d1={'a2b1d1'} vald1={this.state.a2b1d1} d2={'a2b1d2'} vald2={this.state.a2b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'a2b2'} valn={this.state.a2b2} d1={'a2b2d1'} vald1={this.state.a2b2d1} d2={'a2b2d2'} vald2={this.state.a2b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-4">
+                <PairCard n={'b1a1'} valn={this.state.b1a1} d1={'b1a1d1'} vald1={this.state.b1a1d1} d2={'b1a1d2'} vald2={this.state.b1a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'b1a2'} valn={this.state.b1a2} d1={'b1a2d1'} vald1={this.state.b1a2d1} d2={'b1a2d2'} vald2={this.state.b1a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-4">
+                <PairCard n={'b1b1'} valn={this.state.b1b1} d1={'b1b1d1'} vald1={this.state.b1b1d1} d2={'b1b1d2'} vald2={this.state.b1b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'b1b2'} valn={this.state.b1b2} d1={'b1b2d1'} vald1={this.state.b1b2d1} d2={'b1b2d2'} vald2={this.state.b1b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-4">
+                <PairCard n={'b2a1'} valn={this.state.b2a1} d1={'b2a1d1'} vald1={this.state.b2a1d1} d2={'b2a1d2'} vald2={this.state.b2a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'b2a2'} valn={this.state.b2a2} d1={'b2a2d1'} vald1={this.state.b2a2d1} d2={'b2a2d2'} vald2={this.state.b2a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-4">
+                <PairCard n={'b2b1'} valn={this.state.b2b1} d1={'b2b1d1'} vald1={this.state.b2b1d1} d2={'b2b1d2'} vald2={this.state.b2b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'b2b2'} valn={this.state.b2b2} d1={'b2b2d1'} vald1={this.state.b2b2d1} d2={'b2b2d2'} vald2={this.state.b2b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+            </div>
 
-					<div className="connector-wrapper-3">
-						<div className="connector3-4"></div>
-						<div className="connector3-4"></div>
-						<div className="connector3-4"></div>
-						<div className="connector3-4"></div>
-					</div>
+            <div className="connector-wrapper-3">
+              <div className="connector3-4"></div>
+              <div className="connector3-4"></div>
+              <div className="connector3-4"></div>
+              <div className="connector3-4"></div>
+            </div>
 
-	{/* // sanity spacing */}
+    {/* // sanity spacing */}
 
-					<div className="level3">
-						<div className="binary-pair inner-level-3">
-							<PairCard n={'a1a'} valn={this.state.a1a} d1={'a1ad1'} vald1={this.state.a1ad1} d2={'a1ad2'} vald2={this.state.a1ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'a1b'} valn={this.state.a1b} d1={'a1bd1'} vald1={this.state.a1bd1} d2={'a1bd2'} vald2={this.state.a1bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-3">
-							<PairCard n={'a2a'} valn={this.state.a2a} d1={'a2ad1'} vald1={this.state.a2ad1} d2={'a2ad2'} vald2={this.state.a2ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'a2b'} valn={this.state.a2b} d1={'a2bd1'} vald1={this.state.a2bd1} d2={'a2bd2'} vald2={this.state.a2bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-3">
-							<PairCard n={'b1a'} valn={this.state.b1a} d1={'b1ad1'} vald1={this.state.b1ad1} d2={'b1ad2'} vald2={this.state.b1ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'b1b'} valn={this.state.b1b} d1={'b1bd1'} vald1={this.state.b1bd1} d2={'b1bd2'} vald2={this.state.b1bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-3">
-							<PairCard n={'b2a'} valn={this.state.b2a} d1={'b2ad1'} vald1={this.state.b2ad1} d2={'b2ad2'} vald2={this.state.b2ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'b2b'} valn={this.state.b2b} d1={'b2bd1'} vald1={this.state.b2bd1} d2={'b2bd2'} vald2={this.state.b2bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-					</div>
-					<div className="connector-wrapper-2">
-						<div className="connector2-3"></div>
-						<div className="connector2-3"></div>
-					</div>
+            <div className="level3">
+              <div className="binary-pair inner-level-3">
+                <PairCard n={'a1a'} valn={this.state.a1a} d1={'a1ad1'} vald1={this.state.a1ad1} d2={'a1ad2'} vald2={this.state.a1ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'a1b'} valn={this.state.a1b} d1={'a1bd1'} vald1={this.state.a1bd1} d2={'a1bd2'} vald2={this.state.a1bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-3">
+                <PairCard n={'a2a'} valn={this.state.a2a} d1={'a2ad1'} vald1={this.state.a2ad1} d2={'a2ad2'} vald2={this.state.a2ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'a2b'} valn={this.state.a2b} d1={'a2bd1'} vald1={this.state.a2bd1} d2={'a2bd2'} vald2={this.state.a2bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-3">
+                <PairCard n={'b1a'} valn={this.state.b1a} d1={'b1ad1'} vald1={this.state.b1ad1} d2={'b1ad2'} vald2={this.state.b1ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'b1b'} valn={this.state.b1b} d1={'b1bd1'} vald1={this.state.b1bd1} d2={'b1bd2'} vald2={this.state.b1bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-3">
+                <PairCard n={'b2a'} valn={this.state.b2a} d1={'b2ad1'} vald1={this.state.b2ad1} d2={'b2ad2'} vald2={this.state.b2ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'b2b'} valn={this.state.b2b} d1={'b2bd1'} vald1={this.state.b2bd1} d2={'b2bd2'} vald2={this.state.b2bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+            </div>
+            <div className="connector-wrapper-2">
+              <div className="connector2-3"></div>
+              <div className="connector2-3"></div>
+            </div>
 
 
-	{/* // sanity spacing */}
+    {/* // sanity spacing */}
 
-					<div className="level2">
-						<div className="binary-pair inner-level-2">
-							<PairCard n={'a1'} valn={this.state.a1} d1={'a1d1'} vald1={this.state.a1d1} d2={'a1d2'} vald2={this.state.a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'a2'} valn={this.state.a2} d1={'a2d1'} vald1={this.state.a2d1} d2={'a2d2'} vald2={this.state.a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-						<div className="binary-pair inner-level-2">
-							<PairCard n={'b1'} valn={this.state.b1} d1={'b1d1'} vald1={this.state.b1d1} d2={'b1d2'} vald2={this.state.b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'b2'} valn={this.state.b2} d1={'b2d1'} vald1={this.state.b2d1} d2={'b2d2'} vald2={this.state.b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-					</div>
+            <div className="level2">
+              <div className="binary-pair inner-level-2">
+                <PairCard n={'a1'} valn={this.state.a1} d1={'a1d1'} vald1={this.state.a1d1} d2={'a1d2'} vald2={this.state.a1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'a2'} valn={this.state.a2} d1={'a2d1'} vald1={this.state.a2d1} d2={'a2d2'} vald2={this.state.a2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+              <div className="binary-pair inner-level-2">
+                <PairCard n={'b1'} valn={this.state.b1} d1={'b1d1'} vald1={this.state.b1d1} d2={'b1d2'} vald2={this.state.b1d2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'b2'} valn={this.state.b2} d1={'b2d1'} vald1={this.state.b2d1} d2={'b2d2'} vald2={this.state.b2d2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+            </div>
 
-					<div className="connector-wrapper-1">
-						<div className="connector1-2"></div>
-					</div>
+            <div className="connector-wrapper-1">
+              <div className="connector1-2"></div>
+            </div>
 
-	{/* // sanity spacing */}
+    {/* // sanity spacing */}
 
-					<div className="level1">
-						<div className="binary-pair inner-level-1">
-							<PairCard n={'a'} valn={this.state.a} d1={'ad1'} vald1={this.state.ad1} d2={'ad2'} vald2={this.state.ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
-							<PairCard n={'b'} valn={this.state.b} d1={'bd1'} vald1={this.state.bd1} d2={'bd2'} vald2={this.state.bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
-						</div>
-					</div>
-				</div>
+            <div className="level1">
+              <div className="binary-pair inner-level-1">
+                <PairCard n={'a'} valn={this.state.a} d1={'ad1'} vald1={this.state.ad1} d2={'ad2'} vald2={this.state.ad2} callback={this.changeHandler.bind(this)} parent={'Father'}/>
+                <PairCard n={'b'} valn={this.state.b} d1={'bd1'} vald1={this.state.bd1} d2={'bd2'} vald2={this.state.bd2} callback={this.changeHandler.bind(this)} parent={'Mother'}/>
+              </div>
+            </div>
+          </div>
 
-				<div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
-				<frosted-glass overlay-color="rgba(255,255,255,.25)" blur-amount=".5rem" class="saved-message-container" style={saved ? {opacity: `1`} : {opacity: `0`}}>
-					<div className="saved-message"><a>Changes Saved</a></div>
-				</frosted-glass>
-				
-			</div>
+          <div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
+          <frosted-glass overlay-color="rgba(255,255,255,.25)" blur-amount=".5rem" class="saved-message-container" style={saved ? {opacity: `1`} : {opacity: `0`}}>
+            <div className="saved-message"><a>Changes Saved</a></div>
+          </frosted-glass>
+          
+        </div>
+      </div>
 		)
 	}
 }

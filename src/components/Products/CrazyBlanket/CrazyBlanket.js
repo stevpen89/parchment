@@ -100,19 +100,21 @@ class CrazyBlanket extends Component {
 		const {refresh} = this.state
 		if (refresh) {
 			return (
-				<div className="crazy-blanket">
-					{this.state.familyTree ? this.state.familyTree.map((x, i)=>{
-						return x.parent_id === 0 ? 
-						<CrazyCard     {...x}
-							key        = {x.card_id}
-							depth      = {1}
-							tree       = {this.state.familyTree}
-							addChild   = {this.addChild}
-							editCard   = {this.editCard}
-							deleteCard = {this.deleteCard}
-						/> : null
-					}) : null }
-				</div>
+        <div className="content">
+          <div className="crazy-blanket">
+            {this.state.familyTree ? this.state.familyTree.map((x, i)=>{
+              return x.parent_id === 0 ? 
+              <CrazyCard     {...x}
+                key        = {x.card_id}
+                depth      = {1}
+                tree       = {this.state.familyTree}
+                addChild   = {this.addChild}
+                editCard   = {this.editCard}
+                deleteCard = {this.deleteCard}
+              /> : null
+            }) : null }
+          </div>
+        </div>
 			)
 		}
 		else { return (<div></div>) }
