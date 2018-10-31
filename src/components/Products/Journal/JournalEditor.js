@@ -15,7 +15,7 @@ class JournalEditor extends Component {
 
 	componentDidMount () {
 		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
-			this.setState({inputs: JSON.parse(res.data[0].o1)})
+			this.setState({inputs: JSON.parse(res.data.o1)})
 		})
 	}
 
