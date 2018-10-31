@@ -18,7 +18,7 @@ class Journal extends Component {
 	render() {
 		return (
 			<div className="content">
-        This is the journal customizer.
+        		This is the journal customizer.
 			</div>
 		)
 	}

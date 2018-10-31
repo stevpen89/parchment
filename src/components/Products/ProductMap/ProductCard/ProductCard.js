@@ -25,18 +25,16 @@ class ProductCard extends Component {
 				<div>internal error...</div>}
 
 	contentRender(){
-		const {	product_sku,product_name,
-			product_tags,product_image,
-			product_thumbs,product_desc,
-			product_price} = this.props
+		const {	product_name, product_image, product_desc, product_price } = this.props
 		return(
 			<div className="product-card">
-				<img src="https://pbs.twimg.com/profile_images/878962163737665537/OLAUQNQe_400x400.jpg"/>
-				<div className="product-card-footer">
-					<div className="product-name">{product_name}</div>
-					<div className="product-desc-price">
-						<div>{product_desc}</div><br />
-						<div>{product_price}</div>
+				<div style={{background: `url(${product_image}) center`, backgroundSize: `cover`}} className="product-image">
+					<div className="product-card-footer">
+						<div className="product-name">{product_name}</div>
+						<div className="product-desc-price">
+							<div>{product_desc}</div><br />
+							<div>{product_price}</div>
+						</div>
 					</div>
 					<div className="product-button-holder">{this.productDetailsSwitch()}</div>
 				</div>

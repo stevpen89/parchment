@@ -9,7 +9,7 @@ module.exports = {
 	readSingle: (req,res)=>{
 		const db = req.app.get('db');
 		db.products.products_get_single([req.params.sku])
-		.then(products=> res.status(200).send(products))
+		.then(products=> res.status(200).send(products[0]))
 		.catch(err => console.log(`Error Message: ${err}`))
 	},
 

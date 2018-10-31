@@ -7,15 +7,13 @@ class ProductDetails extends Component {
 	constructor(){
 		super()
 		this.state={
-			product:[]
+			product: {}
 		}
 	}
 
 	componentDidMount(){
 		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
-			console.log(this.state.product)
 			this.setState({product:res.data})
-			console.log(this.state.product)
 		})
 	}
 
@@ -41,26 +39,29 @@ class ProductDetails extends Component {
 	}
 
 	render() {
-		const {product} = this.state
-		console.log(this.props.match)
+		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_tags } = this.state.product
 		return (
 			<div className="content">
 				<div className="details-container">
-					<div className="details-image-container">
-					{this.state.product[0] 
-						? this.state.product[0].product_thumbs.thumbnails.map((x,y)=>
-						<div className="details-product-thumbnail">thumbnail {y+1} -- {x}</div>) 
-						: null}
+					<div className="details-image-container" style={{backgroundImage: `url(${product_image})`, backgroundSize: `cover`, backgroundPosition: `center`}}>
+					<div className="details-thumbnail-wrapper">
+						{product_thumbs
+							? product_thumbs.thumbnails.map((x,y)=>
+							<div className="details-product-thumbnail">{x}</div>) 
+							: null}
+					</div>
 					</div>
 					<div className="details-product-information">
-						{this.state.product[0] ? 
+						{product_thumbs ? 
 						<div>
-							<div className="details-product-data">{product[0].product_sku}</div>
-							<div className="details-product-data">{product[0].product_desc}</div>
-							<div className="details-product-data">{product[0].product_image}</div>
-							<div className="details-product-data">{product[0].product_price}</div>
-							{product[0].product_tags.tags.map((x,y)=><div className="details-product-data">tag:{y+1} -- {x}</div>)}
-							<div className="details-product-data">{this.editorSwitch()}</div>
+							<div className="details-product-data">SKU: {product_sku}</div>
+							<div className="details-product-data">{product_desc}</div>
+							<div className="details-product-data">{product_image}</div>
+							<div className="details-product-data">{product_price}</div>
+							<div className="details-product-data">
+								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag">{x}</Link>)}
+							</div>
+							<div className="details-customize-button">{this.editorSwitch()}</div>
 						</div>
 						: null}
 					</div>

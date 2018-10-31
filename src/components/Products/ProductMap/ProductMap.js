@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import './ProductMap.css'
 import ProductCard from './ProductCard/ProductCard'
+import { connect } from 'react-redux'
+import { setProducts } from '../../../ducks/products';
 
-export default class ProductMap extends Component {
+class ProductMap extends Component {
 	constructor(){
 		super()
 		this.state={
@@ -11,20 +12,14 @@ export default class ProductMap extends Component {
 		}
 	}
 
-	componentDidMount(){
-		axios.get(`/products`).then((res)=>{
-			console.log(res.data)
-			this.setState({matchArr:res.data})
-		})
-	}
-
-
-
 	render() {
 		return (
-			<div style={{display:"flex"}} className="product-map">
-				{this.state.matchArr ? this.state.matchArr.map(x=><ProductCard {...x} key={x.product_sku}/>) : null}
+			<div className="product-map">
+				{this.state.matchArr ? this.props.products.map(x=><ProductCard {...x} key={x.product_sku}/>) : null}
 			</div>
 		)
 	}
 }
+
+function mapStateToProps  ( state ) { return { products: state.products.products } };
+export default connect ( mapStateToProps, { setProducts } )(ProductMap);
