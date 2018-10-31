@@ -6,19 +6,39 @@ class Journal extends Component {
 	constructor () {
 		super()
 		this.state = {
+			product:{},
+			input1:'',
+			input2:'',
+			input3:'',
+			input4:'',
+			input5:'',
 		}
 	}
 
 	componentDidMount () {
 		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
-			this.setState({inputs: JSON.parse(res.data[0].o1)})
+			this.setState({product:res.data})
+			console.log(this.state.product.o1)
 		})
+	}
+
+	handleChange(target,val){
+		this.setState({[target]:val})
+
+	}
+
+	inputMaker(){
+		
 	}
 
 	render() {
 		return (
 			<div className="content">
         		This is the journal customizer.
+						{this.state.product.o1 === '4'
+						? <a>Hello </a>
+						: null}
+						{this.inputMaker()}
 			</div>
 		)
 	}
