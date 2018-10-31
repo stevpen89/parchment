@@ -39,6 +39,7 @@ app.delete ( '/cards/:card_id',       cardsController.delete );
 app.get ( '/products',              productsController.readAll     );
 app.get ( '/products/:sku',         productsController.readSingle  );
 app.put ( '/products/journal/:sku', productsController.editJournal );
+app.put ( '/products/search',       productsController.search      );
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {

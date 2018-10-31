@@ -31,10 +31,13 @@ class ProductCard extends Component {
 			product_price} = this.props
 		return(
 			<div className="product-card">
-				<div style={{height:'inherit', width:'500px',overflow:'hidden'}}><img src="https://pbs.twimg.com/profile_images/878962163737665537/OLAUQNQe_400x400.jpg"/></div>
+				<img src="https://pbs.twimg.com/profile_images/878962163737665537/OLAUQNQe_400x400.jpg"/>
 				<div className="product-card-footer">
 					<div className="product-name">{product_name}</div>
-					<div className="product-desc-price"><div>{product_desc}</div><div>{product_price}</div></div>
+					<div className="product-desc-price">
+						<div>{product_desc}</div><br />
+						<div>{product_price}</div>
+					</div>
 					<div className="product-button-holder">{this.productDetailsSwitch()}</div>
 				</div>
 			</div>)
@@ -44,7 +47,7 @@ class ProductCard extends Component {
 	render() {
 
 		return (
-			<div className="product-card">
+			<div>
 				{this.contentRender()}
 			</div>
 		)
