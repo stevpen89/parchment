@@ -109,7 +109,8 @@ INSERT INTO products (product_name, product_tags, product_image, product_thumbs,
 VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '4');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
 VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '5');
-
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
+VALUES ('Cold Outside Holiday Blanket', '{"tags":["blanket","holiday","snow","cute"]}', 'https://images.unsplash.com/photo-1418662589339-364ad47f98a2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=235f484b2cdafba4d0e2fa382f09286f&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '1');
 SELECT * FROM products;
 
 
