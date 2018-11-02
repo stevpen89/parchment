@@ -7,6 +7,7 @@ class Journal extends Component {
 		super()
 		this.state = {
 			product:{},
+			loaded:false,
 			input1:'',
 			input2:'',
 			input3:'',
@@ -17,24 +18,27 @@ class Journal extends Component {
 
 	componentDidMount () {
 		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
-			this.setState({product:res.data})
-			console.log(this.state.product.o1)
+			this.setState({loaded:true, product:res.data})
 		})
 	}
 
 	handleChange(target,val){
 		this.setState({[target]:val})
+		console.log(this.state)
 
 	}
 
-	inputMaker(){
-
-	}
 
 	render() {
+		const {product_image,o1} = this.state.product
 		return (
-			<div className="content">
-        		This is the journal customizer.
+			<div className="journal-content">
+				<div className="journal-image-holder">
+					<div style={{background: `url(${product_image}) center`, backgroundSize: `cover`}} className="journal-image"></div>
+				</div>
+				<div className="journal-right-menu">
+				{this.state.loaded ? JSON.parse(o1).map((x,y)=>{return <div className="journal-input-holder" key={y}>{x}<input onChange={(e)=>{this.handleChange(`input${y+1}`,e.target.value)}}/></div>}) : <div> Loaded = False</div>}
+				</div>
 			</div>
 		)
 	}
