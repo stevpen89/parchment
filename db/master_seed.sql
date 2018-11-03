@@ -98,15 +98,15 @@ VALUES ('Binary Family History Blanket', '{"tags":["blanket","binary","animals",
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
 VALUES ('Parents and Kids Family History Blanket', '{"tags":["blanket","inverted","family","geometric","geneaology"]}', 'https://images.unsplash.com/photo-1540844775339-de8c67e13da4?ixlib=rb-0.3.5&s=fc4fae50596e7b8bea134cc641acea2c&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
-VALUES ('Personalized Missionary Journal', '{"tags":["journal","missionary","state","alabama"]}', 'https://images.unsplash.com/photo-1540889539617-6236fa68e2f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64923c5e7a9e7b435b9058949a2cb5d8&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '1');
+VALUES ('Personalized Missionary Journal', '{"tags":["journal","missionary","state","alabama"]}', 'https://images.unsplash.com/photo-1540889539617-6236fa68e2f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64923c5e7a9e7b435b9058949a2cb5d8&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '["title","subtitle","date"]');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc)
 VALUES ('Bear Baby Blanket', '{"tags":["blanket","baby","animals","geometric"]}', 'https://images.unsplash.com/photo-1540845692348-b9d2bc813a63?ixlib=rb-0.3.5&s=b0c0bbbebc81382380cd4b826ba5083d&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
-VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '2');
+VALUES ('EveryDay Journal Mountains', '{"tags":["journal","animal","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '["title","subtitle"]');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
-VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '3');
+VALUES ('EveryDay Journal Mountains', '{"tags":["journal","animal","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '["title","subtitle","date"]');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
-VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '4');
+VALUES ('EveryDay Journal Mountains', '{"tags":["journal","animal","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '["title","subtitle","date"]');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
 VALUES ('EveryDay Journal Mountains', '{"tags":["blanket","single","nature","scenic"]}', 'https://images.unsplash.com/photo-1540877644327-477011fe0afd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e288ba6f8f31ef9b859f41ef9a5d9b7&auto=format&fit=crop&w=400&q=80', '{"thumbnails":["http://image.jpg","http://image.jpg"]}', 'ultra fuzzy soft lorem ipsum blanket waifu...', '5');
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, o1)
@@ -119,8 +119,20 @@ CREATE TABLE orders (
 	order_id      SERIAL PRIMARY KEY,
 	user_id       INTEGER REFERENCES users(user_id),
 	purchase_date TEXT,
-	product_sku   INTEGER,
-	order_details JSON
+	product_skus  TEXT,
+	order_details TEXT,
+  product_type  VARCHAR(100)
 );
 
 SELECT * FROM orders;
+
+
+CREATE TABLE presets (
+  preset_id      SERIAL PRIMARY KEY,
+  preset_name    VARCHAR (200),
+  preset_data    TEXT
+);
+
+
+
+SELECT * FROM products;

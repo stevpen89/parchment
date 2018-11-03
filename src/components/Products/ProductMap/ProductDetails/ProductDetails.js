@@ -23,15 +23,15 @@ class ProductDetails extends Component {
 				return <Link to={`/products/${sku}/inverted/customize`}>	<button>Customize Now</button>			</Link>}
 
 			else if	(this.props.match.path === "/products/:sku/binary"){
-				return <Link to={`/products/${sku}/binary/customize`}>		<button>Customize Now</button>			</Link>}
+				return <Link to={`/products/${sku}/binary/customize`}>		<button>Customize Now</button>	    </Link>}
 
 			else if	(this.props.match.path === "/products/:sku/single"){
-				return <Link to={`/products/${sku}/single/customize`}>		<button>Customize Now</button>			</Link>}
+				return <Link to={`/products/${sku}/single/customize`}>		<button>Customize Now</button>	    </Link>}
 				
 			else if	(this.props.match.path === "/products/:sku/baby"){
 				return <Link to={`/products/${sku}/baby/customize`}>			<button>Customize Now</button>			</Link>}
 			
-				else if	(this.props.match.path === "/products/:sku/holiday"){
+			else if	(this.props.match.path === "/products/:sku/holiday"){
 				return <Link to={`/products/${sku}/holiday/customize`}>			<button>Customize Now</button>		</Link>}
 				
 			else if	(this.props.match.path === "/products/:sku/journal"){

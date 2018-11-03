@@ -55,45 +55,49 @@ class Admin extends Component {
 		? 
 		<div className="add-wrapper">
 			<div className="type-selector-wrapper">
-				<div className="type-selector-option" onClick={()=>{this.selectType('journal')}}>J</div>
-				<div className="type-selector-option" onClick={()=>{this.selectType('babyblanket')}}>B</div>
-				<div className="type-selector-option" onClick={()=>{this.selectType('singleblanket')}}>S</div>
-				<div className="type-selector-option" onClick={()=>{this.selectType('crazyblanket')}}>C</div>
+				<div className="type-selector-J" onClick={()=>{this.selectType('journal')}}>J</div>
+				<div className="type-selector-B" onClick={()=>{this.selectType('babyblanket')}}>B</div>
+				<div className="type-selector-S" onClick={()=>{this.selectType('singleblanket')}}>S</div>
+				<div className="type-selector-C" onClick={()=>{this.selectType('crazyblanket')}}>C</div>
 			</div>
-			<div className="product-name-wrapper">
-				<div className="product-name-label">
+
+				<a className="product-name-label">
 					Product Name:
-				</div>
+				</a>
 				<input className="product-name-input" onChange={e=>this.handleName(e.target.value)} placeholder="Product Name Here..."/>
-			</div>
-			<div className="product-name-wrapper">
-				<div className="product-name-label">
+
+				<a className="product-name-label">
 					Product Price:
-				</div>
+				</a>
 				<input className="product-name-input" onChange={e=>this.handlePrice(e.target.value)} placeholder="Product Price Here..."/>
-			</div>
-			<div className="product-tags-wrapper">
-				<div className="product-tags-label-1">
+
+				<a className="product-tags-label-1">
 					Product Tags:
-				</div>
+				</a>
 				<input className="product-tags-input" onChange={(e)=>{this.handleTag(e.target.value)}} onKeyDown={this.keyPress} placeholder="Type Tag Here..." value={this.state.tagName} />
 				<button className="product-tags-label-2" onClick={()=>this.addToCurrentTags()}>Use Tag</button>
-			</div>
+
 			<div className="current-tags">
 				Current Tags: {this.state.currentTags.map(x=>` ${x} `)}
 			</div>
+
 			<div className="tag-button-wrapper">
 				<div className="tag-half"> Create Tag </div>
 				<div className="tag-half"> All Tags </div>
 			</div>
+
 			<div className="image-button-wrapper">
+
 				<div className="image-half">
 					Main Image 
 				</div>
+
 				<div className="image-half">
 					Thumbnails 
 				</div>
+
 			</div>
+
 		</div>
 		:
 		<div className="edit-wrapper">
@@ -103,13 +107,15 @@ class Admin extends Component {
 
 	render() {
 		return (
-			<div className = "admin-wrapper">
-				<div className="admin-selector-wrapper">
-					<div className="admin-selector" onClick={()=>this.selectMode('add')}>ADD</div>
-					<div className="admin-selector" onClick={()=>this.selectMode('edit')}>EDIT</div>
+			<div className="content">
+				<div className = "admin-wrapper">
+					<div className="admin-selector-wrapper">
+						<div className="admin-selector" onClick={()=>this.selectMode('add')}>ADD</div>
+						<div className="admin-selector" onClick={()=>this.selectMode('edit')}>EDIT</div>
+					</div>
+					{this.addOrEdit()}
+					<ImageUploader />
 				</div>
-				{this.addOrEdit()}
-				<ImageUploader />
 			</div>
 		)
 	}

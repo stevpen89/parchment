@@ -26,10 +26,18 @@ module.exports = {
 	search: (req, res) => {
 		const db = req.app.get('db');
 		const {tags} = req.body;
-		// res.status(200).send(tags[0])
 
 		db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
 			.then(product => res.status(200).send(product))
 			.catch(err => console.log(`Error Message: ${err}`))
+	},
+
+	addToCart: (req, res) => {
+		let tempCart = []
+		req.session.cart === undefined ? req.session.cart = [] : tempCart = [...req.session.cart]
+		tempCart.push(req.body)
+		req.session.cart = tempCart
+		console.log(tempCart)
+		res.status(200).send(req.session.cart)
 	}
 }

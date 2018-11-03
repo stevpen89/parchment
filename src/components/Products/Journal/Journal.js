@@ -1,47 +1,64 @@
 import React, { Component } from 'react';
 import './Journal.css';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { setCart } from '../../../ducks/products'
 
 class Journal extends Component {
 	constructor () {
 		super()
 		this.state = {
 			product:{},
-			loaded:false,
-			input1:'',
-			input2:'',
-			input3:'',
-			input4:'',
-			input5:'',
+			inputArr:[],
+			values:{},
+
 		}
 	}
 
 	componentDidMount () {
 		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
-			this.setState({loaded:true, product:res.data})
-		})
+      this.setState({inputArr: JSON.parse(res.data.o1)});
+    })
 	}
 
 	handleChange(target,val){
 		this.setState({[target]:val})
-		console.log(this.state)
-
 	}
 
+	inputMaker(){
+    <div className="journal-input">
+      <input placeholder=""/>
+    </div>      
+	}
+
+	updateInputArr (key, value) {
+		let tempValues = Object.assign({},this.state.values)
+		tempValues[key] = value;
+		this.setState({values: tempValues})
+	}
+
+	writeToSession () {
+		axios.post('/products/addtocart', this.state.values).then((res) =>
+			this.props.setCart(res.data)
+		)
+	}
 
 	render() {
-		const {product_image,o1} = this.state.product
+    const {inputArr} = this.state
 		return (
-			<div className="journal-content">
-				<div className="journal-image-holder">
-					<div style={{background: `url(${product_image}) center`, backgroundSize: `cover`}} className="journal-image"></div>
-				</div>
-				<div className="journal-right-menu">
-				{this.state.loaded ? JSON.parse(o1).map((x,y)=>{return <div className="journal-input-holder" key={y}>{x}<input onChange={(e)=>{this.handleChange(`input${y+1}`,e.target.value)}}/></div>}) : <div> Loaded = False</div>}
-				</div>
-			</div>
+      <div className="content">
+			  {inputArr.map((x, i) => {
+          return (
+            <div>
+              <input onChange={(e) => this.handleChange(`input${i+1}`, e.target.value)} onBlur={(e) => this.updateInputArr(x, e.target.value)}/>
+              <a> {x}</a>
+            </div>
+          )
+				})}
+				<button onClick={() => this.writeToSession()}>Save Changes</button>
+      </div>
 		)
 	}
 }
 
-export default Journal
+export default connect ( null, { setCart } )( Journal );

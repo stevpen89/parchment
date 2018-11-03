@@ -36,10 +36,11 @@ app.put    ( '/cards/:card_id',       cardsController.edit   );
 app.delete ( '/cards/:card_id',       cardsController.delete );
 
 //PRODUCTS ENDPOINTS
-app.get ( '/products',              productsController.readAll     );
-app.get ( '/products/:sku',         productsController.readSingle  );
-app.put ( '/products/journal/:sku', productsController.editJournal );
-app.put ( '/products/search',       productsController.search      );
+app.get  ( '/products',              productsController.readAll     );
+app.get  ( '/products/:sku',         productsController.readSingle  );
+app.put  ( '/products/journal/:sku', productsController.editJournal );
+app.put  ( '/products/search',       productsController.search      );
+app.post ( '/products/addtocart',    productsController.addToCart   );
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {
