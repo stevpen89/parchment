@@ -15,8 +15,11 @@ class ProductCard extends Component {
 			else if	(product_tags.tags.includes('single')){
 				return <Link to={`/products/${product_sku}/single`}>		<button>this is a single blanket</button>			</Link>}
 				
-			else if	(product_tags.tags.includes('baby')){
+				else if	(product_tags.tags.includes('baby')){
 				return <Link to={`/products/${product_sku}/baby`}>			<button>this is a baby blanket</button>				</Link>}
+				
+				else if	(product_tags.tags.includes('holiday')){
+				return <Link to={`/products/${product_sku}/holiday`}>		<button>this is a holiday blanket</button>		</Link>}
 				
 			else if	(product_tags.tags.includes('journal')){
 				return <Link to={`/products/${product_sku}/journal`}>		<button>this is a journal</button>						</Link>}

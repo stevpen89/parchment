@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Filters from './Filters/Filters'
 import ProductMap from './ProductMap/ProductMap'
+// import HolidayBlanket from './HolidayBlanket/HolidayBlanket';
+// import HolidayBlanket from './HolidayBlanket/HolidayBlanket'
 // import BabyBlanket from './BabyBlanket/BabyBlanket'
 // import CrazyBlanket from './CrazyBlanket/CrazyBlanket'
 // import BinaryBlanket from './BinaryBlanket/BinaryBlanket'

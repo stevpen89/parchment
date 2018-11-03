@@ -11,6 +11,7 @@ class Journal extends Component {
 			product:{},
 			inputArr:[],
 			values:{},
+
 		}
 	}
 
