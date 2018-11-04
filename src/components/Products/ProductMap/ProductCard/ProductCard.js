@@ -24,8 +24,8 @@ class ProductCard extends Component {
 			else if	(product_tags.tags.includes('journal')){
 				return <Link to={`/products/${product_sku}/journal`}>		<button>this is a journal</button>						</Link>}
 			
-			else
-				<div>internal error...</div>}
+			else {return (<div>internal error...</div>)}
+	}
 
 	contentRender(){
 		const {	product_name, product_image, product_desc, product_price } = this.props

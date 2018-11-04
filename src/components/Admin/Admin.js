@@ -17,7 +17,7 @@ class Admin extends Component {
 	}
 
 	keyPress(e) {
-		e.keyCode === 13 ? this.addToCurrentTags() : null
+		if(e.keyCode === 13) {this.addToCurrentTags()}
 	}
 
 	selectMode(val){

@@ -29,6 +29,7 @@
     "express-session": "^1.15.6",
     "lodash": "^4.17.11",
     "massive": "^5.5.0",
+    "moment": "^2.22.2",
     "rc-slider": "^8.6.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

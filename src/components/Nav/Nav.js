@@ -67,7 +67,7 @@ class Nav extends Component {
 	render() {
 		const { openMenu, openUserMenu, login, logout } = this
 		const { menuOpen, userMenuOpen, scrolled, refresh } = this.state
-		const { user_id, auth_picture } = this.props
+		const { user_id, auth_picture, userCart } = this.props
 		if (refresh) {
 		return (
 			<div>
@@ -76,7 +76,8 @@ class Nav extends Component {
 						<div className="nav-left" onClick={() => openMenu()}><i className="fas fa-bars menu-button menu-icon"></i></div>
 						<div><Link to="/"><img src={logo} alt="parchment" height="90px" className="menu-button"/></Link></div>
 						<div className="nav-right">
-							<i className="fas fa-shopping-bag menu-button menu-icon"></i>
+							<Link to="/cart"><i className="fas fa-shopping-bag menu-button menu-icon"></i></Link>
+							{userCart.length !== 0 ? <div className="shopping-bubble"><a>{userCart.length}</a></div> : null}
 							{
 								user_id ?
 								<div className="user-profile">
@@ -97,5 +98,5 @@ class Nav extends Component {
 	}
 }
 
-function mapStateToProps  ( state ) { return { user_id: state.auth0.user_id, auth_picture: state.auth0.auth_picture } };
+function mapStateToProps  ( state ) { return { user_id: state.auth0.user_id, auth_picture: state.auth0.auth_picture, userCart: state.products.userCart } };
 export default withRouter ( connect ( mapStateToProps, { setUser, deleteUser } )(Nav) );

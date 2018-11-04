@@ -41,6 +41,7 @@ app.get  ( '/products/:sku',         productsController.readSingle  );
 app.put  ( '/products/journal/:sku', productsController.editJournal );
 app.put  ( '/products/search',       productsController.search      );
 app.post ( '/products/addtocart',    productsController.addToCart   );
+app.put  ( '/products/rewritecart',  productsController.rewriteCart );
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {

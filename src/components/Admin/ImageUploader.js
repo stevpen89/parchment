@@ -28,8 +28,6 @@ class ImageUploader extends Component {
     }).then( (response) => {
       const { signedRequest, url } = response.data 
       this.uploadFile(file, signedRequest, url)
-    }).catch( err => {
-      console.log(err)
     })
   }
 

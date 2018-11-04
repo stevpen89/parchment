@@ -29,7 +29,7 @@ class HolidayBlanket extends Component {
 	// *** currently not hooked up *** ... wasn't sure if we were sending this to server or redux?
 
 	addToCart(){
-		console.log(`${this.state.input1} added to cart`)
+		// console.log(`${this.state.input1} added to cart`)
 	}
 
 	render() {

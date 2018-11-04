@@ -37,7 +37,13 @@ module.exports = {
 		req.session.cart === undefined ? req.session.cart = [] : tempCart = [...req.session.cart]
 		tempCart.push(req.body)
 		req.session.cart = tempCart
-		console.log(tempCart)
+		console.log(req.session.cart)
 		res.status(200).send(req.session.cart)
-	}
+	},
+
+	rewriteCart: (req, res) => {
+		req.session.cart = req.body
+		console.log(req.session.cart)
+		res.status(200).send(req.session.cart)
+	},
 }

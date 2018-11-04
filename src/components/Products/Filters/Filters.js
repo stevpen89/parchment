@@ -80,7 +80,7 @@ class Filters extends Component {
 	}
 
 	keyPress(e) {
-		e.keyCode === 13 ? this.addTag() : null
+		if (e.keyCode === 13) {this.addTag()}
 	}	
 
 	handleInput (val) {

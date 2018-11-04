@@ -37,8 +37,7 @@ class ProductDetails extends Component {
 			else if	(this.props.match.path === "/products/:sku/journal"){
 				return <Link to={`/products/${sku}/journal/customize`}>		<button>Customize Now</button>			</Link>}
 			
-			else
-				<div>product not found...</div>
+			else {return (<div>product not found...</div>)}
 	}
 
 	render() {

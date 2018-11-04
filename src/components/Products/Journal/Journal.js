@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Journal.css';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { setCart } from '../../../ducks/products'
 
@@ -11,14 +12,13 @@ class Journal extends Component {
 			product:{},
 			inputArr:[],
 			values:{},
-
 		}
 	}
 
 	componentDidMount () {
 		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
-      this.setState({inputArr: JSON.parse(res.data.o1)});
-    })
+      this.setState({inputArr: JSON.parse(res.data.o1), product: res.data});
+		})
 	}
 
 	handleChange(target,val){
@@ -26,25 +26,29 @@ class Journal extends Component {
 	}
 
 	inputMaker(){
+		return (
     <div className="journal-input">
       <input placeholder=""/>
     </div>      
+		)
 	}
 
 	updateInputArr (key, value) {
-		let tempValues = Object.assign({},this.state.values)
+		let tempValues = Object.assign({}, this.state.values)
 		tempValues[key] = value;
 		this.setState({values: tempValues})
 	}
 
 	writeToSession () {
-		axios.post('/products/addtocart', this.state.values).then((res) =>
+		axios.post('/products/addtocart', 
+			{details: this.state.product, info: this.state.values}
+		).then((res) =>
 			this.props.setCart(res.data)
 		)
 	}
 
 	render() {
-    const {inputArr} = this.state
+		const {inputArr} = this.state
 		return (
       <div className="content">
 			  {inputArr.map((x, i) => {
@@ -61,4 +65,4 @@ class Journal extends Component {
 	}
 }
 
-export default connect ( null, { setCart } )( Journal );
+export default withRouter ( connect ( null, { setCart } )( Journal ) );
