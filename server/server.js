@@ -5,6 +5,7 @@ const //CONTROLLERS
       s3Controller       = require ( './controllers/s3Controller'    ),
       cardsController    = require ( './controllers/cardsController' )
       productsController = require ( './controllers/productsController' )
+      mailgunController  = require ( './controllers/mailgunController')
       //NODE MODULES
       express            = require ( 'express'         ),
       session            = require ( 'express-session' ),
@@ -12,8 +13,9 @@ const //CONTROLLERS
       massive            = require ( 'massive'         )
                            require ( 'dotenv' ).config();
 
+
 //SERVER SETUP
-const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
+const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env;
 const app = express();
 
 //MIDDLEWARE
@@ -41,6 +43,9 @@ app.get  ( '/products/:sku',         productsController.readSingle  );
 app.put  ( '/products/journal/:sku', productsController.editJournal );
 app.put  ( '/products/search',       productsController.search      );
 app.post ( '/products/addtocart',    productsController.addToCart   );
+
+//MAILGUN ENDPOINTS
+app.post(  '/api/mail', mailgunController.send);
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {
