@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ImageUploader from './ImageUploader'
 import './Admin.css'
+import Tools from './Tools/Tools'
 
 class Admin extends Component {
 	constructor(){
@@ -114,7 +115,9 @@ class Admin extends Component {
 						<div className="admin-selector" onClick={()=>this.selectMode('edit')}>EDIT</div>
 					</div>
 					{this.addOrEdit()}
+					<Tools/>
 					<ImageUploader />
+					
 				</div>
 			</div>
 		)
