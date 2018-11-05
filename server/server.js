@@ -51,7 +51,7 @@ app.put  ( '/products/rewritecart',  productsController.rewriteCart );
 app.post(  '/api/mail', mailgunController.send);
 
 //STRIPE ENDPOINT
-app.post("/charge", async (req, res) => {
+app.post("/api/charge", async (req, res) => {
   try {
     let {status} = await stripe.charges.create({
       amount: 2000,

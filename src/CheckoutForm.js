@@ -12,7 +12,7 @@ class CheckoutForm extends Component {
 
   async submit(ev) {
 		let {token} = await this.props.stripe.createToken({name: "Name"});
-		let response = await fetch("/charge", {
+		let response = await fetch("/api/charge", {
 			method: "POST",
 			headers: {"Content-Type": "text/plain"},
 			body: token.id
@@ -25,11 +25,13 @@ class CheckoutForm extends Component {
   render() {
 		if (this.state.complete) return <h1>Purchase Complete</h1>;
     return (
-      <div className="checkout">
-        <p>Would you like to complete the purchase?</p>
-        <CardElement />
-        <button onClick={this.submit}>Send</button>
-      </div>
+			<div className="content" style={{display:"flex"}}>
+				<div className="checkout">
+					<p>Would you like to complete the purchase?</p>
+					<CardElement />
+				</div>
+					<button onClick={this.submit} style={{height:"200px", width:"1000px"}}>CLICK ME CLICK ME CLICK ME CLICK ME CLICK ME</button>
+			</div>
     );
   }
 }
