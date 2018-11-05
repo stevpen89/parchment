@@ -17,16 +17,21 @@ import Journal        from './components/Products/Journal/Journal'
 import ProductDetails from './components/Products/ProductMap/ProductDetails/ProductDetails'
 import Admin          from './components/Admin/Admin'
 import Cart           from './components/Cart/Cart'
-import Checkout       from './components/Cart/Checkout/Checkout'
+import Checkout from './components/Checkout'
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CheckoutForm from './CheckoutForm';
 
 class App extends Component {
   render() {
     return (
+      <StripeProvider apiKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}>
       <frosted-glass-container>
         <div className="app">
           <Nav />
           <Switch>
-            <Route exact path = "/"                                 component={Home}    />
+            <Elements>
+              <Route exact path = "/"                                 component={Home}    />
+            </Elements>
             <Route exact path = "/products"                         component={Products}/>
             <Route exact path = "/products/:type"                   component={Products}/>
             <Route exact path = "/products/:sku/inverted"           component={ProductDetails}/>
@@ -50,6 +55,7 @@ class App extends Component {
           <Footer />
         </div>
       </frosted-glass-container>
+      </StripeProvider>
     );
   }
 }
