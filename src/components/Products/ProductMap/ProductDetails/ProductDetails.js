@@ -19,47 +19,37 @@ class ProductDetails extends Component {
 
 	editorSwitch(){
 		const {sku} = this.props.match.params
-			if			(this.props.match.path === "/products/:sku/inverted"){
-				return <Link to={`/products/${sku}/inverted/customize`}>	<button>Customize Now</button>			</Link>}
-
-			else if	(this.props.match.path === "/products/:sku/binary"){
-				return <Link to={`/products/${sku}/binary/customize`}>		<button>Customize Now</button>	    </Link>}
-
-			else if	(this.props.match.path === "/products/:sku/single"){
-				return <Link to={`/products/${sku}/single/customize`}>		<button>Customize Now</button>	    </Link>}
-				
-			else if	(this.props.match.path === "/products/:sku/baby"){
-				return <Link to={`/products/${sku}/baby/customize`}>			<button>Customize Now</button>			</Link>}
-			
-			else if	(this.props.match.path === "/products/:sku/holiday"){
-				return <Link to={`/products/${sku}/holiday/customize`}>			<button>Customize Now</button>		</Link>}
-				
-			else if	(this.props.match.path === "/products/:sku/journal"){
-				return <Link to={`/products/${sku}/journal/customize`}>		<button>Customize Now</button>			</Link>}
-			
-			else {return (<div>product not found...</div>)}
+			switch (this.props.match.path) {
+				case "/products/:sku/inverted" : return <Link to={ `/products/${sku}/inverted/customize` }><button>Customize Now</button></Link>
+				case "/products/:sku/binary"   : return <Link to={ `/products/${sku}/binary/customize`   }><button>Customize Now</button></Link>
+				case "/products/:sku/single"   : return <Link to={ `/products/${sku}/single/customize`   }><button>Customize Now</button></Link>
+				case "/products/:sku/baby"     : return <Link to={ `/products/${sku}/baby/customize`     }><button>Customize Now</button></Link>
+				case "/products/:sku/holiday"  : return <Link to={ `/products/${sku}/holiday/customize`  }><button>Customize Now</button></Link>
+				case "/products/:sku/journal"  : return <Link to={ `/products/${sku}/journal/customize`  }><button>Customize Now</button></Link>
+				default                        : return (<div>product not found...</div>)
+			}
 	}
 
 	render() {
-		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_tags } = this.state.product
+		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_shipping, product_tags } = this.state.product
 		return (
 			<div className="content">
 				<div className="details-container">
 					<div className="details-image-container" style={{backgroundImage: `url(${product_image})`, backgroundSize: `cover`, backgroundPosition: `center`}}>
-					<div className="details-thumbnail-wrapper">
+					{/* <div className="details-thumbnail-wrapper">
 						{product_thumbs
 							? product_thumbs.thumbnails.map((x,y)=>
 							<div className="details-product-thumbnail" key={y}>{x}</div>) 
 							: null}
-					</div>
+					</div> */}
 					</div>
 					<div className="details-product-information">
 						{product_thumbs ? 
 						<div>
 							<div className="details-product-data">SKU: {product_sku}</div>
 							<div className="details-product-data">{product_desc}</div>
-							<div className="details-product-data">{product_image}</div>
-							<div className="details-product-data">{product_price}</div>
+							<div className="details-product-data">Price: ${product_price}</div>
+							<div className="details-product-data">Shipping: ${product_shipping}</div>
 							<div className="details-product-data">
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
 							</div>

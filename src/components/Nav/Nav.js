@@ -34,10 +34,10 @@ class Nav extends Component {
 	}
 
 	//watches for changing url, if seen, refresh the menu
-	componentWillMount() { this.unlisten = this.props.history.listen((location, action) => {this.refreshMenu()}) }
+	// componentWillMount() { this.unlisten = this.props.history.listen((location, action) => {this.refreshMenu()}) }
 
 	//unmounts the url listener
-	componentWillUnmount() { this.unlisten() }
+	// componentWillUnmount() { this.unlisten() }
 
   //authZero
   login() {
@@ -72,7 +72,8 @@ class Nav extends Component {
 		if (refresh) {
 		return (
 			<div>
-				<frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount={scrolled ? `.75rem` : `.75rem`} class="nav-container">
+				<div class="nav-container transparent">
+				{/* <frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount={scrolled ? `.75rem` : `.75rem`} class="nav-container"> */}
 					<div className="nav">
 						<div className="nav-left" onClick={() => openMenu()}><i className="fas fa-bars menu-button menu-icon"></i></div>
 						<div><Link to="/"><img src={logo} alt="parchment" height="90px" className="menu-button"/></Link></div>
@@ -90,7 +91,7 @@ class Nav extends Component {
 							}
 						</div>
 					</div>
-				</frosted-glass>
+				</div>
 				<Menu menuOpen={menuOpen}/>
 				<UserMenu userMenuOpen={userMenuOpen} logout={logout}/>
 			</div>
