@@ -16,7 +16,10 @@ class Cart extends Component {
 
 	render() {
 		const { userCart } = this.props
-		console.log(userCart)
+		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
+		let shipping = userCart.reduce((a, x) => a + x.details.product_shipping, 0);
+		let total = sum + shipping;
+
 		if (userCart.length > 0) {
 			return (
 				<div className="content">
@@ -29,10 +32,11 @@ class Cart extends Component {
 											<a>{x.details.product_name} </a>
 										</div>
 										<div className="cart-item-details">
-											<a>SKU: {x.details.product_sku}</a>
-											<a>Description: {x.details.product_desc}</a>
-											<a>Info: {JSON.stringify(x.info)}</a>
-											<a>Price: ${x.details.product_price}</a>
+											<div>
+												<a>Price: ${x.details.product_sale ? x.details.product_sale : x.details.product_price}
+												{x.details.product_shipping > 0 ? ` + ${x.details.product_shipping} in shipping` : null}</a>
+											</div>
+											<a>{x.details.product_desc}</a>
 										</div>
 										<div className="card-item-delete">
 											<button onClick={() => this.deleteItem(i)}>X</button>
@@ -42,7 +46,9 @@ class Cart extends Component {
 							})}
 					</div>
 					<div>
-						<a>Total: ${userCart.reduce((a, x) => a + x.details.product_price, 0)}</a><br />
+						<a>Subtotal: ${sum.toFixed(2)}</a><br />
+						<a>Shipping: ${shipping.toFixed(2)}</a><br />
+						<a>Total: ${total.toFixed(2)}</a><br />
 						<Link to="/checkout"><button className="checkout-button">Checkout</button></Link>
 					</div>
 					</div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ImageUploader from './ImageUploader'
 import './Admin.css'
 import Tools from './Tools/Tools'
+import { connect } from 'react-redux';
 
 class Admin extends Component {
 	constructor(){
@@ -107,21 +108,25 @@ class Admin extends Component {
 	}
 
 	render() {
-		return (
-			<div className="content">
-				<div className = "admin-wrapper">
-					<div className="admin-selector-wrapper">
-						<div className="admin-selector" onClick={()=>this.selectMode('add')}>ADD</div>
-						<div className="admin-selector" onClick={()=>this.selectMode('edit')}>EDIT</div>
+		if (this.props.user_admin === 'admin') {
+			return (
+				<div className="content">
+					<div className = "admin-wrapper">
+						<div className="admin-selector-wrapper">
+							<div className="admin-selector" onClick={()=>this.selectMode('add')}>ADD</div>
+							<div className="admin-selector" onClick={()=>this.selectMode('edit')}>EDIT</div>
+						</div>
+						{this.addOrEdit()}
+						<Tools/>
+						<ImageUploader />
+						
 					</div>
-					{this.addOrEdit()}
-					<Tools/>
-					<ImageUploader />
-					
 				</div>
-			</div>
-		)
+			)
+		}
+		else return (<div></div>)
 	}
 }
 
-export default Admin
+function mapStateToProps  ( state ) { return { user_admin: state.auth0.user_admin } };
+export default connect ( mapStateToProps )( Admin );

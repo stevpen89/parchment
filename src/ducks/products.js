@@ -7,9 +7,12 @@ const initialState = {
       product_image: 'https://images.unsplash.com/photo-1540889539617-6236fa68e2f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64923c5e7a9e7b435b9058949a2cb5d8&auto=format&fit=crop&w=400&q=80',
       product_thumbs: [Object],
       product_desc: 'ultra fuzzy soft lorem ipsum blanket waifu...',
+      product_type: 'journal',
       product_price: 12.99,
+      product_sale: 3.99,
+      product_shipping: 0,
       o1: '["title","subtitle","date"]' },
-   info: { title: 'hi', subtitle: 'hi', date: 'hi' } },
+   info: { title: '1', subtitle: '1', date: '1' } },
  { details:
     { product_sku: 3,
       product_name: 'Personalized Missionary Journal',
@@ -17,19 +20,25 @@ const initialState = {
       product_image: 'https://images.unsplash.com/photo-1540889539617-6236fa68e2f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64923c5e7a9e7b435b9058949a2cb5d8&auto=format&fit=crop&w=400&q=80',
       product_thumbs: [Object],
       product_desc: 'ultra fuzzy soft lorem ipsum blanket waifu...',
+      product_type: 'journal',
       product_price: 12.99,
+      product_sale: null,
+      product_shipping: 3.99,
       o1: '["title","subtitle","date"]' },
-   info: { title: 'ho', subtitle: 'ho', date: 'ho' } },
+   info: { title: '2', subtitle: '2', date: '2' } },
  { details:
     { product_sku: 3,
       product_name: 'Personalized Missionary Journal',
       product_tags: [Object],
-      product_image: 'https://images.unsplash.com/photo-1540889539617-6236fa68e2f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64aWQiOjEyMDd9&s=64923c5e7a9e7b435b9058949a2cb5d8&auto=format&fit=crop&w=400&q=80',
+      product_image: 'https://images.unsplash.com/photo-1540889539617-6236fa68e2f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64923c5e7a9e7b435b9058949a2cb5d8&auto=format&fit=crop&w=400&q=80',
       product_thumbs: [Object],
       product_desc: 'ultra fuzzy soft lorem ipsum blanket waifu...',
+      product_type: 'journal',
       product_price: 12.99,
+      product_sale: null,
+      product_shipping: 3.99,
       o1: '["title","subtitle","date"]' },
-   info: { title: 'he', subtitle: 'he', date: 'he' } } ]
+   info: { title: '3', subtitle: '3', date: '3' } } ]
 }
 
 const SET_PRODUCTS = "SET_PRODUCTS";

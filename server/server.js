@@ -1,11 +1,12 @@
 // DEPENDENCIES
 
 const //CONTROLLERS
-      auth0Controller    = require ( './controllers/auth0Controller' ),
-      s3Controller       = require ( './controllers/s3Controller'    ),
-      cardsController    = require ( './controllers/cardsController' )
-      productsController = require ( './controllers/productsController' )
-      mailgunController  = require ( './controllers/mailgunController')
+      auth0Controller    = require ( './controllers/auth0Controller'    ),
+      s3Controller       = require ( './controllers/s3Controller'       ),
+      cardsController    = require ( './controllers/cardsController'    ),
+      productsController = require ( './controllers/productsController' ),
+      ordersController   = require ( './controllers/ordersController'   ),
+      mailgunController  = require ( './controllers/mailgunController'  ),
       //NODE MODULES
       express            = require ( 'express'         ),
       session            = require ( 'express-session' ),
@@ -45,8 +46,13 @@ app.put  ( '/products/search',       productsController.search      );
 app.post ( '/products/addtocart',    productsController.addToCart   );
 app.put  ( '/products/rewritecart',  productsController.rewriteCart );
 
+//ORDERS ENDPOINTS
+app.post ( '/orders', ordersController.create );
+
 //MAILGUN ENDPOINTS
-app.post(  '/api/mail', mailgunController.send);
+app.post(  '/api/mail',          mailgunController.send         );
+app.post(  '/api/mail/customer', mailgunController.sendCustomer );
+app.post(  '/api/mail/admin',    mailgunController.sendAdmin    );
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {
