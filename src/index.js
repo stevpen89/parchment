@@ -7,7 +7,7 @@ import {HashRouter} from 'react-router-dom'
 import {StripeProvider} from 'react-stripe-elements';
 import store from './ducks/store'
 // import registerServiceWorker from './registerServiceWorker';
-import unregister from './registerServiceWorker';
+// import unregister from './registerServiceWorker';
 
 ReactDOM.render(
 <Provider store={store}>
@@ -19,4 +19,4 @@ ReactDOM.render(
 </Provider>
 
 , document.getElementById('root'));
-unregister();
+// unregister();
