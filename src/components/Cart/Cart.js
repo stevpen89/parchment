@@ -39,7 +39,7 @@ class Cart extends Component {
 											<a>{x.details.product_desc}</a>
 										</div>
 										<div className="card-item-delete">
-											<button onClick={() => this.deleteItem(i)}>X</button>
+											<button onClick={() => this.deleteItem(i)}><i class="fas fa-times"></i></button>
 										</div>
 									</div>
 								)

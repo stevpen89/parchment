@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
-import './SingleBlanket.css'
-import { savedMessage, setSingle, setSingleID } from '../../../ducks/familyTree'
-import axios from 'axios'
-import SingleCard from './SingleCard'
-import {connect} from 'react-redux'
+import React, { Component } from 'react';
+import './SingleBlanket.css';
+import { withRouter } from 'react-router-dom';
+import { savedMessage, setSingle, setSingleID } from '../../../ducks/familyTree';
+import { setCart } from '../../../ducks/products';
+import axios from 'axios';
+import SingleCard from './SingleCard';
+import {connect} from 'react-redux';
 
 class SingleBlanket extends Component {
 	constructor(){
@@ -29,6 +31,7 @@ class SingleBlanket extends Component {
 		}
 		this.saveChanges = this.saveChanges.bind(this);
 		this.savedMessage = this.savedMessage.bind(this);
+		this.writeToSession = this.writeToSession.bind(this);
 	}
 
 	componentDidMount() {
@@ -60,18 +63,26 @@ class SingleBlanket extends Component {
 					spouse_birth : null,
 					spouse_death : null,
 					o1           : this.state
-			}).then(() => this.savedMessage())
+			}).then(() => {this.savedMessage(); this.writeToSession()})
 		:
 			axios.post(`/cards/${user_id}`, {
 				tree_type    : 'single',
 				parent_id    : null,
 				o1           : this.state
-		}).then(() => this.savedMessage())
+		}).then(() => {this.savedMessage(); this.writeToSession()})
 	}
 
 	savedMessage () {
 		this.props.savedMessage()
 		setTimeout(() => {this.props.savedMessage()}, 3000);
+	}
+
+	writeToSession () {
+    axios.get(`/products/${this.props.match.params.sku}`)
+      .then((res)=>{
+        axios.post('/products/addtocart', {details: res.data, info: this.state})
+          .then((res2) => this.props.setCart(res2.data))
+		  })
 	}
 
 	render() {
@@ -162,9 +173,9 @@ class SingleBlanket extends Component {
 					</div>
 
 					<div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
-					<frosted-glass overlay-color="rgba(255,255,255,.25)" blur-amount=".5rem" class="saved-message-container" style={saved ? {opacity: `1`} : {opacity: `0`}}>
+					<div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
 						<div className="saved-message"><a>Changes Saved</a></div>
-					</frosted-glass>
+					</div>
 					
 				</div>
 			</div>
@@ -180,4 +191,4 @@ function mapStateToProps ( state ) {
 		singleID     : state.familyTree.singleID,
 	}
 };
-export default connect ( mapStateToProps, { savedMessage, setSingle, setSingleID } )( SingleBlanket );
+export default withRouter ( connect ( mapStateToProps, { savedMessage, setSingle, setSingleID, setCart } )( SingleBlanket ) );

@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { savedMessage, setBinary, setBinaryID } from '../../../ducks/familyTree'
-import axios from 'axios'
-import './BinaryBlanket.css'
-import PairCard from './PairCard'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { savedMessage, setBinary, setBinaryID } from '../../../ducks/familyTree';
+import { setCart } from '../../../ducks/products';
+import axios from 'axios';
+import './BinaryBlanket.css';
+import PairCard from './PairCard';
 
 class BinaryBlanket extends Component {
 	constructor(){
@@ -69,25 +71,33 @@ class BinaryBlanket extends Component {
 		const { user_id, binaryExists, binaryID } = this.props
 		binaryExists ?
 			axios.put(`/cards/${binaryID}`, {
-					card_name    : null,
-					card_birth   : null,
-					card_death   : null,
-					spouse_name  : null,
-					spouse_birth : null,
-					spouse_death : null,
-					o1           : this.state
-			}).then(() => this.savedMessage())
+        card_name    : null,
+        card_birth   : null,
+        card_death   : null,
+        spouse_name  : null,
+        spouse_birth : null,
+        spouse_death : null,
+        o1           : this.state
+			}).then(() => {this.savedMessage(); this.writeToSession()})
 		:
 			axios.post(`/cards/${user_id}`, {
 				tree_type    : 'binary',
 				parent_id    : null,
 				o1           : this.state
-		}).then(() => this.savedMessage())
+		}).then(() => {this.savedMessage(); this.writeToSession()})
 	}
 
 	savedMessage () {
 		this.props.savedMessage()
 		setTimeout(() => {this.props.savedMessage()}, 3000);
+  }
+  
+  writeToSession () {
+    axios.get(`/products/${this.props.match.params.sku}`)
+      .then((res)=>{
+        axios.post('/products/addtocart', {details: res.data, info: this.state})
+          .then((res2) => this.props.setCart(res2.data))
+		  })
 	}
 
 	render() {
@@ -193,10 +203,9 @@ class BinaryBlanket extends Component {
           </div>
 
           <div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
-          <frosted-glass overlay-color="rgba(255,255,255,.25)" blur-amount=".5rem" class="saved-message-container" style={saved ? {opacity: `1`} : {opacity: `0`}}>
-            <div className="saved-message"><a>Changes Saved</a></div>
-          </frosted-glass>
-          
+            <div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
+              <div className="saved-message"><a>Changes Saved</a></div>
+            </div>
         </div>
       </div>
 		)
@@ -211,4 +220,4 @@ function mapStateToProps ( state ) {
 		binaryID     : state.familyTree.binaryID,
 	}
 };
-export default connect ( mapStateToProps, { savedMessage, setBinary, setBinaryID } )( BinaryBlanket );
+export default withRouter ( connect ( mapStateToProps, { savedMessage, setBinary, setBinaryID, setCart } )( BinaryBlanket ) );

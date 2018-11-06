@@ -3,4 +3,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	background: rgba(0,0,0,.15);
+	padding: 90px 0 30px 0;
+	min-height: calc(100vh - 150px);
 }
