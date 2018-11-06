@@ -16,8 +16,10 @@ const //CONTROLLERS
 
 
 //SERVER SETUP
-const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env;
+const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING, STRIPE_SECRET_KEY} = process.env;
 const app = express();
+//STRIPE LIVES!!!
+const stripe = require("stripe")(STRIPE_SECRET_KEY);
 
 //MIDDLEWARE
 app.use ( express.static(`${__dirname}/../build`) );
@@ -53,6 +55,22 @@ app.post ( '/orders', ordersController.create );
 app.post(  '/api/mail',          mailgunController.send         );
 app.post(  '/api/mail/customer', mailgunController.sendCustomer );
 app.post(  '/api/mail/admin',    mailgunController.sendAdmin    );
+
+//STRIPE ENDPOINT
+app.post("/api/charge", async (req, res) => {
+  try {
+    let {status} = await stripe.charges.create({
+      amount: 2000,
+      currency: "usd",
+      description: "An example charge",
+      source: req.body
+    });
+
+    res.json({status});
+  } catch (err) {
+    res.status(500).end();
+  }
+});
 
 //RUN THE SERVER
 massive(CONNECTION_STRING).then(db => {
