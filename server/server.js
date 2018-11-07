@@ -42,9 +42,10 @@ app.delete ( '/cards/:card_id',       cardsController.delete );
 
 //PRODUCTS ENDPOINTS
 app.get  ( '/products',              productsController.readAll     );
-app.get  ( '/products/:sku',         productsController.readSingle  );
+app.get  ( '/products/single/:sku',  productsController.readSingle  );
 app.put  ( '/products/journal/:sku', productsController.editJournal );
 app.put  ( '/products/search',       productsController.search      );
+app.get  ( '/products/readcart',     productsController.readCart    );
 app.post ( '/products/addtocart',    productsController.addToCart   );
 app.put  ( '/products/rewritecart',  productsController.rewriteCart );
 

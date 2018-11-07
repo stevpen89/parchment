@@ -16,7 +16,7 @@ class Journal extends Component {
 	}
 
 	componentDidMount () {
-		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
+		axios.get(`/products/single/${this.props.match.params.sku}`).then((res)=>{
       this.setState({inputArr: JSON.parse(res.data.o1), product: res.data});
 		})
 	}

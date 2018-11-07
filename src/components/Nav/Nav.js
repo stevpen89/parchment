@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setUser, deleteUser } from '../../ducks/auth0'
+import { setCart } from '../../ducks/products'
 import axios from 'axios'
 import Menu from './Menu/Menu'
 import UserMenu from './UserMenu/UserMenu'
@@ -27,7 +28,8 @@ class Nav extends Component {
 
 	componentDidMount() {
 		//writes the user object to redux
-		axios.get('/api/user-data').then(response => this.props.setUser(response.data));
+		axios.get('/api/user-data').then(res => this.props.setUser(res.data));
+		axios.get('/products/readcart').then(res => this.props.setCart(res.data));
 
 		//detects if user is at the top of the page or not
 		this.scrollPage();
@@ -67,7 +69,7 @@ class Nav extends Component {
 
 	render() {
 		const { openMenu, openUserMenu, login, logout } = this
-		const { menuOpen, userMenuOpen, scrolled, refresh } = this.state
+		const { menuOpen, userMenuOpen, refresh } = this.state
 		const { user_id, auth_picture, userCart } = this.props
 		if (refresh) {
 		return (
@@ -101,4 +103,4 @@ class Nav extends Component {
 }
 
 function mapStateToProps  ( state ) { return { user_id: state.auth0.user_id, auth_picture: state.auth0.auth_picture, userCart: state.products.userCart } };
-export default withRouter ( connect ( mapStateToProps, { setUser, deleteUser } )(Nav) );
+export default withRouter ( connect ( mapStateToProps, { setUser, deleteUser, setCart } )(Nav) );

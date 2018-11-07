@@ -6,11 +6,13 @@ module.exports = {
 			.catch(err => console.log(`Error Message: ${err}`))
 	},
 
-	readSingle: (req,res)=>{
+	readSingle: (req, res) => {
 		const db = req.app.get('db');
-		db.products.products_get_single([req.params.sku])
-		.then(products=> res.status(200).send(products[0]))
-		.catch(err => console.log(`Error Message: ${err}`))
+		const {sku} = req.params;
+
+		db.products.products_get_single([sku])
+			.then(products => res.status(200).send(products[0]))
+			.catch(err => console.log(`Error Message: ${err}`))
 	},
 
 	editJournal: (req, res) => {
@@ -30,6 +32,10 @@ module.exports = {
 		db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
 			.then(product => res.status(200).send(product))
 			.catch(err => console.log(`Error Message: ${err}`))
+	},
+
+	readCart: (req, res) => {
+		req.session.cart ? res.status(200).send(req.session.cart) : res.status(200).send([]);
 	},
 
 	addToCart: (req, res) => {

@@ -12,7 +12,7 @@ class ProductDetails extends Component {
 	}
 
 	componentDidMount(){
-		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
+		axios.get(`/products/single/${this.props.match.params.sku}`).then((res)=>{
 			this.setState({product:res.data})
 		})
 	}
