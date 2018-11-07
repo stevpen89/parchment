@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCart } from '../../../ducks/products';
 import StripeCheckout from 'react-stripe-checkout';
@@ -27,8 +27,10 @@ class Checkout extends Component {
 	componentDidMount () {
 		const { userCart} = this.props;
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
-		let shipping = userCart.reduce((a, x) => a + x.details.product_shipping, 0);
-		let total = sum + shipping;
+		let shipping = false 
+		userCart.map((x)=>{return x.details.product_type === 'journal' ? shipping = true : null});
+		let total = sum + (shipping === true ? 3.99 : 0);
+		console.log(total)
 		this.setState({total})
 		if (this.props.userCart.length <= 0) {this.props.history.push('/cart')}
 
@@ -46,8 +48,9 @@ class Checkout extends Component {
 		const { userCart, userID } = this.props;
 		const { firstName, lastName, email, address, city, state, zip, phone } = this.state;
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
-		let shipping = userCart.reduce((a, x) => a + x.details.product_shipping, 0);
-		let total = sum + shipping;
+		let shipping = false 
+		userCart.map((x)=>{return x.details.product_type === 'journal' ? shipping = true : null})
+		let total = sum + (shipping === true ? 3.99 : 0);
 		let time = moment().format('MMMM Do YYYY, h:mm:ss a')
 
 		let products = userCart.map((x) => {
@@ -56,7 +59,7 @@ class Checkout extends Component {
 				name     : x.details.product_name,
 				image    : x.details.product_image,
 				price    : x.details.product_sale ? x.details.product_sale.toFixed(2) : x.details.product_price.toFixed(2),
-				shipping : x.details.product_shipping.toFixed(2),
+				shipping : (shipping === true ? 3.99 : 0).toFixed(2),
 				type     : x.details.product_type,
 				info     : x.info
 			}
@@ -136,7 +139,7 @@ class Checkout extends Component {
 					image="https://s3-us-west-1.amazonaws.com/parchmentgoods/logo/logo.png"
 					token={this.onToken}
 					stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
-					amount={Math.floor(this.state.total * 100)}
+					amount={(this.state.total * 100)}
 				/>
 			</div>
 		)

@@ -17,8 +17,10 @@ class Cart extends Component {
 	render() {
 		const { userCart } = this.props
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
-		let shipping = userCart.reduce((a, x) => a + x.details.product_shipping, 0);
-		let total = sum + shipping;
+		let shipping = false 
+		userCart.map((x)=>{return x.details.product_type === 'journal' ? shipping = true : null})
+		let total = sum + (shipping === true ? 3.99 : 0);
+		console.log(userCart)
 
 		if (userCart.length > 0) {
 			return (
@@ -33,8 +35,10 @@ class Cart extends Component {
 										</div>
 										<div className="cart-item-details">
 											<div>
-												<a>Price: ${x.details.product_sale ? x.details.product_sale : x.details.product_price}
-												{x.details.product_shipping > 0 ? ` + ${x.details.product_shipping} in shipping` : null}</a>
+												{x.details.product_sale 
+													? <div><a style={{textDecoration:'line-through', color:'red'}}>{`Price: $${x.details.product_price}`}</a><br/>
+														<a>{`Sale: $${x.details.product_sale}`}</a></div> 
+													: <div><a>{`Price: $${x.details.product_price}`}</a></div>}
 											</div>
 											<a>{x.details.product_desc}</a>
 										</div>
@@ -47,7 +51,7 @@ class Cart extends Component {
 					</div>
 					<div>
 						<a>Subtotal: ${sum.toFixed(2)}</a><br />
-						<a>Shipping: ${shipping.toFixed(2)}</a><br />
+						<a>Shipping: ${(shipping === true ? 3.99 : 0).toFixed(2)}</a><br />
 						<a>Total: ${total.toFixed(2)}</a><br />
 						<Link to="/checkout"><button className="checkout-button">Checkout</button></Link>
 					</div>
