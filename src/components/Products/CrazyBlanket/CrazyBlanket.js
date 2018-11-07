@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import axios from 'axios'
-import CrazyCard from './CrazyCard'
-import './CrazyBlanket.css'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { setCart } from '../../../ducks/products';
+import axios from 'axios';
+import CrazyCard from './CrazyCard';
+import './CrazyBlanket.css';
 
 class CrazyBlanket extends Component {
 	constructor () {
@@ -93,14 +95,33 @@ class CrazyBlanket extends Component {
 			.then(() => this.updateFamilyTree());
 	}
 
-
+	//refreshes the tree for any changes
 	refresh () { setTimeout(() => {this.setState({refresh: false})}, 0); setTimeout(() => {this.setState({refresh: true})}, 0) }
 
+	//adds the final item to the cart
+	writeToSession () {
+    axios.get(`/products/${this.props.match.params.sku}`)
+      .then((res)=>{
+        axios.post('/products/addtocart', {details: res.data, info: this.state.familyTree})
+          .then((res2) => this.props.setCart(res2.data))
+		  })
+	}
+
 	render() {
-		const {refresh} = this.state
-		if (refresh) {
+		const { refresh } = this.state;
+		const { user_id } = this.props;
+
+		if ( refresh ) {
 			return (
         <div className="content">
+					{user_id ? null : 
+						<div className="login-alert-wrapper">
+							<div className="login-alert">
+								<a>Please Login to use this feature</a>
+								<button>Login or make account</button>
+							</div>
+						</div>
+						}
           <div className="crazy-blanket">
             {this.state.familyTree ? this.state.familyTree.map((x, i)=>{
               return x.parent_id === 0 ? 
@@ -112,7 +133,8 @@ class CrazyBlanket extends Component {
                 editCard   = {this.editCard}
                 deleteCard = {this.deleteCard}
               /> : null
-            }) : null }
+						}) : null }
+						<button onClick={() => this.writeToSession()}>Purchase</button>
           </div>
         </div>
 			)
@@ -122,4 +144,4 @@ class CrazyBlanket extends Component {
 }
 
 function mapStateToProps ( state ) {return { user_id: state.auth0.user_id }};
-export default connect ( mapStateToProps )( CrazyBlanket );
+export default withRouter ( connect ( mapStateToProps, { setCart } )( CrazyBlanket ) );

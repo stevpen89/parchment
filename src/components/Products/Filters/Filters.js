@@ -118,7 +118,7 @@ class Filters extends Component {
 		const { handleInput, addTag, deleteTag, clearTags } = this
 		return (
 			<div>
-				<div className="products-banner"></div>
+				{/* <div className="products-banner"></div> */}
 
 				{/* <div className="side-bar">
 					<input className="product-search" placeholder="Search"/><br />
@@ -136,16 +136,18 @@ class Filters extends Component {
 					</select><br />
 				</div> */}
 
-				<div className="search-area">
-					<input className="tag-input" onChange={(e) => handleInput(e.target.value)} value={tagInput} onKeyDown={this.keyPress} placeholder="Search with tags"/>
-					<button onClick={() => addTag()} className="add-tags-button"><i className="fas fa-tags"></i> Add Tag</button>
-					<button onClick={() => clearTags()} className="clear-tags-button"><i className="fas fa-backspace"></i></button>
-				</div>				
-				<div className="tag-wrapper">
-					{tags.map((x,y)=>
-						<div className="tag" key={y}><a>{x}</a><button onClick={() => deleteTag(y)} id="addButton">x</button></div>
-          )}
-          {tagWarning ? <a>Please do less than 10 tags</a> : null}
+				<div className="filter-area">
+					<div className="search-area">
+						<input className="tag-input" onChange={(e) => handleInput(e.target.value)} value={tagInput} onKeyDown={this.keyPress} placeholder="Search with tags"/>
+						<button onClick={() => addTag()} className="add-tags-button"><i className="fas fa-tags"></i> Add Tag</button>
+						<button onClick={() => clearTags()} className="clear-tags-button"><i className="fas fa-backspace"></i></button>
+					</div>
+					<div className="tag-wrapper">
+						{tags.map((x,y)=>
+							<div className="tag" key={y}><a>{x}</a><button onClick={() => deleteTag(y)} id="addButton">x</button></div>
+						)}
+						{tagWarning ? <a>Please do less than 10 tags</a> : null}
+					</div>
 				</div>
 
 			</div>

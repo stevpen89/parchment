@@ -6,7 +6,7 @@ class Menu extends Component {
 	render() {
 		const {menuOpen} = this.props
 		return (
-				<frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount=".75rem" class='menu' style={menuOpen ? {width: `300px`} : {width: `0px`, pointerEvents: `none`}}>
+				<div className='menu transparent' style={menuOpen ? {width: `300px`} : {width: `0px`, pointerEvents: `none`}}>
 				<div className="menu-container">
 					<div className="menu-content">
 						<ul>
@@ -19,7 +19,7 @@ class Menu extends Component {
 						</ul>
 					</div>
 				</div>
-				</frosted-glass>
+				</div>
 		)
 	}
 }

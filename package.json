@@ -16,6 +16,9 @@
     "/products": {
       "target": "http://localhost:3035"
     },
+    "/orders": {
+      "target": "http://localhost:3035"
+    },
     "/auth/callback": {
       "target": "http://localhost:3035"
     }
