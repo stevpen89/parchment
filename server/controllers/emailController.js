@@ -108,6 +108,7 @@ module.exports={
 							<a>Subtotal: $${sum.toFixed(2)}</a><br />
 							<a>Shipping: $${shipping.toFixed(2)}</a><br />
 							<h3>Total: $${total.toFixed(2)}</h3>
+							<h5>If you see any mistakes on this receipt, please <a href="https://parchmentgoods.com/#/contact">contact us</a></h5><br />
 							<h5>Purchased on ${time} | ©ParchmentGoods | Ticket ID: ${ticketID}</h5>
 				</div>
 			</html>

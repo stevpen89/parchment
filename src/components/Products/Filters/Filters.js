@@ -54,19 +54,17 @@ class Filters extends Component {
 
   routeChange () {
     let historyArr = []
-	  let tempTags = []
     this.unlisten = this.props.history.listen((location, action) => {
 			historyArr = location.pathname.split('/')
-			tempTags = [];
 			if (historyArr[historyArr.length - 1] !== 'products') {
-				tempTags.push(historyArr[historyArr.length - 1])
-        this.setState({tags: tempTags})
-        this.getProducts(tempTags)
+				historyArr.splice(0, 2);
+        this.setState({tags: historyArr})
+        this.getProducts(historyArr)
 			}
 			else {
         this.setState({tags: []})
         this.getProducts([])
-      }
+			}
     });
   }
 
@@ -116,6 +114,7 @@ class Filters extends Component {
 	render() {
 		const { tags, tagInput, tagWarning } = this.state
 		const { handleInput, addTag, deleteTag, clearTags } = this
+		console.log(tags)
 		return (
 			<div>
 				{/* <div className="products-banner"></div> */}
