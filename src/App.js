@@ -28,19 +28,19 @@ class App extends Component {
             <Switch>
               <Route exact path = "/"                                 component={Home}    />
               <Route exact path = "/products"                         component={Products}/>
-              <Route exact path = "/products/:type"                   component={Products}/>
-              <Route exact path = "/products/:sku/inverted"           component={ProductDetails}/>
-              <Route exact path = "/products/:sku/binary"             component={ProductDetails}/>
-              <Route exact path = "/products/:sku/single"             component={ProductDetails}/>
-              <Route exact path = "/products/:sku/baby"               component={ProductDetails}/>
-              <Route exact path = "/products/:sku/holiday"            component={ProductDetails}/>
-              <Route exact path = "/products/:sku/journal"            component={ProductDetails}/>
-              <Route       path = "/products/:sku/inverted/customize" component={CrazyBlanket}/>
-              <Route       path = "/products/:sku/binary/customize"   component={BinaryBlanket}/>
-              <Route       path = "/products/:sku/single/customize"   component={SingleBlanket}/>
-              <Route       path = "/products/:sku/baby/customize"     component={BabyBlanket}/>
-              <Route       path = "/products/:sku/holiday/customize"  component={HolidayBlanket}/>
-              <Route       path = "/products/:sku/journal/customize"  component={Journal}/>
+              <Route       path = "/products/:type"                   component={Products}/>
+              <Route exact path = "/product/:sku/inverted"           component={ProductDetails}/>
+              <Route exact path = "/product/:sku/binary"             component={ProductDetails}/>
+              <Route exact path = "/product/:sku/single"             component={ProductDetails}/>
+              <Route exact path = "/product/:sku/baby"               component={ProductDetails}/>
+              <Route exact path = "/product/:sku/holiday"            component={ProductDetails}/>
+              <Route exact path = "/product/:sku/journal"            component={ProductDetails}/>
+              <Route       path = "/product/:sku/inverted/customize" component={CrazyBlanket}/>
+              <Route       path = "/product/:sku/binary/customize"   component={BinaryBlanket}/>
+              <Route       path = "/product/:sku/single/customize"   component={SingleBlanket}/>
+              <Route       path = "/product/:sku/baby/customize"     component={BabyBlanket}/>
+              <Route       path = "/product/:sku/holiday/customize"  component={HolidayBlanket}/>
+              <Route       path = "/product/:sku/journal/customize"  component={Journal}/>
               <Route       path = "/admin"                            component={Admin} />
               <Route       path = "/about"                            component={AboutUs} />
               <Route       path = "/contact"                          component={Contact} />

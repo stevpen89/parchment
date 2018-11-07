@@ -118,8 +118,6 @@ class Checkout extends Component {
 			phone     !== '' &&
 			paid      === true;
 
-			console.log(this.state.total)
-
 		return (
 			<div className="content">
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'firstName') } placeholder="First Name"/><br />
@@ -131,6 +129,7 @@ class Checkout extends Component {
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'zip')       } placeholder="Zip Code"/><br />
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'phone')     } placeholder="Phone Number"/><br />
 				<a>*Only ship within the continental US</a><br />
+				<a>*Read our <Link to="about">privacy policy</Link></a><br />
 				<a>Total: ${this.state.total.toFixed(2)}</a><br />
 				<button onClick={() => this.payment()} disabled={paid}>{paid ? 'Paid' : 'Pay'}</button>
 				<button onClick={() => this.completeCheckout()} disabled={!formsFilled}>Complete</button>
