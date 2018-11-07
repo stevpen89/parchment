@@ -19,12 +19,19 @@ class Checkout extends Component {
 			state     : '',
 			zip       : '',
 			phone     : '',
-			paid      : false
+			paid      : false,
+			total			: 0,
 		}
 	}
 
 	componentDidMount () {
+		const { userCart} = this.props;
+		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
+		let shipping = userCart.reduce((a, x) => a + x.details.product_shipping, 0);
+		let total = sum + shipping;
+		this.setState({total})
 		if (this.props.userCart.length <= 0) {this.props.history.push('/cart')}
+
 	}
 
 	handleInput(val,target){
@@ -84,7 +91,7 @@ class Checkout extends Component {
 
 			onToken = (token) => {
         token.card = void 0
-        axios.post(`/api/charge`, { token, amount: Math.floor(100) }).then(res => {
+        axios.post(`/api/charge`, { token, amount: Math.floor(this.state.total*100) }).then(res => {
             console.log(res)
             // axios.delete(`/api/empty_cart`).then(() => {
             //     this.getCart()
@@ -109,6 +116,8 @@ class Checkout extends Component {
 			phone     !== '' &&
 			paid      === true;
 
+
+
 		return (
 			<div className="content">
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'firstName') } placeholder="First Name"/><br />
@@ -120,7 +129,7 @@ class Checkout extends Component {
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'zip')       } placeholder="Zip Code"/><br />
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'phone')     } placeholder="Phone Number"/><br />
 				<a>*Only ship within the continental US</a><br />
-				<a>Total: ${userCart.reduce((a, x) => a + x.details.product_price, 0).toFixed(2)}</a><br />
+				<a>Total: ${this.state.total.toFixed(2)}</a><br />
 				<button onClick={() => this.payment()} disabled={paid}>{paid ? 'Paid' : 'Pay'}</button>
 				<button onClick={() => this.completeCheckout()} disabled={!formsFilled}>Complete</button>
 				<StripeCheckout
@@ -129,7 +138,7 @@ class Checkout extends Component {
 					image="https://s3-us-west-1.amazonaws.com/parchmentgoods/logo/logo.png"
 					token={this.onToken}
 					stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
-					amount={100}
+					amount={Math.floor(this.state.total * 100)}
 				/>
 			</div>
 		)
