@@ -111,9 +111,6 @@ class Checkout extends Component {
 
 		return (
 			<div className="content">
-				<a>Total: ${userCart.reduce((a, x) => a + x.details.product_price, 0)}</a><br />
-				<input onChange={(e)=>this.handleInput(e.target.value, 'email')} placeholder="email"/>
-				<Link to="/"><button onClick={() => this.completeCheckout()}>Complete</button></Link>
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'firstName') } placeholder="First Name"/><br />
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'lastName')  } placeholder="Last Name"/><br />
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'email')     } placeholder="Email"/><br />
