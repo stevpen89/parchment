@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCart } from '../../../ducks/products';
+import StripeCheckout from 'react-stripe-checkout';
 import moment from 'moment';
 import axios from 'axios';
 import './Checkout.css';
@@ -79,6 +80,20 @@ class Checkout extends Component {
 		})
 	}
 
+	    //---------------------Stripe-----------------//
+
+			onToken = (token) => {
+        token.card = void 0
+        axios.post(`/api/charge`, { token, amount: Math.floor(100) }).then(res => {
+            console.log(res)
+            // axios.delete(`/api/empty_cart`).then(() => {
+            //     this.getCart()
+            //     this.getTotal()
+            // })
+        })
+    }
+			//---------------------Stripe----------------------//
+
 	render() {
 		const { userCart } = this.props;
 		const { firstName, lastName, email, address, city, state, zip, phone, paid } = this.state;
@@ -96,6 +111,9 @@ class Checkout extends Component {
 
 		return (
 			<div className="content">
+				<a>Total: ${userCart.reduce((a, x) => a + x.details.product_price, 0)}</a><br />
+				<input onChange={(e)=>this.handleInput(e.target.value, 'email')} placeholder="email"/>
+				<Link to="/"><button onClick={() => this.completeCheckout()}>Complete</button></Link>
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'firstName') } placeholder="First Name"/><br />
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'lastName')  } placeholder="Last Name"/><br />
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'email')     } placeholder="Email"/><br />
@@ -108,6 +126,14 @@ class Checkout extends Component {
 				<a>Total: ${userCart.reduce((a, x) => a + x.details.product_price, 0).toFixed(2)}</a><br />
 				<button onClick={() => this.payment()} disabled={paid}>{paid ? 'Paid' : 'Pay'}</button>
 				<button onClick={() => this.completeCheckout()} disabled={!formsFilled}>Complete</button>
+				<StripeCheckout
+					name="Parchment Goods"
+					description="Complete Your Purchase"
+					image="https://s3-us-west-1.amazonaws.com/parchmentgoods/logo/logo.png"
+					token={this.onToken}
+					stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
+					amount={100}
+				/>
 			</div>
 		)
 	}
