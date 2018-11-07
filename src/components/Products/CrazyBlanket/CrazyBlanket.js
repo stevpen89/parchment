@@ -100,7 +100,7 @@ class CrazyBlanket extends Component {
 
 	//adds the final item to the cart
 	writeToSession () {
-    axios.get(`/products/${this.props.match.params.sku}`)
+    axios.get(`/products/single/${this.props.match.params.sku}`)
       .then((res)=>{
         axios.post('/products/addtocart', {details: res.data, info: this.state.familyTree})
           .then((res2) => this.props.setCart(res2.data))

@@ -93,7 +93,7 @@ class BinaryBlanket extends Component {
   }
   
   writeToSession () {
-    axios.get(`/products/${this.props.match.params.sku}`)
+    axios.get(`/products/single/${this.props.match.params.sku}`)
       .then((res)=>{
         axios.post('/products/addtocart', {details: res.data, info: this.state})
           .then((res2) => this.props.setCart(res2.data))

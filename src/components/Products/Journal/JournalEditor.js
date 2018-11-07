@@ -14,7 +14,7 @@ class JournalEditor extends Component {
 	}
 
 	componentDidMount () {
-		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
+		axios.get(`/products/single/${this.props.match.params.sku}`).then((res)=>{
 			this.setState({inputs: JSON.parse(res.data.o1)})
 		})
 	}
@@ -40,7 +40,7 @@ class JournalEditor extends Component {
 	}
 
 	saveInputs () {
-		axios.put(`/products/journal/${this.props.match.params.sku}`, {o1: JSON.stringify(this.state.inputs)}).then(res => console.log(res.data))
+		axios.put(`/products/${this.props.match.params.sku}`, {o1: JSON.stringify(this.state.inputs)}).then(res => console.log(res.data))
 	}
 
 	render() {

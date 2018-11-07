@@ -15,7 +15,7 @@ class HolidayBlanket extends Component {
 	// axios call made on CDM, sets result to product
 
 	componentDidMount () {
-		axios.get(`/products/${this.props.match.params.sku}`).then((res)=>{
+		axios.get(`/products/single/${this.props.match.params.sku}`).then((res)=>{
 			this.setState({product:res.data})
 		})
 	}
