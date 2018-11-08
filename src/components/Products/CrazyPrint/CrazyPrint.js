@@ -179,6 +179,7 @@ class CrazyPrint extends Component {
 							<div onClick={()=>this.selectSize('24x36')}> size: 24 X 36, Normal Price: {normal24x36} , Sale Price: {sale24x36} <i className="fas fa-tree"></i></div>
 							{this.state.size}
 						</div>
+						{`Selected Color: ${this.props.match.params.color}`}
 						{this.state.size !== 'none selected' && this.props.match.params.sku > 0? <button onClick={() => this.writeToSession()}>Purchase</button> : null}
           </div>
         </div>

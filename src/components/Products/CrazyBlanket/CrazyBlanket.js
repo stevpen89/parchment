@@ -134,7 +134,9 @@ class CrazyBlanket extends Component {
                 deleteCard = {this.deleteCard}
               /> : null
 						}) : null }
+						
 						<button onClick={() => this.writeToSession()}>Purchase</button>
+						{`Selected Color: ${this.props.match.params.color}`}
           </div>
         </div>
 			)
