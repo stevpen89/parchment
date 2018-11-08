@@ -39,12 +39,12 @@ class ProductDetails extends Component {
 			<div className="content">
 				<div className="details-container">
 					<div className="details-image-container" style={{backgroundImage: `url(${product_image})`, backgroundSize: `cover`, backgroundPosition: `center`}}>
-					{/* <div className="details-thumbnail-wrapper">
+					<div className="details-thumbnail-wrapper">
 						{product_thumbs
 							? product_thumbs.thumbnails.map((x,y)=>
 							<div className="details-product-thumbnail" key={y}>{x}</div>) 
 							: null}
-					</div> */}
+					</div>
 					</div>
 					<div className="details-product-information">
 						{product_thumbs ? 
