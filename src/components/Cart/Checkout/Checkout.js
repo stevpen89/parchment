@@ -11,66 +11,65 @@ class Checkout extends Component {
 	constructor () {
 		super();
 		this.state = {
-			firstName : '',
-			lastName  : '',
-			email     : '',
-			address   : '',
-			city      : '',
-			state     : '',
-			zip       : '',
-			phone     : '',
-			paid      : false,
-			total			: 0,
+			email        : '',
+			phone        : '',
+			validEmail   : false,
+			confirmEmail : '',
+			shipping     : 3.99,
+			total			   : 0,
 		}
 	}
 
 	componentDidMount () {
-		const { userCart} = this.props;
+		const { shipping } = this.state;
+		const { userCart } = this.props;
+
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
-		let shipping = false 
-		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? shipping = true : null});
-		let total = sum + (shipping === true ? 3.99 : 0);
-		console.log(total)
+		let hasShipping = false ;
+
+		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? hasShipping = true : null});
+		let total = sum + (hasShipping === true ? shipping : 0);
 		this.setState({total})
 		if (this.props.userCart.length <= 0) {this.props.history.push('/cart')}
-
 	}
 
 	handleInput(val,target){
-		this.setState({[target]:val})
+		let emailRegEx = /(.+)@(.+){2,}\.(.+){2,}/;
+		this.setState({[target]:val});
+		emailRegEx.test(this.state.email) ? this.setState({validEmail: true}) : this.setState({validEmail: false});
 	}
 
-	payment () {
-		this.setState({paid: true});
-	}
-
-	completeCheckout() {
+	completeCheckout(name, address, city, state, zip) {
+		//declare variables
 		const { userCart, userID } = this.props;
-		const { firstName, lastName, email, address, city, state, zip, phone } = this.state;
-		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
-		let shipping = false 
-		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? shipping = true : null})
-		let total = sum + (shipping === true ? 3.99 : 0);
-		let time = moment().format('MMMM Do YYYY, h:mm:ss a')
+		const { email, phone, shipping } = this.state;
 
+		//find the prices
+		let hasShipping = false
+		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? hasShipping = true : null})
+		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
+		let time = moment().format('MMMM Do YYYY, h:mm:ss a')
+		let total = sum + (hasShipping === true ? shipping : 0);
+
+		//product info, which includes their customization
 		let products = userCart.map((x) => {
 			return {
 				sku      : x.details.product_sku,
 				name     : x.details.product_name,
 				image    : x.details.product_image,
 				price    : x.details.product_sale ? x.details.product_sale.toFixed(2) : x.details.product_price.toFixed(2),
-				shipping : (shipping === true ? 3.99 : 0).toFixed(2),
+				shipping : (hasShipping === true ? shipping : 0),
 				type     : x.details.product_type,
 				info     : x.info
 			}
 		})
 
+		//sends the data to the orders table
 		axios.post ( '/orders', {
 			user_id          : userID,
 			purchase_date    : time,
 			products         : JSON.stringify(products),
-			order_first_name : firstName,
-			order_last_name  : lastName,
+			order_name       : name,
 			order_email      : email,
 			order_address    : address,
 			order_city       : city,
@@ -78,69 +77,62 @@ class Checkout extends Component {
 			order_zip        : zip,
 			order_phone      : phone
 		} ).then((res) => {
-			axios.post ( '/api/mail/admin', {firstName, lastName, email, address, city, state, zip, phone,	time, sum, shipping, total, info: JSON.stringify(products), ticketID: res.data.order_id} )
+			//emails the admin the receipt and data
+			axios.post ( '/api/mail/admin', {name, email, address, city, state, zip, phone,	time, sum, shipping, hasShipping, total, info: JSON.stringify(products), ticketID: res.data.order_id} )
 				.then(() => {
-					axios.post ( '/api/mail/customer', {firstName, lastName, email, address, city, state, zip, phone,	time, sum, shipping, total, info: JSON.stringify(products), ticketID: res.data.order_id} );
+					//emails the customer their receipt
+					axios.post ( '/api/mail/customer', {name, email, address, city, state, zip, phone,	time, sum, shipping, hasShipping, total, info: JSON.stringify(products), ticketID: res.data.order_id} );
+					//empties the cart and sends you to the home page
 					axios.put ('products/rewritecart', [])
 						.then((res) => {
 							this.props.setCart(res.data);
-							this.props.history.push('/');
+							this.props.history.go(-2);
 						})
 					})
 		})
 	}
 
-	    //---------------------Stripe-----------------//
 
-			onToken = (token) => {
-        token.card = void 0
-        axios.post(`/api/charge`, { token, amount: Math.floor(this.state.total*100) }).then(res => {
-            console.log(res)
-            // axios.delete(`/api/empty_cart`).then(() => {
-            //     this.getCart()
-            //     this.getTotal()
-            // })
-        })
-    }
-			//---------------------Stripe----------------------//
+	onToken = (token) => {
+    token.card = void 0;
+    axios.post(`/api/charge`, { token, amount: Math.floor(this.state.total*100) }).then(res => {
+			const { address_city, address_country, address_line1, address_state, address_zip, name } = res.data.source
+			this.completeCheckout(name, address_line1, address_city, address_state, address_zip);
+    })
+  }
 
 	render() {
-		const { firstName, lastName, email, address, city, state, zip, phone, paid } = this.state;
+		const { email, phone, validEmail, confirmEmail } = this.state;
 
 		let formsFilled =
-			firstName !== '' &&
-			lastName  !== '' &&
-			email     !== '' &&
-			address   !== '' &&
-			city      !== '' &&
-			state     !== '' &&
-			zip       !== '' &&
-			phone     !== '' &&
-			paid      === true;
+			phone        !== '' &&
+			validEmail   === true &&
+			confirmEmail === email;
 
 		return (
 			<div className="content">
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'firstName') } placeholder="First Name"/><br />
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'lastName')  } placeholder="Last Name"/><br />
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'email')     } placeholder="Email"/><br />
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'address')   } placeholder="Address"/><br />
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'city')      } placeholder="City"/><br />
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'state')     } placeholder="State"/><br />
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'zip')       } placeholder="Zip Code"/><br />
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'phone')     } placeholder="Phone Number"/><br />
+				<a>Email: </a><input onChange={ (e)=>this.handleInput(e.target.value, 'email')} placeholder="Email"/>
+				{validEmail ? <a><i class="fas fa-check"></i></a> : null}<br />
+				<a>Verify Email: </a><input onChange={ (e)=>this.handleInput(e.target.value, 'confirmEmail')} placeholder="Verify Email"/>
+				{confirmEmail === email && confirmEmail !== '' && validEmail ? <a><i class="fas fa-check"></i></a> : null}<br />
+				<input onChange={ (e)=>this.handleInput(e.target.value, 'phone')} placeholder="Phone Number"/>
+				{phone ? <a><i class="fas fa-check"></i></a> : null}<br />
 				<a>*Only ship within the continental US</a><br />
 				<a>*Read our <Link to="about">privacy policy</Link></a><br />
 				<a>Total: ${this.state.total.toFixed(2)}</a><br />
-				<button onClick={() => this.payment()} disabled={paid}>{paid ? 'Paid' : 'Pay'}</button>
-				<button onClick={() => this.completeCheckout()} disabled={!formsFilled}>Complete</button>
+				{formsFilled ?
 				<StripeCheckout
 					name="Parchment Goods"
 					description="Complete Your Purchase"
-					image="https://s3-us-west-1.amazonaws.com/parchmentgoods/logo/logo.png"
+					image="https://s3-us-west-1.amazonaws.com/parchmentgoods/logo/square-logo-dark.png"
 					token={this.onToken}
+					email={this.state.email}
+					shippingAddress={true}
+					zipCode={true}
+					currency="USD"
 					stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
 					amount={(this.state.total * 100)}
-				/>
+				/> : null}
 			</div>
 		)
 	}
