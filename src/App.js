@@ -41,12 +41,12 @@ class App extends Component {
               <Route exact path = "/product/:sku/baby"                    component={ProductDetails}/>
               <Route exact path = "/product/:sku/holiday"                 component={ProductDetails}/>
               <Route exact path = "/product/:sku/journal"                 component={ProductDetails}/>
-              <Route       path = "/product/:sku/inverted/customize"      component={CrazyBlanket}/>
-              <Route       path = "/product/:sku/binary/customize"        component={BinaryBlanket}/>
-              <Route       path = "/product/:sku/single/customize"        component={SingleBlanket}/>
-              <Route       path = "/product/:sku/printInverted/customize" component={CrazyPrint}/>
-              <Route       path = "/product/:sku/printBinary/customize"   component={BinaryPrint}/>
-              <Route       path = "/product/:sku/printSingle/customize"   component={SinglePrint}/>
+              <Route       path = "/product/:sku/inverted/customize/:color"      component={CrazyBlanket}/>
+              <Route       path = "/product/:sku/binary/customize/:color"        component={BinaryBlanket}/>
+              <Route       path = "/product/:sku/single/customize/:color"        component={SingleBlanket}/>
+              <Route       path = "/product/:sku/printInverted/customize/:color" component={CrazyPrint}/>
+              <Route       path = "/product/:sku/printBinary/customize/:color"   component={BinaryPrint}/>
+              <Route       path = "/product/:sku/printSingle/customize/:color"   component={SinglePrint}/>
               <Route       path = "/product/:sku/baby/customize"          component={BabyBlanket}/>
               <Route       path = "/product/:sku/holiday/customize"       component={Journal}/>
               <Route       path = "/product/:sku/journal/customize"       component={Journal}/>
