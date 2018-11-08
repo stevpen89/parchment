@@ -54,7 +54,6 @@ class ProductDetails extends Component {
 	}
 
 	setParam(val){
-		console.log(`this is val ${val}`)
 		switch (val) {
 			case "1" : return this.setState({parameter:"dark_brown_fall"})
 			case "2" : return this.setState({parameter:"grey_brown_fall"})
@@ -65,16 +64,7 @@ class ProductDetails extends Component {
 			case "7" : return this.setState({parameter:"beige_summer"})
 			default  : console.log('triggered default')
 		}
-		console.log(`this is state ${this.state.parameter}`)
 	}
-
-"1. Dark Brown (Fall)"
-"2. Grey Brown (Fall)"
-"3. Beige Brown (Fall)"
-"4. Olive Green (Fall)"
-"5. Gold (Fall)"
-"6. Blue (Fall)"
-"7. Beige (Summer)"
 
 	render() {
 		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_sale, product_shipping, product_tags,product_type } = this.state.product
