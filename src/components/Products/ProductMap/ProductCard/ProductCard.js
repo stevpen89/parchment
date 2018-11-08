@@ -23,7 +23,8 @@ class ProductCard extends Component {
 	}
 
 	contentRender(){
-		const {	product_name, product_image, product_price } = this.props
+		const {	product_name, product_image, product_price, product_sale, product_type } = this.props;
+		const printPrice = JSON.parse(this.props.o1);
 		return(
 			<Link to={this.productDetailsSwitch()}>
 				<div className="product-card">
@@ -32,7 +33,22 @@ class ProductCard extends Component {
 					<div className="product-card-footer">
 						<div className="product-name">{product_name}</div>
 						<div className="product-desc-price">
-							<div>${product_price}</div>
+						{
+							product_type === 'print_inverted' || product_type === 'print_single' || product_type === 'print_binary' ?
+							<div>
+								<a className={printPrice.sale8x10 || printPrice.sale12x18 || printPrice.sale16x20 || printPrice.sale18x24 || printPrice.sale24x36 ? 'strikeout' : ''}>Starting at: ${printPrice.normal8x10}</a><br />
+								{ printPrice.sale8x10 || printPrice.sale12x18 || printPrice.sale16x20 || printPrice.sale18x24 || printPrice.sale24x36 ?
+									<a>On Sale</a>
+									:
+									null
+								}
+							</div>
+							:
+							<div>
+								<div className={product_sale ? 'strikeout' : ''}>Price: ${product_price}</div>
+								{product_sale ? <div>Sale Price: ${product_sale}</div> : null}
+							</div>
+						}
 						</div>
 					</div>
 				</div>

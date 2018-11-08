@@ -21,6 +21,11 @@ a {
 	cursor: default;
 }
 
+.strikeout {
+  text-decoration: line-through;
+  color: red !important;
+}
+
 .content {
   padding-top: 75px;
   min-height: calc(100vh - 75px)
