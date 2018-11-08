@@ -23,7 +23,7 @@ function Countries(props) {
 			<option value="China">China</option>
 			<option value="Colombia">Colombia</option>
 			<option value="Costa/Rica">Costa Rica</option>
-			<option value="Cote/d'ivoire/Ivory/Coast">Cote d'ivoire Ivory Coast</option>
+			<option value="Cote/Divoire/Ivory/Coast">Cote Divoire Ivory Coast</option>
 			<option value="Croatia">Croatia</option>
 			<option value="Czech">Czech</option>
 			<option value="Dominican/Republic">Dominican Republic</option>
