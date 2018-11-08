@@ -1,5 +1,5 @@
 module.exports={
-	html: ( firstName, lastName, email, address, city, state, zip, phone, time, sum, shipping, total, info, ticketID, toSupport ) => {
+	html: ( name, email, address, city, state, zip, phone, time, sum, shipping, hasShipping, total, info, ticketID, toSupport ) => {
 		let parsedInfo = JSON.parse(info);
 		return (`
 			<html>
@@ -86,7 +86,7 @@ module.exports={
 	
 				<div class="wrapper">
 					<img src="https://s3-us-west-1.amazonaws.com/parchmentgoods/logo/logo.png" alt="parchment" class="logo"><br />
-					<h2>Thank you, ${firstName} ${lastName} for your purchase!</h2>
+					<h2>Thank you, ${name} for your purchase!</h2>
 					<h3>Products are being sent to:</h3>
 					<div class="info">
 						<a>Address: ${address}</a><br />
@@ -101,14 +101,14 @@ module.exports={
 								<div class="product-info">
 									<h1>${x.name} </h1>
 									${toSupport ? `<h1 class="subtext">#${x.sku}</h1>` : ``}<br />
-									<h2>$${x.price}${x.shipping > 0 ? `<h2 class="subtext"> + $${x.shipping} in shipping</h2>` : ``}</h2><br />
+									<h2>$${x.price}</h2><br />
 									${toSupport ? `<a class="subtext">${JSON.stringify(x.info)}</a>` : ``}
 								</div>
 							</div>`)}).join('')}
 							<a>Subtotal: $${sum.toFixed(2)}</a><br />
-							<a>Shipping: $${shipping.toFixed(2)}</a><br />
+							<a>Shipping: $${hasShipping ? shipping : 0}</a><br />
 							<h3>Total: $${total.toFixed(2)}</h3>
-							<h5>If you see any mistakes on this receipt, please <a href="https://parchmentgoods.com/#/contact">contact us</a></h5><br />
+							<h5>If any of the items or charges listed above are not correct, please reach out to us at support@parchmentgoods.com</h5><br />
 							<h5>Purchased on ${time} | ©ParchmentGoods | Ticket ID: ${ticketID}</h5>
 				</div>
 			</html>
