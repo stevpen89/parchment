@@ -10,7 +10,7 @@ class ProductCard extends Component {
 		switch (product_type) {
 			case 'blanket_inverted'   : return `/product/${product_sku}/inverted`
 			case 'blanket_binary'     : return `/product/${product_sku}/binary`
-			case 'banket_single'      : return `/product/${product_sku}/single`
+			case 'blanket_single'     : return `/product/${product_sku}/single`
 			case 'print_inverted'     : return `/product/${product_sku}/printInverted`
 			case 'print_binary'       : return `/product/${product_sku}/printBinary`
 			case 'print_single'       : return `/product/${product_sku}/printSingle`
