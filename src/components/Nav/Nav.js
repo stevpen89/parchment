@@ -74,7 +74,7 @@ class Nav extends Component {
 		if (refresh) {
 		return (
 			<div>
-				<div class="nav-container transparent">
+				<div className="nav-container transparent">
 				{/* <frosted-glass overlay-color="rgba(255,255,255,.5)" blur-amount={scrolled ? `.75rem` : `.75rem`} class="nav-container"> */}
 					<div className="nav">
 						<div className="nav-left" onClick={() => openMenu()}><i className="fas fa-bars menu-button menu-icon"></i></div>
@@ -89,7 +89,7 @@ class Nav extends Component {
 									<img src={auth_picture} alt="user profile" onClick={() => openUserMenu()} />
 								</div>
 								:
-								<a className="menu-button" onClick={() => login()}>Login</a>
+								<a className="menu-button" onClick={() => login()} id="login">Login</a>
 							}
 						</div>
 					</div>

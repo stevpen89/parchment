@@ -38,7 +38,7 @@ class SingleBlanket extends Component {
 		const {user_id, setSingle, setSingleID} = this.props
 		axios.get(`/cards/single/${user_id}`)
 			.then((res) => {
-				if (res.data[0].o1) {
+				if (res.data.length > 0 && user_id) {
 					this.setState(res.data[0].o1);
 					setSingleID(res.data[0].card_id);
 					setSingle(true);
@@ -54,22 +54,25 @@ class SingleBlanket extends Component {
 
 	saveChanges() {
 		const { user_id, singleExists, singleID } = this.props
-		singleExists ?
-			axios.put(`/cards/${singleID}`, {
-					card_name    : null,
-					card_birth   : null,
-					card_death   : null,
-					spouse_name  : null,
-					spouse_birth : null,
-					spouse_death : null,
+		if (user_id) {
+			singleExists ?
+				axios.put(`/cards/${singleID}`, {
+						card_name    : null,
+						card_birth   : null,
+						card_death   : null,
+						spouse_name  : null,
+						spouse_birth : null,
+						spouse_death : null,
+						o1           : this.state
+				}).then(() => {this.savedMessage(); this.writeToSession()})
+			:
+				axios.post(`/cards/${user_id}`, {
+					tree_type    : 'single',
+					parent_id    : null,
 					o1           : this.state
 			}).then(() => {this.savedMessage(); this.writeToSession()})
-		:
-			axios.post(`/cards/${user_id}`, {
-				tree_type    : 'single',
-				parent_id    : null,
-				o1           : this.state
-		}).then(() => {this.savedMessage(); this.writeToSession()})
+		}
+		else {this.writeToSession()}
 	}
 
 	savedMessage () {
@@ -81,7 +84,10 @@ class SingleBlanket extends Component {
     axios.get(`/products/single/${this.props.match.params.sku}`)
       .then((res)=>{
         axios.post('/products/addtocart', {details: res.data, info: this.state})
-          .then((res2) => this.props.setCart(res2.data))
+				.then((res2) => {
+					this.props.setCart(res2.data);
+					this.props.history.go(-2);
+				})
 		  })
 	}
 
@@ -172,7 +178,7 @@ class SingleBlanket extends Component {
 						</div>
 					</div>
 
-					<div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
+					<div className="save-div"><button onClick={() => this.saveChanges()}>Add To Cart</button></div>
 					<div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
 						<div className="saved-message"><a>Changes Saved</a></div>
 					</div>

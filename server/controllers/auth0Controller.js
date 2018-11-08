@@ -10,7 +10,7 @@ module.exports = {
       client_secret : CLIENT_SECRET,
       code          : req.query.code,
       grant_type    : 'authorization_code',
-      redirect_uri  : `https://${req.headers.host}/auth/callback`
+      redirect_uri  : req.secure ? `https://${req.headers.host}/auth/callback` : `http://${req.headers.host}/auth/callback`
     }
 
     //getting data from auth0
