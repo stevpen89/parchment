@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter} from 'react-router-dom';
+import { withRouter, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCart } from '../../../ducks/products';
 import StripeCheckout from 'react-stripe-checkout';
