@@ -245,7 +245,8 @@ class BinaryPrint extends Component {
 						{this.state.size}
 					</div>
 
-					  {this.state.size !== 'none selected' && this.props.match.params.sku > 0 ? <div className="save-div"><button onClick={() => this.saveChanges()}>Add To Cart</button></div> : null}
+            {`Selected Color: ${this.props.match.params.color}`}
+            {this.state.size !== 'none selected' && this.props.match.params.sku > 0 ? <div className="save-div"><button onClick={() => this.saveChanges()}>Add To Cart</button></div> : null}
             <div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
               <div className="saved-message"><a>Changes Saved</a></div>
             </div>

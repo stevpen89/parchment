@@ -177,7 +177,7 @@ class SingleBlanket extends Component {
 							</div>
 						</div>
 					</div>
-
+					{`Selected Color: ${this.props.match.params.color}`}
 					<div className="save-div"><button onClick={() => this.saveChanges()}>Add To Cart</button></div>
 					<div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
 						<div className="saved-message"><a>Changes Saved</a></div>
