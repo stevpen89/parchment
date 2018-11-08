@@ -42,8 +42,10 @@ class Journal extends Component {
 	writeToSession () {
 		axios.post('/products/addtocart', 
 			{details: this.state.product, info: this.state.values}
-		).then((res) =>
-			this.props.setCart(res.data)
+		).then((res) => {
+				this.props.setCart(res.data);
+				this.props.history.go(-2);
+			}
 		)
 	}
 
