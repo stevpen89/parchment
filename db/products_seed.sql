@@ -213,6 +213,26 @@ INSERT INTO products (product_name, product_tags, product_image, product_thumbs,
 
 -- END OF SCENIC JOURNALS -- 
 
+-- BEGIN GENERAL JOURNALS --
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Complete World Map Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","complete world map","outline","map","world","globe"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Complete_World_Map.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Footsteps Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","footsteps","feet","shoes","path","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Footsteps.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Name Tag Elder Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","name tag elder","shirt","boys","elders","tie","suit","tag","priesthood","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Name_Tag_Elder.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Name Tag Sister Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","name tag sister","blouse","skirt","sister","tag","mission","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Name_Tag_Sister.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Name Tag With Scripture Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","name tag with scripture","plain","simple","mission","elder","sister","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Name_Tag_With_Scripture.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Preach The Gospel Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","preach the gospel","preach","duty","gospel","important","work","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Preach_The_Gospel.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Salt Lake Temple Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","salt lake temple","salt","lake","city","temple","utah","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Salt_Lake_Temple.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Shepherd Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","shepherd","sheep","crook","staff","hand","flock","fold","scripture","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Shepherd.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Tree Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","tree","path","life","commence","rod","iron","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Tree.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('World Map Country Outlines Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","world map country outlines","globe","international","earth","world","big","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/World_Map_Country_Outlines.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('World Map Silhouette Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","world map silhouette","globe","international","earth","world","big","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/World_Map_Silhouette.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Wreath 1 Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","wreath 1","leaves","wreath","nature","christmas","symbolic","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Wreath_1.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Wreath 2 Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","wreath 2","leaves","wreath","nature","christmas","symbolic","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Wreath_2.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Wreath 3 Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","wreath 3","leaves","wreath","nature","christmas","symbolic","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Wreath_3.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_shipping, product_sale, o1)VALUES('Wreath 4 Outline Journal','{"tags":["journal","gospel","state","floral","scenic","service","leather","missionary","country","wreath 4","leaves","wreath","nature","christmas","symbolic","outline","map","world"]}','https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/journal_mission_generic/Wreath_4.jpg','{"thumbnails":["no image","no image","no image","no image"]}','Personalized Missionary Journal','journal',38.99,3.99,29.99,'["name","mission","service dates","scripture"]');
+
+-- END GENERAL JOURNALS --
+
 -- BEGIN FAMILY HISTORY BLANKETS --
 
 INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
@@ -243,32 +263,82 @@ VALUES ('Grandparents, Kids and Grandkids Family History Blanket',
 
     --  BEGIN FAMILY HISTORY PRINTS
 
-INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
 VALUES ('Singles Family History Print',
  '{"tags":["blanket","printsingle","tree","family", "history", "genealogy", "custom", "branches","personal","grandkids","grandchildren","grandparents","children","parents"]}',
   'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Front.jpg',
 	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/1_Dark_Brown_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/2_Gray_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3_Beige_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/4_Olive_Green_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/5_Gold_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/6_Blue_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/7_Beige_Summer_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
 	  'insert product description here',
-		 'print_single', 169.99, 129.99, 0);
+		 'print_single', 169.99, 129.99, 0,'{"normal8x10":51.99,"sale8x10":39.99,"normal12x18":64.99,"sale12x18":49.99,"normal16x20":77.99,"sale16x20":59.99,"normal18x24":90.99,"sale18x24":69.99,"normal24x36":103.99,"sale24x36":79.99}');
 		 
-INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
 VALUES ('Couples Family History Print',
  '{"tags":["blanket","printbinary","tree","family", "history", "genealogy", "custom", "branches","personal","couple","pair","married","spouse","grandkids","grandchildren","grandparents","children","parents"]}',
   'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Front.jpg',
 	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/1_Dark_Brown_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/2_Gray_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3_Beige_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/4_Olive_Green_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/5_Gold_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/6_Blue_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/7_Beige_Summer_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
 	  'insert product description here',
-		 'print_binary', 169.99, 129.99, 0);
+		 'print_binary', 169.99, 129.99, 0,'{"normal8x10":51.99,"sale8x10":39.99,"normal12x18":64.99,"sale12x18":49.99,"normal16x20":77.99,"sale16x20":59.99,"normal18x24":90.99,"sale18x24":69.99,"normal24x36":103.99,"sale24x36":79.99}');
 
-INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
 VALUES ('Grandparents, Kids and Grandkids Family History Print',
  '{"tags":["blanket","printinverted","tree","family", "history", "genealogy", "custom", "branches","personal","kids","progeny","grandkids","grandchildren","grandparents","children","parents"]}',
   'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/GKG_Front_Photo.jpg',
 	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/GKG_Back_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/1_Dark_Brown_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/2_Gray_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/3_Beige_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/4_Olive_Green_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/5_Gold_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/6_Blue_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/7_Beige_Summer_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
 	  'insert product description here',
-		 'print_inverted', 169.99, 129.99, 0);
+		 'print_inverted', 169.99, 129.99, 0,'{"normal8x10":51.99,"sale8x10":39.99,"normal12x18":64.99,"sale12x18":49.99,"normal16x20":77.99,"sale16x20":59.99,"normal18x24":90.99,"sale18x24":69.99,"normal24x36":103.99,"sale24x36":79.99}');
 
     --  END FAMILY HISTORY PRINTS
 
-    -- BEGIN
+    -- BEGIN HOLIDAY BLANKETS
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
+VALUES ('Baby Its Cold Outside Blanket',
+ '{"tags":["blanket","holiday","cold","snow","cute","season","winter","flurry","gift","custom","soft","fuzzy","minky","personal"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/Baby_Its_Cold_Outside_Photo_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/Baby_Its_Cold_Outside_Photo_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_holiday', 116.99, 89.99, 0, '["family name","year"]');
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
+VALUES ('Under The Mistletoe Blanket',
+ '{"tags":["blanket","holiday","christmas","merry","kiss","mistletoe","naughty","nice","nature","gift","custom","soft","fuzzy","minky","personal"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/Mistletoe_Photo_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/Mistletoe_Photo_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_holiday', 116.99, 89.99, 0, '["family name","year"]');
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
+VALUES ('My First Christmas Blanket',
+ '{"tags":["blanket","holiday","gift","custom","soft","fuzzy","minky","personal","christmas","baby","small","ugly","sweater","snowflake","tree","reindeer","first","newborn"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/My_First_Christmas_Baby_Blanket_Photo_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/My_First_Christmas_Baby_Blanket_Photo_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_holiday', 116.99, 89.99, 0, '["family name","year"]');
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
+VALUES ('Oh Christmas Tree Blanket',
+ '{"tags":["blanket","holiday","gift","custom","soft","fuzzy","minky","personal","snowy","snow","flurry","wind","pine","tree","green","christmas","carol"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/O_Christmas_Tree_Blanket_Photo_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/O_Christmas_Tree_Blanket_Photo_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_holiday', 116.99, 89.99, 0, '["family name","year"]');
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
+VALUES ('Christmas Sweater Blanket',
+ '{"tags":["blanket","holiday","gift","custom","soft","fuzzy","minky","personal","christmas","baby","small","ugly","sweater","snowflake","tree","reindeer","first","newborn"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/Native_American_Christmas_Blanket_Photo_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/Native_American_Christmas_Blanket_Photo_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_holiday', 116.99, 89.99, 0, '["family name","year"]');
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping, o1)
+VALUES ('Santa Penguins Blanket',
+ '{"tags":["blanket","holiday","gift","custom","soft","fuzzy","minky","personal","penguin","animal","cute","cuddly","adorable","santa","hat","winter","arctic","baby"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/Penguin_Christmas_Blanket_Photo_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_holiday/Penguin_Christmas_Blanket_Photo_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_holiday', 116.99, 89.99, 0, '["family name","year"]');
+
+    -- END HOLIDAY BLANKETS
 
 select * from products
