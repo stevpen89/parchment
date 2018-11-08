@@ -48,7 +48,7 @@ class App extends Component {
               <Route       path = "/product/:sku/printBinary/customize"   component={BinaryPrint}/>
               <Route       path = "/product/:sku/printSingle/customize"   component={SinglePrint}/>
               <Route       path = "/product/:sku/baby/customize"          component={BabyBlanket}/>
-              <Route       path = "/product/:sku/holiday/customize"       component={HolidayBlanket}/>
+              <Route       path = "/product/:sku/holiday/customize"       component={Journal}/>
               <Route       path = "/product/:sku/journal/customize"       component={Journal}/>
               <Route       path = "/admin"                                component={Admin} />
               <Route       path = "/about"                                component={AboutUs} />
