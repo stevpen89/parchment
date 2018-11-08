@@ -185,11 +185,11 @@ class SinglePrint extends Component {
 
 					<div>
 						<a>Please Select a Size for Your Print</a>
-						<div onClick={()=>this.selectSize( '8 X 10')}> size:  8 X 10, Normal Price: 51.99  , Sale Price: 39.99  <i class="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('12 X 18')}> size: 12 X 18, Normal Price: 64.99  , Sale Price: 49.99  <i class="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('16 X 20')}> size: 16 X 20, Normal Price: 77.99  , Sale Price: 59.99  <i class="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('18 X 24')}> size: 18 X 24, Normal Price: 90.99  , Sale Price: 69.99  <i class="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('24 X 36')}> size: 24 X 36, Normal Price: 103.99 , Sale Price: 79.99  <i class="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize( '8 X 10')}> size:  8 X 10, Normal Price: 51.99  , Sale Price: 39.99  <i className="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize('12 X 18')}> size: 12 X 18, Normal Price: 64.99  , Sale Price: 49.99  <i className="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize('16 X 20')}> size: 16 X 20, Normal Price: 77.99  , Sale Price: 59.99  <i className="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize('18 X 24')}> size: 18 X 24, Normal Price: 90.99  , Sale Price: 69.99  <i className="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize('24 X 36')}> size: 24 X 36, Normal Price: 103.99 , Sale Price: 79.99  <i className="fas fa-tree"></i></div>
 						{this.state.size}
 					</div>
 

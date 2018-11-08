@@ -96,7 +96,7 @@ class Checkout extends Component {
 	onToken = (token) => {
     token.card = void 0;
     axios.post(`/api/charge`, { token, amount: Math.floor(this.state.total*100) }).then(res => {
-			const { address_city, address_country, address_line1, address_state, address_zip, name } = res.data.source
+			const { address_city, address_line1, address_state, address_zip, name } = res.data.source
 			this.completeCheckout(name, address_line1, address_city, address_state, address_zip);
     })
   }
@@ -112,11 +112,11 @@ class Checkout extends Component {
 		return (
 			<div className="content">
 				<a>Email: </a><input onChange={ (e)=>this.handleInput(e.target.value, 'email')} placeholder="Email"/>
-				{validEmail ? <a><i class="fas fa-check"></i></a> : null}<br />
+				{validEmail ? <a><i className="fas fa-check"></i></a> : null}<br />
 				<a>Verify Email: </a><input onChange={ (e)=>this.handleInput(e.target.value, 'confirmEmail')} placeholder="Verify Email"/>
-				{confirmEmail === email && confirmEmail !== '' && validEmail ? <a><i class="fas fa-check"></i></a> : null}<br />
+				{confirmEmail === email && confirmEmail !== '' && validEmail ? <a><i className="fas fa-check"></i></a> : null}<br />
 				<input onChange={ (e)=>this.handleInput(e.target.value, 'phone')} placeholder="Phone Number"/>
-				{phone ? <a><i class="fas fa-check"></i></a> : null}<br />
+				{phone ? <a><i className="fas fa-check"></i></a> : null}<br />
 				<a>*Only ship within the continental US</a><br />
 				<a>*Read our <Link to="about">privacy policy</Link></a><br />
 				<a>Total: ${this.state.total.toFixed(2)}</a><br />

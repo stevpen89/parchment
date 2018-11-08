@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { savedMessage, setBinary, setBinaryID } from '../../../ducks/familyTree';
+import { savedMessage, setBinary, setBinaryID, setBinaryPrintPrices, setBinaryPrintSKUInfo } from '../../../ducks/familyTree';
 import { setCart } from '../../../ducks/products';
 import axios from 'axios';
 import '../BinaryBlanket/BinaryBlanket.css';
@@ -44,7 +44,7 @@ class BinaryPrint extends Component {
 		b2a2:'',b2a2d1:'',b2a2d2:'',
 		b2b1:'',b2b1d1:'',b2b1d2:'',
     b2b2:'',b2b2d1:'',b2b2d2:'',
-    size:'none selected'
+    size: 'none selected',
 		}
 		this.saveChanges = this.saveChanges.bind(this);
 		this.savedMessage = this.savedMessage.bind(this);
@@ -52,7 +52,14 @@ class BinaryPrint extends Component {
 
 
 	componentDidMount() {
-		const {user_id, setBinary, setBinaryID} = this.props
+    const {user_id, setBinary, setBinaryID} = this.props
+
+    axios.get(`/products/single/${this.props.match.params.sku}`)
+      .then((res)=>{
+        this.props.setBinaryPrintSKUInfo(res.data);
+        this.props.setBinaryPrintPrices(JSON.parse(res.data.o1));
+		  })
+
 		axios.get(`/cards/binary/${user_id}`)
 			.then((res) => {
 				if (res.data.length > 0 && user_id) {
@@ -66,7 +73,19 @@ class BinaryPrint extends Component {
 
 	changeHandler(target,val){
 		this.setState({[target]:val})
-	}
+  }
+  
+  sizeParser () {
+    const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.props.binaryPrintPrices;
+    switch(this.state.size) {
+      case "8x10"  : return [normal8x10, sale8x10];
+      case "12x18" : return [normal12x18, sale12x18];
+      case "16x20" : return [normal16x20, sale16x20];
+      case "18x24" : return [normal18x24, sale18x24];
+      case "24x36" : return [normal24x36, sale24x36];
+      default: return [];
+    }
+  }
 
 	saveChanges() {
     const { user_id, binaryExists, binaryID } = this.props
@@ -97,23 +116,25 @@ class BinaryPrint extends Component {
   }
   
   writeToSession () {
-    axios.get(`/products/single/${this.props.match.params.sku}`)
-      .then((res)=>{
-        axios.post('/products/addtocart', {details: res.data, info: this.state})
-          .then((res2) => {
-            this.props.setCart(res2.data);
-            this.props.history.go(-2);
-          })
-		  })
+    let tempData = []
+    tempData = Object.assign({}, this.props.binaryPrintSKUInfo);
+    tempData.product_price = this.sizeParser()[0];
+    tempData.product_sale = this.sizeParser()[1];
+
+    axios.post('/products/addtocart', {details: tempData, info: this.state})
+      .then((res2) => {
+        this.props.setCart(res2.data);
+        this.props.history.go(-2);
+      })
   }
-  
   
 	selectSize(val){
 		this.setState({size:val})
 	}
 
 	render() {
-		const { saved } = this.props;
+    const { saved } = this.props;
+    const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.props.binaryPrintPrices;
 		return (
 			<div className="content">
         <div className="binary-blanket">
@@ -216,11 +237,11 @@ class BinaryPrint extends Component {
 
           <div>
 						<a>Please Select a Size for Your Print</a>
-						<div onClick={()=>this.selectSize( '8 X 10')}> size:  8 X 10, Normal Price: 51.99  , Sale Price: 39.99  <i class="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('12 X 18')}> size: 12 X 18, Normal Price: 64.99  , Sale Price: 49.99  <i class="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('16 X 20')}> size: 16 X 20, Normal Price: 77.99  , Sale Price: 59.99  <i class="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('18 X 24')}> size: 18 X 24, Normal Price: 90.99  , Sale Price: 69.99  <i class="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('24 X 36')}> size: 24 X 36, Normal Price: 103.99 , Sale Price: 79.99  <i class="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize( '8x10')}> size:  8 X 10, Normal Price: {normal8x10}  , Sale Price: {sale8x10}  <i className="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize('12x18')}> size: 12 X 18, Normal Price: {normal12x18} , Sale Price: {sale12x18} <i className="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize('16x20')}> size: 16 X 20, Normal Price: {normal16x20} , Sale Price: {sale16x20} <i className="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize('18x24')}> size: 18 X 24, Normal Price: {normal18x24} , Sale Price: {sale18x24} <i className="fas fa-tree"></i></div>
+						<div onClick={()=>this.selectSize('24x36')}> size: 24 X 36, Normal Price: {normal24x36} , Sale Price: {sale24x36} <i className="fas fa-tree"></i></div>
 						{this.state.size}
 					</div>
 
@@ -236,10 +257,12 @@ class BinaryPrint extends Component {
 
 function mapStateToProps ( state ) {
 	return {
-		user_id      : state.auth0.user_id,
-		saved        : state.familyTree.saved,
-		binaryExists : state.familyTree.binaryExists,
-		binaryID     : state.familyTree.binaryID,
+		user_id            : state.auth0.user_id,
+		saved              : state.familyTree.saved,
+		binaryExists       : state.familyTree.binaryExists,
+    binaryID           : state.familyTree.binaryID,
+    binaryPrintPrices  : state.familyTree.binaryPrintPrices,
+    binaryPrintSKUInfo : state.familyTree.binaryPrintSKUInfo
 	}
 };
-export default withRouter ( connect ( mapStateToProps, { savedMessage, setBinary, setBinaryID, setCart } )( BinaryPrint ) );
+export default withRouter ( connect ( mapStateToProps, { savedMessage, setBinary, setBinaryID, setBinaryPrintPrices, setBinaryPrintSKUInfo, setCart } )( BinaryPrint ) );

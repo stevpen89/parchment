@@ -15,7 +15,7 @@ class ProductCard extends Component {
 			case 'print_binary'       : return `/product/${product_sku}/printBinary`
 			case 'print_single'       : return `/product/${product_sku}/printSingle`
 			case 'blanket_baby'       : return `/product/${product_sku}/baby`
-			case 'blanket_holiday'    : return `/product/${product_sku}/holiday`
+			case 'blanket_holiday'    : return `/product/${product_sku}/journal`
 			case 'journal_missionary' : return `/product/${product_sku}/journal`
 			case 'journal_everyday'   : return `/product/${product_sku}/journal`
 			default                   : return `/`
