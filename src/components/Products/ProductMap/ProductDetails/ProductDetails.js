@@ -7,13 +7,16 @@ class ProductDetails extends Component {
 	constructor(){
 		super()
 		this.state={
-			product: {}
+			product: {},
+			printPrices: {}
 		}
 	}
 
 	componentDidMount(){
 		axios.get(`/products/single/${this.props.match.params.sku}`).then((res)=>{
 			this.setState({product:res.data})
+			if (res.data.product_type === 'print_single' || res.data.product_type === 'print_binary' || res.data.product_type === 'print_inverted')
+				{this.setState({printPrices: JSON.parse(res.data.o1)})}
 		})
 	}
 
@@ -35,6 +38,8 @@ class ProductDetails extends Component {
 
 	render() {
 		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_shipping, product_tags } = this.state.product
+		const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.state.printPrices;
+
 		return (
 			<div className="content">
 				<div className="details-container">
@@ -51,7 +56,17 @@ class ProductDetails extends Component {
 						<div>
 							<div className="details-product-data">SKU: {product_sku}</div>
 							<div className="details-product-data">{product_desc}</div>
-							<div className="details-product-data">Price: ${product_price}</div>
+							{ Object.keys(this.state.printPrices).length === 0 && this.state.printPrices.constructor === Object ? 
+									<div className="details-product-data">Price: ${product_price}</div>
+								:
+									<div>
+										<div>8 X 10 - Price: ${normal8x10}, Sale Price: {sale8x10}</div>
+										<div>12 X 18 - Price: ${normal12x18}, Sale Price: {sale12x18}</div>
+										<div>16 X 20 - Price: ${normal16x20}, Sale Price: {sale16x20}</div>
+										<div>18 X 24 - Price: ${normal18x24}, Sale Price: {sale18x24}</div>
+										<div>24 X 36 - Price: ${normal24x36}, Sale Price: {sale24x36}</div>
+									</div>
+							}
 							<div className="details-product-data">Shipping: ${product_shipping}</div>
 							<div className="details-product-data">
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
