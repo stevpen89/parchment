@@ -5,35 +5,21 @@ import './ProductCard.css'
 class ProductCard extends Component {
 
 	productDetailsSwitch(){
-		let {product_tags,product_sku} = this.props
-			if			(product_tags.tags.includes('inverted')){
-				return `/product/${product_sku}/inverted`}
-
-			else if	(product_tags.tags.includes('binary')){
-				return `/product/${product_sku}/binary`}
-
-			else if	(product_tags.tags.includes('single')){
-				return `/product/${product_sku}/single`}
-
-			else if	(product_tags.tags.includes('printinverted')){
-				return `/product/${product_sku}/printInverted`}
-
-			else if	(product_tags.tags.includes('printbinary')){
-				return `/product/${product_sku}/printBinary`}
-
-			else if	(product_tags.tags.includes('printsingle')){
-				return `/product/${product_sku}/printSingle`}
-				
-			else if	(product_tags.tags.includes('baby')){
-				return `/product/${product_sku}/baby`}
-				
-			else if	(product_tags.tags.includes('holiday')){
-				return `/product/${product_sku}/holiday`}
-				
-			else if	(product_tags.tags.includes('journal')){
-				return `/product/${product_sku}/journal`}
-			
-			else {return `/`}
+		let {product_type, product_sku} = this.props
+		
+		switch (product_type) {
+			case 'blanket_inverted'   : return `/product/${product_sku}/inverted`
+			case 'blanket_binary'     : return `/product/${product_sku}/binary`
+			case 'banket_single'      : return `/product/${product_sku}/single`
+			case 'print_inverted'     : return `/product/${product_sku}/printInverted`
+			case 'print_binary'       : return `/product/${product_sku}/printBinary`
+			case 'print_single'       : return `/product/${product_sku}/printSingle`
+			case 'blanket_baby'       : return `/product/${product_sku}/baby`
+			case 'blanket_holiday'    : return `/product/${product_sku}/holiday`
+			case 'journal_missionary' : return `/product/${product_sku}/journal`
+			case 'journal_everyday'   : return `/product/${product_sku}/journal`
+			default                   : return `/`
+		}
 	}
 
 	contentRender(){

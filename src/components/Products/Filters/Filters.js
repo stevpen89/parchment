@@ -69,12 +69,16 @@ class Filters extends Component {
   }
 
 	updateTags () {
-		let tempTags = []
-		if (this.props.match.params.type) {
-			tempTags.push(this.props.match.params.type)
-      this.setState({tags: tempTags})
-      this.getProducts(tempTags)
-		}
+		let historyArr = this.props.location.pathname.split('/')
+			if (historyArr[historyArr.length - 1] !== 'products') {
+				historyArr.splice(0, 2);
+        this.setState({tags: historyArr})
+        this.getProducts(historyArr)
+			}
+			else {
+        this.setState({tags: []})
+        this.getProducts([])
+			}
 	}
 
 	keyPress(e) {
