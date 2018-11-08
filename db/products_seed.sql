@@ -213,4 +213,62 @@ INSERT INTO products (product_name, product_tags, product_image, product_thumbs,
 
 -- END OF SCENIC JOURNALS -- 
 
+-- BEGIN FAMILY HISTORY BLANKETS --
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+VALUES ('Singles Family History Blanket',
+ '{"tags":["blanket","single","tree","family", "history", "genealogy", "custom", "branches", "soft", "fuzzy", "minky", "personal","grandkids","grandchildren","grandparents","children","parents"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/1_Dark_Brown_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/2_Gray_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3_Beige_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/4_Olive_Green_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/5_Gold_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/6_Blue_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/7_Beige_Summer_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_single', 169.99, 129.99, 0);
+		 
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+VALUES ('Couples Family History Blanket',
+ '{"tags":["blanket","binary","tree","family", "history", "genealogy", "custom", "branches", "soft", "fuzzy", "minky", "personal","couple","pair","married","spouse","grandkids","grandchildren","grandparents","children","parents"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/1_Dark_Brown_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/2_Gray_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3_Beige_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/4_Olive_Green_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/5_Gold_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/6_Blue_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/7_Beige_Summer_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_binary', 169.99, 129.99, 0);
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+VALUES ('Grandparents, Kids and Grandkids Family History Blanket',
+ '{"tags":["blanket","inverted","tree","family", "history", "genealogy", "custom", "branches", "soft", "fuzzy", "minky", "personal","kids","progeny","grandkids","grandchildren","grandparents","children","parents"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/GKG_Front_Photo.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/GKG_Back_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/1_Dark_Brown_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/2_Gray_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/3_Beige_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/4_Olive_Green_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/5_Gold_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/6_Blue_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/7_Beige_Summer_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'blanket_inverted', 169.99, 129.99, 0);
+
+    --  END OF FAMILY HISTORY BLANKETS
+
+    --  BEGIN FAMILY HISTORY PRINTS
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+VALUES ('Singles Family History Print',
+ '{"tags":["blanket","printsingle","tree","family", "history", "genealogy", "custom", "branches","personal","grandkids","grandchildren","grandparents","children","parents"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/1_Dark_Brown_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/2_Gray_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3_Beige_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/4_Olive_Green_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/5_Gold_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/6_Blue_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/7_Beige_Summer_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'print_single', 169.99, 129.99, 0);
+		 
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+VALUES ('Couples Family History Print',
+ '{"tags":["blanket","printbinary","tree","family", "history", "genealogy", "custom", "branches","personal","couple","pair","married","spouse","grandkids","grandchildren","grandparents","children","parents"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Front.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3Gen_Gray_Fall_Back.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/1_Dark_Brown_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/2_Gray_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/3_Beige_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/4_Olive_Green_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/5_Gold_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/6_Blue_Fall_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/7_Beige_Summer_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'print_binary', 169.99, 129.99, 0);
+
+INSERT INTO products (product_name, product_tags, product_image, product_thumbs, product_desc, product_type, product_price, product_sale, product_shipping)
+VALUES ('Grandparents, Kids and Grandkids Family History Print',
+ '{"tags":["blanket","printinverted","tree","family", "history", "genealogy", "custom", "branches","personal","kids","progeny","grandkids","grandchildren","grandparents","children","parents"]}',
+  'https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/GKG_Front_Photo.jpg',
+	 '{"thumbnails":["https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/GKG_Back_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/1_Dark_Brown_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/2_Gray_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/3_Beige_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/4_Olive_Green_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/5_Gold_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/6_Blue_Fall_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_GKG/7_Beige_Summer_GKG_Photo.jpg","https://s3-us-west-1.amazonaws.com/parchmentgoods/product-images/blanket_family_history_3gen/8_Minky_Texture.jpg"]}',
+	  'insert product description here',
+		 'print_inverted', 169.99, 129.99, 0);
+
+    --  END FAMILY HISTORY PRINTS
+
+    -- BEGIN
+
 select * from products
