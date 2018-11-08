@@ -14,11 +14,20 @@ class ProductCard extends Component {
 
 			else if	(product_tags.tags.includes('single')){
 				return `/product/${product_sku}/single`}
+
+			else if	(product_tags.tags.includes('printinverted')){
+				return `/product/${product_sku}/printInverted`}
+
+			else if	(product_tags.tags.includes('printbinary')){
+				return `/product/${product_sku}/printBinary`}
+
+			else if	(product_tags.tags.includes('printsingle')){
+				return `/product/${product_sku}/printSingle`}
 				
-				else if	(product_tags.tags.includes('baby')){
+			else if	(product_tags.tags.includes('baby')){
 				return `/product/${product_sku}/baby`}
 				
-				else if	(product_tags.tags.includes('holiday')){
+			else if	(product_tags.tags.includes('holiday')){
 				return `/product/${product_sku}/holiday`}
 				
 			else if	(product_tags.tags.includes('journal')){

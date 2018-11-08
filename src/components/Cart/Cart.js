@@ -18,9 +18,8 @@ class Cart extends Component {
 		const { userCart } = this.props
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
 		let shipping = false 
-		userCart.map((x)=>{return x.details.product_type === 'journal' ? shipping = true : null})
+		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? shipping = true : null})
 		let total = sum + (shipping === true ? 3.99 : 0);
-		console.log(userCart)
 
 		if (userCart.length > 0) {
 			return (

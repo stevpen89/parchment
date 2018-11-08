@@ -28,7 +28,7 @@ class Checkout extends Component {
 		const { userCart} = this.props;
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
 		let shipping = false 
-		userCart.map((x)=>{return x.details.product_type === 'journal' ? shipping = true : null});
+		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? shipping = true : null});
 		let total = sum + (shipping === true ? 3.99 : 0);
 		console.log(total)
 		this.setState({total})
@@ -49,7 +49,7 @@ class Checkout extends Component {
 		const { firstName, lastName, email, address, city, state, zip, phone } = this.state;
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
 		let shipping = false 
-		userCart.map((x)=>{return x.details.product_type === 'journal' ? shipping = true : null})
+		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? shipping = true : null})
 		let total = sum + (shipping === true ? 3.99 : 0);
 		let time = moment().format('MMMM Do YYYY, h:mm:ss a')
 
