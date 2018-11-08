@@ -20,13 +20,16 @@ class ProductDetails extends Component {
 	editorSwitch(){
 		const {sku} = this.props.match.params
 			switch (this.props.match.path) {
-				case "/product/:sku/inverted" : return <Link to={ `/product/${sku}/inverted/customize` }><button>Customize Now</button></Link>
-				case "/product/:sku/binary"   : return <Link to={ `/product/${sku}/binary/customize`   }><button>Customize Now</button></Link>
-				case "/product/:sku/single"   : return <Link to={ `/product/${sku}/single/customize`   }><button>Customize Now</button></Link>
-				case "/product/:sku/baby"     : return <Link to={ `/product/${sku}/baby/customize`     }><button>Customize Now</button></Link>
-				case "/product/:sku/holiday"  : return <Link to={ `/product/${sku}/holiday/customize`  }><button>Customize Now</button></Link>
-				case "/product/:sku/journal"  : return <Link to={ `/product/${sku}/journal/customize`  }><button>Customize Now</button></Link>
-				default                        : return (<div>product not found...</div>)
+				case "/product/:sku/inverted"      : return `/product/${sku}/inverted/customize`
+				case "/product/:sku/binary"        : return `/product/${sku}/binary/customize`
+				case "/product/:sku/single"        : return `/product/${sku}/single/customize`
+				case "/product/:sku/printInverted" : return `/product/${sku}/printInverted/customize`
+				case "/product/:sku/printBinary"   : return `/product/${sku}/printBinary/customize`
+				case "/product/:sku/printSingle"   : return `/product/${sku}/printSingle/customize`
+				case "/product/:sku/baby"          : return `/product/${sku}/baby/customize`
+				case "/product/:sku/holiday"       : return `/product/${sku}/journal/customize`
+				case "/product/:sku/journal"       : return `/product/${sku}/journal/customize`
+				default                            : return `/`
 			}
 	}
 
@@ -53,7 +56,7 @@ class ProductDetails extends Component {
 							<div className="details-product-data">
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
 							</div>
-							<div className="details-customize-button">{this.editorSwitch()}</div>
+							<div className="details-customize-button"><Link to={ this.editorSwitch() }><button>Customize Now</button></Link></div>
 						</div>
 						: null}
 					</div>

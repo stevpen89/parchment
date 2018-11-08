@@ -62,8 +62,8 @@ class JournalEditor extends Component {
 
 					<div className="journal-navigation">
 						<div className="journal-add-buttons">
-							<button onClick={() => this.addInput()}><i class="fas fa-plus"></i> Add Input</button>
-							<button onClick={() => this.removeInput()} disabled={inputs.length === 1}><i class="fas fa-times"></i> Remove Input</button><br />
+							<button onClick={() => this.addInput()}><i className="fas fa-plus"></i> Add Input</button>
+							<button onClick={() => this.removeInput()} disabled={inputs.length === 1}><i className="fas fa-times"></i> Remove Input</button><br />
 						</div>
 
 						<div className="journal-selector">
