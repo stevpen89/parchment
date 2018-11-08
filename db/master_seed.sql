@@ -12,8 +12,8 @@ CREATE TABLE users (
 	user_admin    BOOLEAN DEFAULT FALSE
 );
 
-INSERT INTO users (user_name, user_email, auth_id, auth_picture)
-VALUES ('Mr. Steven', 'someemail@gmail.com', 'google-name|001010', 'https://lh6.googleusercontent.com/-M0cJ1Sks87Y/AAAAAAAAAAI/AAAAAAAAAEI/BSnAjnFetN4/photo.jpg');
+-- INSERT INTO users (user_name, user_email, auth_id, auth_picture)
+-- VALUES ('Guest User', 'guestuser@gmail.com', 'google-name|001010', 'https://lh6.googleusercontent.com/-M0cJ1Sks87Y/AAAAAAAAAAI/AAAAAAAAAEI/BSnAjnFetN4/photo.jpg');
 
 SELECT * FROM users;
 
@@ -88,8 +88,7 @@ CREATE TABLE orders (
   user_id          INTEGER,
   purchase_date    TEXT,
   products         TEXT,
-  order_first_name VARCHAR(100),
-  order_last_name  VARCHAR(100),
+  order_name       VARCHAR(100),
   order_email      VARCHAR(200),
   order_address    VARCHAR(200),
   order_city       VARCHAR(100),
