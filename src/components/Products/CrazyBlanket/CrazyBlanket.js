@@ -118,7 +118,7 @@ class CrazyBlanket extends Component {
 						<div className="login-alert-wrapper">
 							<div className="login-alert">
 								<a>Please Login to use this feature</a>
-								<button>Login or make account</button>
+								<button onClick={() => document.getElementById("login").click()}>Login or make account</button>
 							</div>
 						</div>
 						}

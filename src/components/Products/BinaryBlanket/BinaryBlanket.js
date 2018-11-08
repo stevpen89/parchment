@@ -54,7 +54,7 @@ class BinaryBlanket extends Component {
 		const {user_id, setBinary, setBinaryID} = this.props
 		axios.get(`/cards/binary/${user_id}`)
 			.then((res) => {
-				if (res.data[0].o1) {
+				if (res.data.length > 0 && user_id) {
 					this.setState(res.data[0].o1);
 					setBinaryID(res.data[0].card_id);
 					setBinary(true)
@@ -68,23 +68,26 @@ class BinaryBlanket extends Component {
 	}
 
 	saveChanges() {
-		const { user_id, binaryExists, binaryID } = this.props
-		binaryExists ?
-			axios.put(`/cards/${binaryID}`, {
-        card_name    : null,
-        card_birth   : null,
-        card_death   : null,
-        spouse_name  : null,
-        spouse_birth : null,
-        spouse_death : null,
-        o1           : this.state
-			}).then(() => {this.savedMessage(); this.writeToSession()})
-		:
-			axios.post(`/cards/${user_id}`, {
-				tree_type    : 'binary',
-				parent_id    : null,
-				o1           : this.state
-		}).then(() => {this.savedMessage(); this.writeToSession()})
+    const { user_id, binaryExists, binaryID } = this.props
+    if (user_id) {
+      binaryExists ?
+        axios.put(`/cards/${binaryID}`, {
+          card_name    : null,
+          card_birth   : null,
+          card_death   : null,
+          spouse_name  : null,
+          spouse_birth : null,
+          spouse_death : null,
+          o1           : this.state
+        }).then(() => {this.savedMessage(); this.writeToSession()})
+      :
+        axios.post(`/cards/${user_id}`, {
+          tree_type    : 'binary',
+          parent_id    : null,
+          o1           : this.state
+      }).then(() => {this.savedMessage(); this.writeToSession()})
+    }
+    else {this.writeToSession()}
 	}
 
 	savedMessage () {
@@ -96,7 +99,10 @@ class BinaryBlanket extends Component {
     axios.get(`/products/single/${this.props.match.params.sku}`)
       .then((res)=>{
         axios.post('/products/addtocart', {details: res.data, info: this.state})
-          .then((res2) => this.props.setCart(res2.data))
+          .then((res2) => {
+            this.props.setCart(res2.data);
+            this.props.history.go(-2);
+          })
 		  })
 	}
 
@@ -202,7 +208,7 @@ class BinaryBlanket extends Component {
             </div>
           </div>
 
-          <div className="save-div"><button onClick={() => this.saveChanges()}>Save Changes</button></div>
+          <div className="save-div"><button onClick={() => this.saveChanges()}>Add To Cart</button></div>
             <div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
               <div className="saved-message"><a>Changes Saved</a></div>
             </div>

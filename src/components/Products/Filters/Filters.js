@@ -112,9 +112,9 @@ class Filters extends Component {
 	}
 
 	render() {
-		const { tags, tagInput, tagWarning } = this.state
-		const { handleInput, addTag, deleteTag, clearTags } = this
-		console.log(tags)
+		const { tags, tagInput, tagWarning } = this.state;
+		const { handleInput, addTag, deleteTag, clearTags } = this;
+
 		return (
 			<div>
 				{/* <div className="products-banner"></div> */}
