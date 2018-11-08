@@ -50,7 +50,7 @@ class ProductDetails extends Component {
 	}
 
 	render() {
-		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_shipping, product_tags } = this.state.product
+		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_sale, product_shipping, product_tags } = this.state.product
 		const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.state.printPrices;
 
 		return (
@@ -72,7 +72,10 @@ class ProductDetails extends Component {
 							<div className="details-product-data">SKU: {product_sku}</div>
 							<div className="details-product-data">{product_desc}</div>
 							{ Object.keys(this.state.printPrices).length === 0 && this.state.printPrices.constructor === Object ? 
-									<div className="details-product-data">Price: ${product_price}</div>
+									<div>
+										<div className={product_sale ? 'details-product-data strikeout' : 'details-product-data'}>Price: ${product_price}</div>
+										{product_sale ? <div className="details-product-data">Sale Price: ${product_sale}</div> : null}
+									</div>
 								:
 									<div>
 										<div> 8 X 10 - Price: ${normal8x10},  Sale Price: {sale8x10} </div>
@@ -92,6 +95,14 @@ class ProductDetails extends Component {
 								<option value="6">6. Blue (Fall)</option>
 								<option value="7">7. Beige (Summer)</option>
 							</select>
+										<div><a>8 X 10 - </a><a class={sale8x10  ? `strikeout` : ``}>Price: ${normal8x10}</a>{sale8x10 ? <a>, Sale Price: {sale8x10}</a> : null}</div>
+										<div><a>12 X 18 - </a><a class={sale12x18 ? `strikeout` : ``}>Price: ${normal12x18}</a>{sale12x18 ? <a>, Sale Price: {sale12x18}</a> : null}</div>
+										<div><a>16 X 20 - </a><a class={sale16x20 ? `strikeout` : ``}>Price: ${normal16x20}</a>{sale16x20 ? <a>, Sale Price: {sale16x20}</a> : null}</div>
+										<div><a>18 X 24 - </a><a class={sale18x24 ? `strikeout` : ``}>Price: ${normal18x24}</a>{sale18x24 ? <a>, Sale Price: {sale18x24}</a> : null}</div>
+										<div><a>24 X 36 - </a><a class={sale24x36 ? `strikeout` : ``}>Price: ${normal24x36}</a>{sale24x36 ? <a>, Sale Price: {sale24x36}</a> : null}</div>
+									</div>
+							}
+							{product_shipping > 0 ? <div className="details-product-data">Shipping: ${product_shipping}</div> : null}
 							<div className="details-product-data">
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
 							</div>
