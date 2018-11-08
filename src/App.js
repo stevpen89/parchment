@@ -11,6 +11,9 @@ import Footer         from './components/Footer/Footer'
 import CrazyBlanket   from './components/Products/CrazyBlanket/CrazyBlanket'
 import BinaryBlanket  from './components/Products/BinaryBlanket/BinaryBlanket'
 import SingleBlanket  from './components/Products/SingleBlanket/SingleBlanket'
+import CrazyPrint     from './components/Products/CrazyPrint/CrazyPrint'
+import BinaryPrint    from './components/Products/BinaryPrint/BinaryPrint'
+import SinglePrint    from './components/Products/SinglePrint/SinglePrint'
 import HolidayBlanket from './components/Products/HolidayBlanket/HolidayBlanket'
 import BabyBlanket    from './components/Products/BabyBlanket/BabyBlanket'
 import Journal        from './components/Products/Journal/Journal'
@@ -26,26 +29,32 @@ class App extends Component {
         <div className="app">
           <Nav />
             <Switch>
-              <Route exact path = "/"                                 component={Home}    />
-              <Route exact path = "/products"                         component={Products}/>
-              <Route       path = "/products/:type"                   component={Products}/>
-              <Route exact path = "/product/:sku/inverted"           component={ProductDetails}/>
-              <Route exact path = "/product/:sku/binary"             component={ProductDetails}/>
-              <Route exact path = "/product/:sku/single"             component={ProductDetails}/>
-              <Route exact path = "/product/:sku/baby"               component={ProductDetails}/>
-              <Route exact path = "/product/:sku/holiday"            component={ProductDetails}/>
-              <Route exact path = "/product/:sku/journal"            component={ProductDetails}/>
-              <Route       path = "/product/:sku/inverted/customize" component={CrazyBlanket}/>
-              <Route       path = "/product/:sku/binary/customize"   component={BinaryBlanket}/>
-              <Route       path = "/product/:sku/single/customize"   component={SingleBlanket}/>
-              <Route       path = "/product/:sku/baby/customize"     component={BabyBlanket}/>
-              <Route       path = "/product/:sku/holiday/customize"  component={HolidayBlanket}/>
-              <Route       path = "/product/:sku/journal/customize"  component={Journal}/>
-              <Route       path = "/admin"                            component={Admin} />
-              <Route       path = "/about"                            component={AboutUs} />
-              <Route       path = "/contact"                          component={Contact} />
-              <Route       path = "/cart"                             component={Cart} />
-              <Route       path = "/checkout"                         component={Checkout} />
+              <Route exact path = "/"                                     component={Home}    />
+              <Route exact path = "/products"                             component={Products}/>
+              <Route       path = "/products/:type"                       component={Products}/>
+              <Route exact path = "/product/:sku/inverted"                component={ProductDetails}/>
+              <Route exact path = "/product/:sku/binary"                  component={ProductDetails}/>
+              <Route exact path = "/product/:sku/single"                  component={ProductDetails}/>
+              <Route exact path = "/product/:sku/printInverted"           component={ProductDetails}/>
+              <Route exact path = "/product/:sku/printBinary"             component={ProductDetails}/>
+              <Route exact path = "/product/:sku/printSingle"             component={ProductDetails}/>
+              <Route exact path = "/product/:sku/baby"                    component={ProductDetails}/>
+              <Route exact path = "/product/:sku/holiday"                 component={ProductDetails}/>
+              <Route exact path = "/product/:sku/journal"                 component={ProductDetails}/>
+              <Route       path = "/product/:sku/inverted/customize"      component={CrazyBlanket}/>
+              <Route       path = "/product/:sku/binary/customize"        component={BinaryBlanket}/>
+              <Route       path = "/product/:sku/single/customize"        component={SingleBlanket}/>
+              <Route       path = "/product/:sku/printInverted/customize" component={CrazyPrint}/>
+              <Route       path = "/product/:sku/printBinary/customize"   component={BinaryPrint}/>
+              <Route       path = "/product/:sku/printSingle/customize"   component={SinglePrint}/>
+              <Route       path = "/product/:sku/baby/customize"          component={BabyBlanket}/>
+              <Route       path = "/product/:sku/holiday/customize"       component={HolidayBlanket}/>
+              <Route       path = "/product/:sku/journal/customize"       component={Journal}/>
+              <Route       path = "/admin"                                component={Admin} />
+              <Route       path = "/about"                                component={AboutUs} />
+              <Route       path = "/contact"                              component={Contact} />
+              <Route       path = "/cart"                                 component={Cart} />
+              <Route       path = "/checkout"                             component={Checkout} />
             </Switch>
           <Footer />
         </div>

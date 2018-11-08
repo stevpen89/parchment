@@ -20,7 +20,6 @@ class Cart extends Component {
 		let shipping = false 
 		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? shipping = true : null})
 		let total = sum + (shipping === true ? 3.99 : 0);
-		console.log(userCart)
 
 		if (userCart.length > 0) {
 			return (
