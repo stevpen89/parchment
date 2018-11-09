@@ -32,6 +32,7 @@
 .menu li {
 	padding: 20px;
 	transition: .25s;
+	position: relative;
 }
 
 .menu li:hover {
@@ -40,4 +41,22 @@
 
 .menu ul a {
 	color: black;
+}
+
+.menu select {
+	background: transparent;
+	border-radius: 100px;
+	font-size: 16px;
+	position: absolute;
+	right: 15PX;
+	top: 13px;
+	width: 220px;
+}
+
+.indented {
+	margin-left: 24px;
+}
+
+.menu select:focus {
+	background: transparent;
 }
