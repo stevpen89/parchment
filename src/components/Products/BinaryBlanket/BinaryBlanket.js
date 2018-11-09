@@ -8,8 +8,8 @@ import './BinaryBlanket.css';
 import PairCard from './PairCard';
 
 class BinaryBlanket extends Component {
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state={
 		a:'',ad1:'',ad2:'',
 		b:'',bd1:'',bd2:'',
@@ -43,7 +43,8 @@ class BinaryBlanket extends Component {
 		b2a1:'',b2a1d1:'',b2a1d2:'',
 		b2a2:'',b2a2d1:'',b2a2d2:'',
 		b2b1:'',b2b1d1:'',b2b1d2:'',
-		b2b2:'',b2b2d1:'',b2b2d2:''
+    b2b2:'',b2b2d1:'',b2b2d2:'',
+    color: props.match.params.color
 		}
 		this.saveChanges = this.saveChanges.bind(this);
 		this.savedMessage = this.savedMessage.bind(this);
@@ -207,7 +208,6 @@ class BinaryBlanket extends Component {
               </div>
             </div>
           </div>
-            {`Selected Color: ${this.props.match.params.color}`}
           <div className="save-div"><button onClick={() => this.saveChanges()}>Add To Cart</button></div>
             <div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
               <div className="saved-message"><a>Changes Saved</a></div>
