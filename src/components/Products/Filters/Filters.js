@@ -149,7 +149,7 @@ class Filters extends Component {
 						{tags.map((x,y)=>
 							<div className="tag" key={y}><a>{x}</a><button onClick={() => deleteTag(y)} id="addButton">x</button></div>
 						)}
-						{tagWarning ? <a>Please do less than 10 tags</a> : null}
+						{tagWarning ? <a>No more than 10 tags can be searched at one time, please refine your search.</a> : null}
 					</div>
 				</div>
 
