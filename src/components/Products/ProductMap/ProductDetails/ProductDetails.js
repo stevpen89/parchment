@@ -21,7 +21,7 @@ class ProductDetails extends Component {
 		let tempArr = [];
 		axios.get(`/products/single/${this.props.match.params.sku}`).then((res)=>{
 			tempArr.push(res.data.product_image)
-			res.data.product_thumbs.thumbnails.map((x)=>{tempArr.push(x)})	
+			res.data.product_thumbs.thumbnails.map((x)=>{return tempArr.push(x)})	
 			this.setState({product:res.data,imagesArray:tempArr,selectedImage:tempArr[0]})
 			if (res.data.product_type === 'print_single' || res.data.product_type === 'print_binary' || res.data.product_type === 'print_inverted')
 				{this.setState({printPrices: JSON.parse(res.data.o1)})}
@@ -92,6 +92,7 @@ class ProductDetails extends Component {
 		if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
 			return( 
 				<select onChange={(e)=>this.selectTemplate(e.target.value)}>
+					<option disabled selected value>Choose a Color</option>
 					<option value="1">1. Dark Brown (Fall)</option>
 					<option value="2">2. Grey Brown (Fall)</option>
 					<option value="3">3. Beige Brown (Fall)</option>
@@ -104,6 +105,7 @@ class ProductDetails extends Component {
 		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
 			return( 
 				<select onChange={(e)=>this.selectTemplate(e.target.value)}>
+					<option disabled selected value>Choose a Color</option>
 					<option value="1">1. Blue (Fall)</option>
 					<option value="2">2. Gold (Fall)</option>
 					<option value="3">3. Grey Original (Fall)</option>
@@ -118,7 +120,7 @@ class ProductDetails extends Component {
 		const {product_type} = this.state.product
 		if(product_type.includes('single') || product_type.includes('binary') || product_type.includes('inverted')){
 			if(this.state.parameter !== ''){return <button>Customize Now</button>}
-			else{null}
+			else{return null}
 		}
 		else{return <button>Customize Now</button>}
 	}
@@ -212,7 +214,7 @@ class ProductDetails extends Component {
 	}
 
 	render(){
-		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_sale, product_shipping, product_tags,product_type } = this.state.product
+		const { product_thumbs, product_sku, product_desc, product_price, product_sale, product_shipping, product_tags } = this.state.product
 		const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.state.printPrices;
 		this.state.journalCount >= 485 ? alert('Journals Are Currently Out of Stock, Please Check Back Later') : null
 

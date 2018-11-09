@@ -7,9 +7,9 @@ import CrazyCard from './CrazyCard';
 import './CrazyBlanket.css';
 
 class CrazyBlanket extends Component {
-	constructor () {
-		super();
-		this.state      = {familyTree : [], refresh: true}
+	constructor (props) {
+		super(props);
+		this.state      = {familyTree : [], refresh: true, color: props.match.params.color}
 		this.addChild   = this.addChild.bind(this)
 		this.editCard   = this.editCard.bind(this)
 		this.deleteCard = this.deleteCard.bind(this)
@@ -102,7 +102,7 @@ class CrazyBlanket extends Component {
 	writeToSession () {
     axios.get(`/products/single/${this.props.match.params.sku}`)
       .then((res)=>{
-        axios.post('/products/addtocart', {details: res.data, info: this.state.familyTree})
+        axios.post('/products/addtocart', {details: res.data, info: {familyTree: this.state.familyTree, color: this.state.color}})
           .then((res2) => this.props.setCart(res2.data))
 		  })
 	}
@@ -136,7 +136,6 @@ class CrazyBlanket extends Component {
 						}) : null }
 						
 						<button onClick={() => this.writeToSession()}>Purchase</button>
-						{`Selected Color: ${this.props.match.params.color}`}
           </div>
         </div>
 			)

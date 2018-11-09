@@ -19,7 +19,7 @@
 
 .single-blanket input:focus{background: rgba(255,255,255,1)}
 
-.single-blanket {background-color: rgba(255,255,255,1)}
+.single-blanket {background-color: rgba(0,0,0,.1);}
 
 .single-blanket .single-blanket-content {
 	display:flex;
@@ -132,6 +132,12 @@
 .single-blanket .save-div button:hover {
 	color: white;
 	background: #333;
+}
+
+.single-blanket .save-div button:disabled {
+	opacity: .5;
+	color: #333;
+	background: transparent;
 }
 
 .single-blanket .saved-message-container {

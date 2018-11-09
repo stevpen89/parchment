@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../SinglePrint/SinglePrint.css'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { setCart } from '../../../ducks/products';
@@ -7,18 +8,19 @@ import CrazyCard from '../CrazyBlanket/CrazyCard';
 import '../CrazyBlanket/CrazyBlanket.css';
 
 class CrazyPrint extends Component {
-	constructor () {
-		super();
+	constructor (props) {
+		super(props);
 		this.state = {
 			familyTree : [],
 			refresh    : true,
 			SKUInfo    : [],
 			prices     : {},
-			size       : 'none selected'
+			size       : 'Please select a size for your print',
+			color      : props.match.params.color
 		}
-		this.addChild   = this.addChild.bind(this)
-		this.editCard   = this.editCard.bind(this)
-		this.deleteCard = this.deleteCard.bind(this)
+		this.addChild   = this.addChild.bind(this);
+		this.editCard   = this.editCard.bind(this);
+		this.deleteCard = this.deleteCard.bind(this);
 	}
 
 	componentDidMount() {
@@ -131,7 +133,7 @@ class CrazyPrint extends Component {
     tempData.product_price = this.sizeParser()[0];
     tempData.product_sale = this.sizeParser()[1];
 
-		axios.post('/products/addtocart', {details: tempData, info: {familyTree:this.state.familyTree,size:this.state.size}})
+		axios.post('/products/addtocart', {details: tempData, info: {familyTree: this.state.familyTree, size: this.state.size, color:this.state.color}})
 			.then((res2) => {
         this.props.setCart(res2.data);
         this.props.history.go(-2);
@@ -143,7 +145,7 @@ class CrazyPrint extends Component {
 	}
 
 	render() {
-		const { refresh } = this.state;
+		const { refresh, size } = this.state;
 		const { user_id } = this.props;
 		const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.state.prices;
 
@@ -170,18 +172,33 @@ class CrazyPrint extends Component {
                 deleteCard = {this.deleteCard}
               /> : null
 						}) : null }
-						<div>
-							<a>Please Select a Size for Your Print</a>
-							<div onClick={()=>this.selectSize( '8x10')}> size:  8 X 10, Normal Price: {normal8x10}  , Sale Price: {sale8x10}  <i className="fas fa-tree"></i></div>
-							<div onClick={()=>this.selectSize('12x18')}> size: 12 X 18, Normal Price: {normal12x18} , Sale Price: {sale12x18} <i className="fas fa-tree"></i></div>
-							<div onClick={()=>this.selectSize('16x20')}> size: 16 X 20, Normal Price: {normal16x20} , Sale Price: {sale16x20} <i className="fas fa-tree"></i></div>
-							<div onClick={()=>this.selectSize('18x24')}> size: 18 X 24, Normal Price: {normal18x24} , Sale Price: {sale18x24} <i className="fas fa-tree"></i></div>
-							<div onClick={()=>this.selectSize('24x36')}> size: 24 X 36, Normal Price: {normal24x36} , Sale Price: {sale24x36} <i className="fas fa-tree"></i></div>
-							{this.state.size}
-						</div>
-						{`Selected Color: ${this.props.match.params.color}`}
-						{this.state.size !== 'none selected' && this.props.match.params.sku > 0? <button onClick={() => this.writeToSession()}>Purchase</button> : null}
           </div>
+					<div className="size-selector-wrapper">
+							<h1>{this.state.size}</h1>
+							<div className="size-selector">
+								<div onClick={()=>this.selectSize( '8x10')} className={size === '8x10' ? 'size-selected print-size size-8x10' : 'print-size size-8x10'}>
+									<a className={sale8x10 ? 'strikeout' : ''}>8 X 10 </a>
+									<a>${normal8x10}</a>{sale8x10 ? <a>${sale8x10}</a> : null}
+								</div>
+								<div onClick={()=>this.selectSize('12x18')} className={size === '12x18' ? 'size-selected print-size size-12x18' : 'print-size size-12x18'}>
+									<a className={sale12x18 ? 'strikeout' : ''}>12 X 18</a>
+									<a>${normal12x18}</a>{sale12x18 ? <a>${sale12x18}</a> : null}
+								</div>
+								<div onClick={()=>this.selectSize('16x20')} className={size === '16x20' ? 'size-selected print-size size-16x20' : 'print-size size-16x20'}>
+									<a className={sale16x20 ? 'strikeout' : ''}>16 X 20</a>
+									<a>${normal16x20}</a>{sale16x20 ? <a>${sale16x20}</a> : null}
+								</div>
+								<div onClick={()=>this.selectSize('18x24')} className={size === '18x24' ? 'size-selected print-size size-18x24' : 'print-size size-18x24'}>
+									<a className={sale18x24 ? 'strikeout' : ''}>18 X 24</a>
+									<a>${normal18x24}</a>{sale18x24 ? <a>${sale18x24}</a> : null}
+								</div>
+								<div onClick={()=>this.selectSize('24x36')} className={size === '24x36' ? 'size-selected print-size size-24x36' : 'print-size size-24x36'}>
+									<a className={sale24x36 ? 'strikeout' : ''}>24 X 36</a>
+									<a>${normal24x36}</a>{sale24x36 ? <a>${sale24x36}</a> : null}
+								</div>
+							</div>
+							<div className="save-div"><button onClick={() => this.writeToSession()} disabled={this.state.size !== 'Please select a size for your print' && this.props.match.params.sku > 0 ? false : true}>Add To Cart</button></div>
+						</div>
         </div>
 			)
 		}
