@@ -65,7 +65,7 @@ class Checkout extends Component {
 		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? hasShipping = true : null})
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
 		let time = moment().format('MMMM Do YYYY, h:mm:ss a')
-		let total = this.state.totalWithTax + (hasShipping === true ? shipping : 0) + (tax > 0 ? tax : 0);
+		let total = sum + (hasShipping === true ? shipping : 0) + (tax > 0 ? tax : 0);
 
 
 		//product info, which includes their customization
