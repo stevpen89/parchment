@@ -148,7 +148,7 @@ class Checkout extends Component {
 					</div>
 					<div>
 					<select onChange={(e)=>this.handleSelect(e.target.value)}>
-						<option disabled selected value> --- State ---</option>
+						<option disabled selected value>State</option>
 						<option value='Alaska'>Alaska</option>
 						<option value='Alabama'>Alabama</option>
 						<option value='Arkansas'>Arkansas</option>
