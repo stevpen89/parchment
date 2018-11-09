@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import './Contact.css'
 
 class Contact extends Component {
 	constructor(){
@@ -24,10 +25,12 @@ class Contact extends Component {
 	render() {
 		return (
 			<div className="content">
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'subject') } placeholder="Subject"/>
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'email') }   placeholder="Email"/>
-				<input onChange={ (e)=>this.handleInput(e.target.value, 'content') } placeholder="Message" type="textarea"/>
-				<button onClick={() => this.sendMessage()}>Send</button>
+				<div className="contact-inputs">
+					<input onChange={ (e)=>this.handleInput(e.target.value, 'subject') } placeholder="Subject"/>
+					<input onChange={ (e)=>this.handleInput(e.target.value, 'email') }   placeholder="Email"/>
+					<textarea onChange={ (e)=>this.handleInput(e.target.value, 'content') } placeholder="Message" />
+					<button onClick={() => this.sendMessage()}>Send</button>
+				</div>
 			</div>
 		)
 	}

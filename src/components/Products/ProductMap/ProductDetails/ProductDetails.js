@@ -11,7 +11,7 @@ class ProductDetails extends Component {
 			printPrices: {},
 			selectedImage:'',
 			imagesArray:'',
-			selectedTemplate:null,
+			selectedTemplate: 1,
 			parameter:'',
 			journalCount:0
 		}
