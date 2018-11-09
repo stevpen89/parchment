@@ -38,9 +38,9 @@ class Checkout extends Component {
 		if (this.props.userCart.length <= 0) {this.props.history.push('/cart')}
 		hasShipping ? this.setState({containsJournal:true}) : null
 		this.countOrders()
-		let taxrate = 1.0575
-		let totalWithTax = total*taxrate 
-		this.setState({totalWithTax})
+		let taxrate = .0575
+		let totalWithTax = total*(1 +taxrate)
+		this.setState({totalWithTax,tax:(total*taxrate)})
 	}
 
 	countOrders(){
@@ -58,14 +58,14 @@ class Checkout extends Component {
 	completeCheckout(name, address, city, state, zip) {
 		//declare variables
 		const { userCart, userID } = this.props;
-		const { email, phone, shipping } = this.state;
+		const { email, phone, shipping, tax } = this.state;
 
 		//find the prices
 		let hasShipping = false
 		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? hasShipping = true : null})
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
 		let time = moment().format('MMMM Do YYYY, h:mm:ss a')
-		let total = this.state.totalWithTax + (hasShipping === true ? shipping : 0);
+		let total = this.state.totalWithTax + (hasShipping === true ? shipping : 0) + (tax > 0 ? tax : 0);
 
 
 		//product info, which includes their customization
