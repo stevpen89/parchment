@@ -78,7 +78,7 @@ class ProductDetails extends Component {
 						{this.state.imagesArray
 							? this.state.imagesArray.map((x,y)=>
 							<div onClick={()=>this.selectImage(x)} className="details-product-thumbnail" key={y} style={{backgroundImage: `url(${x})`, backgroundSize: `cover`, backgroundPosition: `center`}}>
-							{(this.state.selectedTemplate*1+1) === y 
+							{((this.state.selectedTemplate*1+1) === y  && (product_type.includes('single') || product_type.includes('binary') || product_type.includes('inverted'))) 
 							? <div style={{border:"3px solid red"}}></div>:null}</div>) 
 							: null}
 					</div>
@@ -117,6 +117,7 @@ class ProductDetails extends Component {
 							<div className="details-product-data">
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
 							</div>
+							<div>																			<Link to={`/products/${product_tags.tags[0]}`}><button>Return to Products</button></Link></div>
 							<div className="details-customize-button"><Link to={ this.editorSwitch() }><button>Customize Now</button></Link></div>
 						</div>
 						: null}
