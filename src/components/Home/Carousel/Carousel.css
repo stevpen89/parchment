@@ -12,6 +12,11 @@
 	position: relative;
 }
 
+.carousel img {
+	width: 450px;
+	height: auto;
+}
+
 .carousel h1 {
 	text-transform: uppercase;
 	font-size: 80px;

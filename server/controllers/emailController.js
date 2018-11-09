@@ -1,5 +1,5 @@
 module.exports={
-	html: ( name, email, address, city, state, zip, phone, time, sum, shipping, hasShipping, total, info, ticketID, toSupport ) => {
+	html: ( name, email, address, city, state, zip, phone, time, sum, tax, hasTax, shipping, hasShipping, total, info, ticketID, toSupport ) => {
 		let parsedInfo = JSON.parse(info);
 		return (`
 			<html>
@@ -107,6 +107,7 @@ module.exports={
 							</div>`)}).join('')}
 							<a>Subtotal: $${sum.toFixed(2)}</a><br />
 							<a>Shipping: $${hasShipping ? shipping : 0}</a><br />
+							<a>Sales Tax: $${hasTax ? tax.toFixed(2) : 0}</a><br />
 							<h3>Total: $${total.toFixed(2)}</h3>
 							<h5>If any of the items or charges listed above are not correct, please reach out to us at support@parchmentgoods.com</h5><br />
 							<h5>Purchased on ${time} | ©ParchmentGoods | Ticket ID: ${ticketID}</h5>

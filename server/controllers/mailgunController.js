@@ -20,12 +20,12 @@ module.exports={
 	},
 
 	sendCustomer: (req, res)=>{
-		const { name, email, address, city, state, zip, phone, time, sum, shipping, hasShipping, total, info, ticketID } = req.body
+		const { name, email, address, city, state, zip, phone, time, sum, tax, hasTax, shipping, hasShipping, total, info, ticketID } = req.body
 		var data = {
 			from    : 'Customer Service <support@parchmentgoods.com>',
 			to      : `${email}`,
 			subject : `Customer Purchase`,
-			html    : `${emailController.html( name, email, address, city, state, zip, phone, time, sum, shipping, hasShipping, total, info, ticketID, false )}`,
+			html    : `${emailController.html( name, email, address, city, state, zip, phone, time, sum, tax, hasTax, shipping, hasShipping, total, info, ticketID, false )}`,
 		};
 		mailgun.messages().send(data, function (error, body) {
 		console.log(body);
@@ -34,12 +34,12 @@ module.exports={
 	},
 
 	sendAdmin: (req, res)=>{
-		const { name, email, address, city, state, zip, phone, time, sum, shipping, hasShipping, total, info, ticketID } = req.body
+		const { name, email, address, city, state, zip, phone, time, sum, tax, hasTax, shipping, hasShipping, total, info, ticketID } = req.body
 		var data = {
 			from    : 'Customer Service <support@parchmentgoods.com>',
 			to      : `support@parchmentgoods.com`,
 			subject : `Customer Purchase #${ticketID}`,
-			html    : `${emailController.html( name, email, address, city, state, zip, phone, time, sum, shipping, hasShipping, total, info, ticketID, true )}`,
+			html    : `${emailController.html( name, email, address, city, state, zip, phone, time, sum, tax, hasTax, shipping, hasShipping, total, info, ticketID, true )}`,
 		};
 		mailgun.messages().send(data, function (error, body) {
 		console.log(body);
