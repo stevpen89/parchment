@@ -80,4 +80,12 @@ module.exports = {
 		console.log(req.session.cart)
 		res.status(200).send(req.session.cart)
 	},
+
+	countOrders:(req,res)=>{
+		const db = req.app.get('db');
+		console.log(req.body)
+		db.products.count_orders_by_product([req.body.product])
+			.then(data => {res.status(200).send(data)})
+			.catch(err => console.log(`Error Message: ${err}`))
+	}
 }

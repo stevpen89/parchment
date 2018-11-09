@@ -9,7 +9,7 @@ CREATE TABLE users (
 	user_email    VARCHAR(100),
 	auth_id       TEXT,
 	auth_picture  TEXT,
-	user_admin    BOOLEAN DEFAULT FALSE
+	user_admin    VARCHAR(30) DEFAULT 'customer'
 );
 
 -- INSERT INTO users (user_name, user_email, auth_id, auth_picture)
