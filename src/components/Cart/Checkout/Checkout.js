@@ -58,14 +58,15 @@ class Checkout extends Component {
 	completeCheckout(name, address, city, state, zip) {
 		//declare variables
 		const { userCart, userID } = this.props;
-		const { email, phone, shipping, tax } = this.state;
+		const { email, phone, shipping, tax, selectedState } = this.state;
 
 		//find the prices
-		let hasShipping = false
-		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? hasShipping = true : null})
+		let hasShipping = false;
+		let hasTax = selectedState === 'Utah';
+		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? hasShipping = true : null});
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
-		let time = moment().format('MMMM Do YYYY, h:mm:ss a')
-		let total = sum + (hasShipping === true ? shipping : 0) + (tax > 0 ? tax : 0);
+		let time = moment().format('MMMM Do YYYY, h:mm:ss a');
+		let total = sum + (hasShipping === true ? shipping : 0) + (hasTax ? tax : 0);
 
 
 		//product info, which includes their customization
@@ -95,10 +96,10 @@ class Checkout extends Component {
 			order_phone      : phone
 		} ).then((res) => {
 			//emails the admin the receipt and data
-			axios.post ( '/api/mail/admin', {name, email, address, city, state, zip, phone,	time, sum, shipping, hasShipping, total, info: JSON.stringify(products), ticketID: res.data.order_id} )
+			axios.post ( '/api/mail/admin', {name, email, address, city, state, zip, phone,	time, sum, tax, hasTax, shipping, hasShipping, total, info: JSON.stringify(products), ticketID: res.data.order_id} )
 				.then(() => {
 					//emails the customer their receipt
-					axios.post ( '/api/mail/customer', {name, email, address, city, state, zip, phone,	time, sum, shipping, hasShipping, total, info: JSON.stringify(products), ticketID: res.data.order_id} );
+					axios.post ( '/api/mail/customer', {name, email, address, city, state, zip, phone,	time, sum, tax, hasTax, shipping, hasShipping, total, info: JSON.stringify(products), ticketID: res.data.order_id} );
 					//empties the cart and sends you to the home page
 					axios.put ('products/rewritecart', [])
 						.then((res) => {
