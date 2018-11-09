@@ -19,7 +19,7 @@ class Filters extends Component {
 		this.addTag      = this.addTag.bind(this);
 		this.deleteTag   = this.deleteTag.bind(this);
 		this.clearTags   = this.clearTags.bind(this);
-		this.keyPress    = this.keyPress.bind(this);		
+		this.keyPress    = this.keyPress.bind(this);
 	}
 
 	componentDidMount () {
