@@ -25,7 +25,7 @@ class Cart extends Component {
 			return (
 				<div className="content">
 					<div className="cart-wrapper">
-						<div>
+						<div className="selected-products">
 							{userCart.map((x, i) => {
 								return (
 									<div className="cart-item" key={i}>
@@ -47,13 +47,14 @@ class Cart extends Component {
 									</div>
 								)
 							})}
-					</div>
-					<div>
-						<a>Subtotal: ${sum.toFixed(2)}</a><br />
-						<a>Shipping: ${(shipping === true ? 3.99 : 0).toFixed(2)}</a><br />
-						<a>Total: ${total.toFixed(2)}</a><br />
-						<Link to="/checkout"><button className="checkout-button">Checkout</button></Link>
-					</div>
+						</div>
+						<div className="cart-payments">
+							<a>Subtotal: ${sum.toFixed(2)}</a><br />
+							<a>Shipping: ${(shipping === true ? 3.99 : 0).toFixed(2)}</a><br />
+							<div className="total-divider"></div>
+							<a className="cart-total">Total: ${total.toFixed(2)}</a><br />
+							<Link to="/checkout"><button className="checkout-button">Checkout</button></Link>
+						</div>
 					</div>
 				</div>
 			)

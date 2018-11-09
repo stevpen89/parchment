@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../SinglePrint/SinglePrint.css'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { savedMessage, setBinary, setBinaryID, setBinaryPrintPrices, setBinaryPrintSKUInfo } from '../../../ducks/familyTree';
@@ -8,8 +9,8 @@ import '../BinaryBlanket/BinaryBlanket.css';
 import PairCard from '../BinaryBlanket/PairCard';
 
 class BinaryPrint extends Component {
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state={
 		a:'',ad1:'',ad2:'',
 		b:'',bd1:'',bd2:'',
@@ -44,7 +45,8 @@ class BinaryPrint extends Component {
 		b2a2:'',b2a2d1:'',b2a2d2:'',
 		b2b1:'',b2b1d1:'',b2b1d2:'',
     b2b2:'',b2b2d1:'',b2b2d2:'',
-    size: 'none selected',
+    size: 'Please select a size for your print',
+    color: props.match.params.color
 		}
 		this.saveChanges = this.saveChanges.bind(this);
 		this.savedMessage = this.savedMessage.bind(this);
@@ -134,6 +136,7 @@ class BinaryPrint extends Component {
 
 	render() {
     const { saved } = this.props;
+    const {size} = this.state;
     const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.props.binaryPrintPrices;
 		return (
 			<div className="content">
@@ -235,18 +238,33 @@ class BinaryPrint extends Component {
             </div>
           </div>
 
-          <div>
-						<a>Please Select a Size for Your Print</a>
-						<div onClick={()=>this.selectSize( '8x10')}> size:  8 X 10, Normal Price: {normal8x10}  , Sale Price: {sale8x10}  <i className="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('12x18')}> size: 12 X 18, Normal Price: {normal12x18} , Sale Price: {sale12x18} <i className="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('16x20')}> size: 16 X 20, Normal Price: {normal16x20} , Sale Price: {sale16x20} <i className="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('18x24')}> size: 18 X 24, Normal Price: {normal18x24} , Sale Price: {sale18x24} <i className="fas fa-tree"></i></div>
-						<div onClick={()=>this.selectSize('24x36')}> size: 24 X 36, Normal Price: {normal24x36} , Sale Price: {sale24x36} <i className="fas fa-tree"></i></div>
-						{this.state.size}
+          <div className="size-selector-wrapper">
+						<h1>{this.state.size}</h1>
+						<div className="size-selector">
+							<div onClick={()=>this.selectSize( '8x10')} className={size === '8x10' ? 'size-selected print-size size-8x10' : 'print-size size-8x10'}>
+								<a className={sale8x10 ? 'strikeout' : ''}>8 X 10 </a>
+								<a>${normal8x10}</a>{sale8x10 ? <a>${sale8x10}</a> : null}
+							</div>
+							<div onClick={()=>this.selectSize('12x18')} className={size === '12x18' ? 'size-selected print-size size-12x18' : 'print-size size-12x18'}>
+								<a className={sale12x18 ? 'strikeout' : ''}>12 X 18</a>
+								<a>${normal12x18}</a>{sale12x18 ? <a>${sale12x18}</a> : null}
+							</div>
+							<div onClick={()=>this.selectSize('16x20')} className={size === '16x20' ? 'size-selected print-size size-16x20' : 'print-size size-16x20'}>
+								<a className={sale16x20 ? 'strikeout' : ''}>16 X 20</a>
+								<a>${normal16x20}</a>{sale16x20 ? <a>${sale16x20}</a> : null}
+							</div>
+							<div onClick={()=>this.selectSize('18x24')} className={size === '18x24' ? 'size-selected print-size size-18x24' : 'print-size size-18x24'}>
+								<a className={sale18x24 ? 'strikeout' : ''}>18 X 24</a>
+								<a>${normal18x24}</a>{sale18x24 ? <a>${sale18x24}</a> : null}
+							</div>
+							<div onClick={()=>this.selectSize('24x36')} className={size === '24x36' ? 'size-selected print-size size-24x36' : 'print-size size-24x36'}>
+								<a className={sale24x36 ? 'strikeout' : ''}>24 X 36</a>
+								<a>${normal24x36}</a>{sale24x36 ? <a>${sale24x36}</a> : null}
+							</div>
+						</div>
+						<div className="save-div"><button onClick={() => this.saveChanges()} disabled={this.state.size !== 'Please select a size for your print' && this.props.match.params.sku > 0 ? false : true}>Add To Cart</button></div>
 					</div>
-
-            {`Selected Color: ${this.props.match.params.color}`}
-            {this.state.size !== 'none selected' && this.props.match.params.sku > 0 ? <div className="save-div"><button onClick={() => this.saveChanges()}>Add To Cart</button></div> : null}
+          
             <div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
               <div className="saved-message"><a>Changes Saved</a></div>
             </div>

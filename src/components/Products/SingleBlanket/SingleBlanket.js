@@ -8,8 +8,8 @@ import SingleCard from './SingleCard';
 import {connect} from 'react-redux';
 
 class SingleBlanket extends Component {
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state={
 			a:'',ad1:'',ad2:'',
 			a1:'',a1d1:'',a1d2:'',
@@ -27,7 +27,8 @@ class SingleBlanket extends Component {
 			a2a1:'',a2a1d1:'',a2a1d2:'',
 			a2a2:'',a2a2d1:'',a2a2d2:'',
 			a2b1:'',a2b1d1:'',a2b1d2:'',
-			a2b2:'',a2b2d1:'',a2b2d2:''
+			a2b2:'',a2b2d1:'',a2b2d2:'',
+			color: props.match.params.color
 		}
 		this.saveChanges = this.saveChanges.bind(this);
 		this.savedMessage = this.savedMessage.bind(this);
@@ -177,7 +178,6 @@ class SingleBlanket extends Component {
 							</div>
 						</div>
 					</div>
-					{`Selected Color: ${this.props.match.params.color}`}
 					<div className="save-div"><button onClick={() => this.saveChanges()}>Add To Cart</button></div>
 					<div className="saved-message-container transparent" style={saved ? {opacity: `1`} : {opacity: `0`}}>
 						<div className="saved-message"><a>Changes Saved</a></div>
