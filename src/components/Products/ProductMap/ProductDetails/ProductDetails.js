@@ -168,9 +168,9 @@ class ProductDetails extends Component {
 							}
 							{this.makeDropdown()}
 							{product_shipping > 0 ? <div className="details-product-data">Shipping: ${product_shipping}</div> : null}
-							<div className="details-product-data">
+							{/* <div className="details-product-data">
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
-							</div>
+							</div>    ---   Jana Says she doesn't want the tags rendering on this page, even though I think they are dope   ---   */}
 							<div><Link to={`/products/${product_tags.tags[0]}`}><button>Return to Products</button></Link></div>
 							<div className="details-customize-button">
 								<Link to={ this.editorSwitch() }>
