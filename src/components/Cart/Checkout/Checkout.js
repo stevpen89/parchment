@@ -17,6 +17,10 @@ class Checkout extends Component {
 			confirmEmail : '',
 			shipping     : 3.99,
 			total			   : 0,
+			journalCount : 0,
+			containsJournal:false,
+			selectedState:'',
+			totalWithTax:0,
 		}
 	}
 
@@ -31,6 +35,17 @@ class Checkout extends Component {
 		let total = sum + (hasShipping === true ? shipping : 0);
 		this.setState({total})
 		if (this.props.userCart.length <= 0) {this.props.history.push('/cart')}
+		hasShipping ? this.setState({containsJournal:true}) : null
+		this.countOrders()
+		let tax = 1.0575
+		let totalWithTax = total*tax 
+		this.setState({totalWithTax})
+	}
+
+	countOrders(){
+		axios.post(`/products/ordercount`,{product:`%Journal%`}).then((res)=>{
+			this.setState({journalCount:res.data[0].count})
+		})
 	}
 
 	handleInput(val,target){
@@ -49,7 +64,8 @@ class Checkout extends Component {
 		userCart.map((x)=>{return x.details.product_type === 'journal_missionary' || x.details.product_type === 'journal_everyday' ? hasShipping = true : null})
 		let sum = userCart.reduce((a, x) => a + (x.details.product_sale ? x.details.product_sale : x.details.product_price), 0);
 		let time = moment().format('MMMM Do YYYY, h:mm:ss a')
-		let total = sum + (hasShipping === true ? shipping : 0);
+		let total = this.state.totalWithTax + (hasShipping === true ? shipping : 0);
+
 
 		//product info, which includes their customization
 		let products = userCart.map((x) => {
@@ -94,19 +110,26 @@ class Checkout extends Component {
 
 	onToken = (token) => {
     token.card = void 0;
-    axios.post(`/api/charge`, { token, amount: Math.floor(this.state.total*100) }).then(res => {
+    axios.post(`/api/charge`, { token, amount: Math.floor(this.state.selectedState==='Utah' ? this.state.totalWithTax*100 : this.state.total*100) }).then(res => {
 			const { address_city, address_line1, address_state, address_zip, name } = res.data.source
 			this.completeCheckout(name, address_line1, address_city, address_state, address_zip);
     })
-  }
+	}
+	
+	handleSelect(val){
+		this.setState({selectedState:val})
+	}
 
 	render() {
-		const { email, phone, validEmail, confirmEmail } = this.state;
+		const { email,phone,validEmail,confirmEmail,journalCount,containsJournal,selectedState } = this.state;
+		const { userCart } = this.props
+
 
 		let formsFilled =
 			phone        !== '' &&
 			validEmail   === true &&
-			confirmEmail === email;
+			confirmEmail === email &&
+			selectedState !== '';
 
 		return (
 			<div className="content">
@@ -124,7 +147,8 @@ class Checkout extends Component {
 						{phone ? <a><i className="fas fa-check"></i></a> : null}
 					</div>
 					<div>
-					{/* <select>
+					<select onChange={(e)=>this.handleSelect(e.target.value)}>
+						<option disabled selected value> --- State ---</option>
 						<option value='Alaska'>Alaska</option>
 						<option value='Alabama'>Alabama</option>
 						<option value='Arkansas'>Arkansas</option>
@@ -155,7 +179,7 @@ class Checkout extends Component {
 						<option value='Mississippi'>Mississippi</option>
 						<option value='Montana'>Montana</option>
 						<option value='North Carolina'>North Carolina</option>
-						<option value=' North Dakota'> North Dakota</option>
+						<option value='North Dakota'> North Dakota</option>
 						<option value='Nebraska'>Nebraska</option>
 						<option value='New Hampshire'>New Hampshire</option>
 						<option value='New Jersey'>New Jersey</option>
@@ -180,12 +204,14 @@ class Checkout extends Component {
 						<option value='Wisconsin'>Wisconsin</option>
 						<option value='West Virginia'>West Virginia</option>
 						<option value='Wyoming'>Wyoming</option>
-					</select> */}
+					</select>
+					{selectedState !== '' ? <a><i className="fas fa-check"></i></a> : null}
 					</div>
 					<a>* Shipping only available within the continental US</a><br />
 					<a>* Read our <Link to="about">privacy policy</Link></a><br />
-					<a className="checkout-total">Total: ${this.state.total.toFixed(2)}</a><br />
-				<StripeCheckout
+					{this.state.selectedState === "Utah" ? <div><a className="checkout-total">Tax: ${(this.state.total*.0575).toFixed(2)}</a><br /></div> : null}
+					<a className="checkout-total">Total: ${(this.state.selectedState==='Utah' ? this.state.totalWithTax : this.state.total).toFixed(2)}</a><br />
+				{containsJournal && journalCount >= 485 ? null : <StripeCheckout
 					name="Parchment Goods"
 					description="Complete Your Purchase"
 					image="https://s3-us-west-1.amazonaws.com/parchmentgoods/logo/square-logo-dark.png"
@@ -195,9 +221,9 @@ class Checkout extends Component {
 					zipCode={true}
 					currency="USD"
 					stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
-					amount={(this.state.total * 100)}
+					amount={(this.state.selectedState==='Utah' ? this.state.totalWithTax*100 : this.state.total*100)}
 					className={ formsFilled ? `checkout-button` : `checkout-button checkout-disabled` }
-				/>
+				/>}
 				</div>
 			</div>
 		)

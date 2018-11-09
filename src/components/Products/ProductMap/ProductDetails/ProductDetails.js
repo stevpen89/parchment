@@ -120,10 +120,16 @@ class ProductDetails extends Component {
 		const {product_type} = this.state.product
 		if(product_type.includes('single') || product_type.includes('binary') || product_type.includes('inverted')){
 			if(this.state.parameter !== ''){return <button>Customize Now</button>}
-			else{return null}
+			else{
+				return null
+			}
 		}
-		else{return <button>Customize Now</button>}
-	}
+		else{
+		if(product_type.includes('journal') && this.state.journalCount >= 485){return null}
+		else{
+			return <button>Customize Now</button>
+		}
+	}}
 
 	makeSelectionBorder(val){
 		const {product_type} = this.state.product
@@ -216,7 +222,8 @@ class ProductDetails extends Component {
 	render(){
 		const { product_thumbs, product_sku, product_desc, product_price, product_sale, product_shipping, product_tags } = this.state.product
 		const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.state.printPrices;
-		this.state.journalCount >= 485 ? alert('Journals Are Currently Out of Stock, Please Check Back Later') : null
+		const {product_type} = this.state.product
+		if(product_type){this.state.journalCount >= 485 && product_type.includes('journal') ? alert('Journals Are Currently Out of Stock, Please Check Back Later') : null}
 
 		return (
 			<div className="content">
