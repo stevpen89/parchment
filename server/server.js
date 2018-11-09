@@ -51,6 +51,7 @@ app.put  ( '/products/search',       productsController.search      );
 app.get  ( '/products/readcart',     productsController.readCart    );
 app.post ( '/products/addtocart',    productsController.addToCart   );
 app.put  ( '/products/rewritecart',  productsController.rewriteCart );
+app.post ( '/products/ordercount',   productsController.countOrders)
 
 //ORDERS ENDPOINTS
 app.post ( '/orders', ordersController.create );

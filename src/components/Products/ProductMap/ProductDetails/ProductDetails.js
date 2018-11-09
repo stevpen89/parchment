@@ -13,6 +13,7 @@ class ProductDetails extends Component {
 			imagesArray:'',
 			selectedTemplate:null,
 			parameter:'',
+			journalCount:0
 		}
 	}
 
@@ -24,6 +25,14 @@ class ProductDetails extends Component {
 			this.setState({product:res.data,imagesArray:tempArr,selectedImage:tempArr[0]})
 			if (res.data.product_type === 'print_single' || res.data.product_type === 'print_binary' || res.data.product_type === 'print_inverted')
 				{this.setState({printPrices: JSON.parse(res.data.o1)})}
+		})
+		this.countOrders()
+		
+	}
+
+	countOrders(){
+		axios.post(`/products/ordercount`,{product:`%Journal%`}).then((res)=>{
+			this.setState({journalCount:res.data[0].count})
 		})
 	}
 
@@ -117,7 +126,7 @@ class ProductDetails extends Component {
 	makeSelectionBorder(val){
 		const {product_type} = this.state.product
 		if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
-			if(val === this.state.selectedTemplate*1+2){
+			if(val === this.state.selectedTemplate*1+1){
 				return <div style={{border:"3px solid red"}}></div>
 			}
 		}
@@ -129,9 +138,83 @@ class ProductDetails extends Component {
 		else{return null}
 	}
 
+	makeProductDescription(){
+		const {product_type} = this.state.product
+		if(product_type==='journal_missionary' || product_type==='journal_everyday'){
+			return(
+			<div>
+				<p>	Dimensions: 5.5” x 8”</p>
+				<p>	Pages: 240 Lined</p>
+				<p>	Ready to ship in 5-7 business days</p>
+			</div>)
+		}
+		else if(product_type==='blanket_holiday'){
+			return(
+			<div>
+				<p>	Our custom holiday blankets make the perfect personalized
+						gift for Christmas. Fabric is 100% polyester
+						minky fabric with an extremely soft feel. Blankets are made with
+						special color-fast technology that helps the dye last through repeated
+						washings.</p>
+				<p>	Size: 50” x 60”</p>
+				<p>	After you have placed your order there is a 3-8 day turn around
+						production time before shipping.
+						You will be notied once your purchase has shipped.</p>
+				<p>	PLEASE NOTE: After you have submitted your order we are
+						not liable for any mistakes in spelling, punctuation, capitalization
+						or grammatical errors.
+						All sales are nal on personalized products. Thank you!</p>
+			</div>)
+		}
+		else if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
+			return(
+			<div>
+				<p>	Our custom family history blankets make the perfect personalized
+						gift for weddings, birthdays, and anniversaries. Fabric is 100% polyester
+						minky fabric with an extremely soft feel. Blankets are made with
+						special color-fast technology that helps the dye last through repeated
+						washings. Available colors shown in listing photos.</p>
+				<p>	Size: 50” x 60”</p>
+				<p>	After you place your order, you will receive an email with a
+						digital proof of your family tree in 2-4 days.
+						After you have approved the proof there is a 3-8 day turn around
+						production time before shipping.
+						You will be notied once your purchase has shipped.</p>
+				<p>	PLEASE NOTE: After you have approved the digital proof we are
+						not liable for any mistakes in spelling, punctuation, capitalization
+						or grammatical errors.
+						All sales are nal on personalized products. Thank you!</p>
+			</div>)
+		}
+		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
+			return(
+			<div>
+				<p>	Our custom family history prints make the perfect personalized
+						gift for weddings, birthdays, and anniversaries. Printed on museum-quality
+						posters made on thick, durable, matte paper. A statement in any room.
+						These are printed on archival, acid-free paper.
+						Available colors shown in listing photos.</p>
+				<p>	After you place your order, you will receive an email with a
+						digital proof of your family tree in 2-4 days.
+						After you have approved the proof there is a 3-8 day turn around
+						production time before shipping.
+						You will be notied once your purchase has shipped.</p>
+				<p>	PLEASE NOTE: After you have approved the digital proof we are
+						not liable for any mistakes in spelling, punctuation, capitalization
+						or grammatical errors.
+						All sales are nal on personalized products. Thank you!</p>
+			</div>)
+		}
+
+		else{
+			return null
+		}
+	}
+
 	render(){
 		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_sale, product_shipping, product_tags,product_type } = this.state.product
 		const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.state.printPrices;
+		this.state.journalCount >= 485 ? alert('Journals Are Currently Out of Stock, Please Check Back Later') : null
 
 		return (
 			<div className="content">
@@ -166,7 +249,9 @@ class ProductDetails extends Component {
 										<div><a>24 X 36 - </a><a class={sale24x36 ? `strikeout` : ``}>Price: ${normal24x36}</a>{sale24x36 ? <a>, Sale Price: {sale24x36}</a> : null}</div>
 									</div>
 							}
+							{this.state.journalCount ? <h1>{`Number of Journals Ordered...${this.state.journalCount}`}</h1>:null}
 							{this.makeDropdown()}
+							{this.makeProductDescription()}
 							{product_shipping > 0 ? <div className="details-product-data">Shipping: ${product_shipping}</div> : null}
 							{/* <div className="details-product-data">
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}

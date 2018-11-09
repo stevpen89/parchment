@@ -21,13 +21,16 @@ export default class Tools extends Component {
 		this.setState({[target]:val})
 	}
 
+
+
 	render() {
 		return (
 			<div>
 				This is Where the Mailgun stuff goes
 				<input placeholder='to'   		onChange={(e)=>this.handleChange(e.target.value,'address')}/>
 				<input placeholder='subject' 	onChange={(e)=>this.handleChange(e.target.value,'subject')}/>
-				<input placeholder='content' 		onChange={(e)=>this.handleChange(e.target.value,'content')}/>
+				<input placeholder='content' 	onChange={(e)=>this.handleChange(e.target.value,'content')}/>
+				<input placeholder='product' 	onChange={(e)=>this.handleChange(e.target.value,'product')}/>
 				<button onClick={()=>this.hitMailgun()}>Fire In The Hole...</button>
 			</div>
 		)
