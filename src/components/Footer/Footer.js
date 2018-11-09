@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './Footer.css'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import './Footer.css';
 
 class Footer extends Component {
 	constructor(){
@@ -9,7 +10,7 @@ class Footer extends Component {
 	render() {
 		return (
 			<div className="footer">
-				<a>© Jana &amp; Steven Penfield 2018 </a>
+				<a>© Parchment Goods 2018    | <Link to="/about" className="privacy-link">Privacy Policy</Link></a>
 			</div>
 		)
 	}

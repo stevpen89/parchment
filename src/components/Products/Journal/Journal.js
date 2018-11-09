@@ -53,15 +53,21 @@ class Journal extends Component {
 		const {inputArr} = this.state
 		return (
       <div className="content">
-			  {inputArr.map((x, i) => {
-          return (
-            <div>
-              <input onChange={(e) => this.handleChange(`input${i+1}`, e.target.value)} onBlur={(e) => this.updateInputArr(x, e.target.value)}/>
-              <a> {x}</a>
-            </div>
-          )
-				})}
-				<button onClick={() => this.writeToSession()}>Save Changes</button>
+				<div className="journal-inputs">
+					{inputArr.map((x, i) => {
+						return (
+							<div className="journal-input-divs">
+								<div class="journal-input-name">
+									<a>{x} </a>
+								</div>
+								<div>
+									<input onChange={(e) => this.handleChange(`input${i+1}`, e.target.value)} onBlur={(e) => this.updateInputArr(x, e.target.value)}/>	
+								</div>
+							</div>
+						)
+					})}
+					<button onClick={() => this.writeToSession()}>Add to Cart</button>
+				</div>
       </div>
 		)
 	}

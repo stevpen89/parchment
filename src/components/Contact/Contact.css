@@ -1,22 +1,15 @@
-.journal-inputs {
+.contact-inputs {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: calc(100vh - 150px);
+	min-height: calc(100vh - 150px);
 }
 
-.journal-inputs a {
-	text-transform: uppercase;
-	font-size: 18px;
-	letter-spacing: 3px;
-	float: none;
-}
-
-.journal-inputs input {
+.contact-inputs input, .contact-inputs textarea {
 	border-radius: 100px;
 	height: 45px;
-	width: 300px;
+	width: 500px;
 	color: white;
 	background: #333;
 	padding: 0 20px;
@@ -26,8 +19,20 @@
 	border: none;
 }
 
-.journal-inputs button {
-	margin: 60px 0;
+.contact-inputs textarea {
+	border-radius: 22.5px;
+	padding: 20px;
+	width: 500px;
+	height: 30vh;
+	resize: none;
+}
+
+.contact-inputs textarea:focus {
+	outline: none;
+}
+
+.contact-inputs button {
+	margin: 40px 0;
 	padding: 10px 60px;
 	color: #333;
 	border: 2px #333 solid;
@@ -39,21 +44,7 @@
 	letter-spacing: 2px;
 }
 
-.journal-inputs button:hover {
+.contact-inputs button:hover {
 	color: white;
 	background: #333;
-}
-
-.journal-input-divs {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	width: 500px;
-}
-
-.journal-input-name {
-	display: flex;
-	justify-content: flex-end;
-	width: 100%;
 }
