@@ -10,7 +10,7 @@ body {
   background: white;
 }
 
-button, input {
+button, input, select, option {
   font-family: 'Varela Round', sans-serif;
   outline: none;
   transition: .25s;

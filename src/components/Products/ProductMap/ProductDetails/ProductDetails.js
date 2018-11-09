@@ -129,12 +129,12 @@ class ProductDetails extends Component {
 		const {product_type} = this.state.product
 		if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
 			if(val === this.state.selectedTemplate*1+1){
-				return <div style={{border:"3px solid red"}}></div>
+				return <div className="details-product-thumbnail-highlight"></div>
 			}
 		}
 		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
 			if(val === this.state.selectedTemplate*1-1){
-				return <div style={{border:"3px solid red"}}></div>
+				return <div className="details-product-thumbnail-highlight"></div>
 			}
 		}
 		else{return null}
@@ -152,7 +152,7 @@ class ProductDetails extends Component {
 		}
 		else if(product_type==='blanket_holiday'){
 			return(
-			<div>
+			<div className="details-message">
 				<p>	Our custom holiday blankets make the perfect personalized
 						gift for Christmas. Fabric is 100% polyester
 						minky fabric with an extremely soft feel. Blankets are made with
@@ -170,7 +170,7 @@ class ProductDetails extends Component {
 		}
 		else if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
 			return(
-			<div>
+			<div className="details-message">
 				<p>	Our custom family history blankets make the perfect personalized
 						gift for weddings, birthdays, and anniversaries. Fabric is 100% polyester
 						minky fabric with an extremely soft feel. Blankets are made with
@@ -190,7 +190,7 @@ class ProductDetails extends Component {
 		}
 		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
 			return(
-			<div>
+			<div className="details-message">
 				<p>	Our custom family history prints make the perfect personalized
 						gift for weddings, birthdays, and anniversaries. Printed on museum-quality
 						posters made on thick, durable, matte paper. A statement in any room.
@@ -214,13 +214,13 @@ class ProductDetails extends Component {
 	}
 
 	render(){
-		const { product_thumbs, product_sku, product_desc, product_price, product_sale, product_shipping, product_tags } = this.state.product
+		const { product_name, product_thumbs, product_sku, product_desc, product_price, product_sale, product_shipping, product_tags } = this.state.product
 		const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.state.printPrices;
 		this.state.journalCount >= 485 ? alert('Journals Are Currently Out of Stock, Please Check Back Later') : null
 
 		return (
 			<div className="content">
-				<div className="details-container">
+				<div className="details">
 					<div className="details-image-container" style={{backgroundImage: `url(${this.state.selectedImage})`, backgroundSize: `cover`, backgroundPosition: `center`}}>
 					<div className="details-thumbnail-wrapper">
 						{this.state.imagesArray ? this.state.imagesArray.map((x,y)=>
@@ -232,15 +232,15 @@ class ProductDetails extends Component {
 							: null}
 					</div>
 					</div>
-					<div className="details-product-information">
+					<div className="product-information">
 						{product_thumbs ? 
 						<div>
-							<div className="details-product-data">SKU: {product_sku}</div>
-							<div className="details-product-data">{product_desc}</div>
+							<div><h1>{product_name}</h1></div>
+							<div><a>{product_desc}</a></div>
 							{ Object.keys(this.state.printPrices).length === 0 && this.state.printPrices.constructor === Object ? 
 									<div>
-										<div className={product_sale ? 'details-product-data strikeout' : 'details-product-data'}>Price: ${product_price}</div>
-										{product_sale ? <div className="details-product-data">Sale Price: ${product_sale}</div> : null}
+										<div className={product_sale ? 'strikeout' : ''}>Price: ${product_price}</div>
+										{product_sale ? <div><a>Sale Price: ${product_sale}</a></div> : null}
 									</div>
 								:
 									<div>
@@ -251,14 +251,14 @@ class ProductDetails extends Component {
 										<div><a>24 X 36 - </a><a class={sale24x36 ? `strikeout` : ``}>Price: ${normal24x36}</a>{sale24x36 ? <a>, Sale Price: {sale24x36}</a> : null}</div>
 									</div>
 							}
-							{this.state.journalCount ? <h1>{`Number of Journals Ordered...${this.state.journalCount}`}</h1>:null}
-							{this.makeDropdown()}
+							<div><a>SKU: {product_sku}</a></div>
 							{this.makeProductDescription()}
-							{product_shipping > 0 ? <div className="details-product-data">Shipping: ${product_shipping}</div> : null}
-							{/* <div className="details-product-data">
+							{this.makeDropdown()}
+							{product_shipping > 0 ? <div>Shipping: ${product_shipping}</div> : null}
+							{/* <div>
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
 							</div>    ---   Jana Says she doesn't want the tags rendering on this page, even though I think they are dope   ---   */}
-							<div><Link to={`/products/${product_tags.tags[0]}`}><button>Return to Products</button></Link></div>
+							<div><Link to={`/products/${product_tags.tags[0]}`}><button className="return-to-products"><i class="fas fa-caret-left"></i>  Return to Products</button></Link></div>
 							<div className="details-customize-button">
 								<Link to={ this.editorSwitch() }>
 									{this.makeCustomizeNow()}

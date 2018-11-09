@@ -1,8 +1,9 @@
-.details-container{
+.details{
 	display:flex;
 	height: calc(100vh - 150px);
 	width:100%;
 }
+
 .details-image-container{
 	width: calc(800px - 75px);
 	position:relative;
@@ -11,6 +12,7 @@
 	justify-content: center;
 	align-items:flex-end;
 }
+
 .details-thumbnail-wrapper {
 	overflow: hidden;
 	border-radius: 5px;
@@ -18,24 +20,54 @@
 	flex-direction: row;
 	margin-bottom: 25px;
 }
-.details-product-information{
+
+.product-information {
 	width: calc(100% - 800px + 75px);
-	position:relative;
-	display:flex;
-	flex-direction:column;
 	position: relative;
+	text-align: center;
+	padding: 30px;
 }
-.details-product-data{
-	width: 100%;
+
+.product-information select {
+	background: #333;
+	border-radius: 100px;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	text-transform: uppercase;
+	width: 300px;
+}
+
+.product-information option {
 	color: #333;
-	display:flex;
-	flex-direction:row;
-	justify-content: center;
-	flex-wrap: wrap;
-	align-items:center;
-	width: 100%;
-	overflow: hidden;
+	background: white;
+	text-transform: initial;
+}
+
+.product-information h1 {
+	font-size: 28px;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+}
+
+.product-information div {
 	padding: 5px;
+	letter-spacing: 1px;
+	line-height: 20px;
+}
+
+.details-message {
+	background: rgba(0, 0, 0, .1);
+	margin: 25px 0;
+	padding: 10px;
+	border-radius: 5px;
+	letter-spacing: 1px;
+	line-height: 18px;
+	text-align: left;
+}
+
+.details-message p {
+	padding: 10px;
 }
 
 .details-customize-button button {
@@ -73,6 +105,27 @@
 	color: #333;
 }
 
+.return-to-products {
+	position: fixed;
+	height: 45px;
+	top: 90px;
+	left: 15px;
+	background: rgba(255,255,255,.75);
+	padding: 10px 50px;
+	border-radius: 100px;
+	border: none;
+	font-size: 18px;
+	opacity: .75;
+	box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.25);
+	white-space: pre;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.return-to-products:hover {
+	opacity: 1;
+}
+
 .details-tag:hover {
 	background: rgba(0, 0, 0, .35);
 }
@@ -85,4 +138,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.details-product-thumbnail-highlight {
+	height: 100px;
+	width: 130px;
+	border: 3px solid white;
+	box-shadow: inset 0px 0px 50px 0px rgba(255,255,255,1);
 }
