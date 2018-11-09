@@ -28,10 +28,15 @@ module.exports = {
 	search: (req, res) => {
 		const db = req.app.get('db');
 		const {tags} = req.body;
-
+		let tempArr = [];
+		
 		db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
-			.then(product => res.status(200).send(product))
+			.then(product => {product.map((x)=>tempArr.push(x))})
 			.catch(err => console.log(`Error Message: ${err}`))
+		tags.includes('%journal%')?
+		db.products.products_get_generic()
+			.then(product => res.status(200).send(product))
+			.catch(err => console.log(`Error Message: ${err}`)):null
 	},
 
 	readCart: (req, res) => {

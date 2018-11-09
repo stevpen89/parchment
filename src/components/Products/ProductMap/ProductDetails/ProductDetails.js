@@ -54,7 +54,9 @@ class ProductDetails extends Component {
 	}
 
 	setParam(val){
-		switch (val) {
+		const {product_type} = this.state.product
+		if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
+			switch (val) {
 			case "1" : return this.setState({parameter:"dark_brown_fall"})
 			case "2" : return this.setState({parameter:"grey_brown_fall"})
 			case "3" : return this.setState({parameter:"beige_brown_fall"})
@@ -63,10 +65,71 @@ class ProductDetails extends Component {
 			case "6" : return this.setState({parameter:"blue_fall"})
 			case "7" : return this.setState({parameter:"beige_summer"})
 			default  : console.log('triggered default')
-		}
+		}}
+		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
+			switch (val) {
+				case "1" : return this.setState({parameter:"blue_fall"})
+				case "2" : return this.setState({parameter:"gold_fall"})
+				case "3" : return this.setState({parameter:"grey_original_fall"})
+				case "4" : return this.setState({parameter:"beige_summer"})
+				case "5" : return this.setState({parameter:"olive_green_fall"})
+				default  : console.log('triggered default')
+		}}
+		else{return null}
 	}
 
-	render() {
+	makeDropdown(){
+		const {product_type} = this.state.product
+		if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
+			return( 
+				<select onChange={(e)=>this.selectTemplate(e.target.value)}>
+					<option value="1">1. Dark Brown (Fall)</option>
+					<option value="2">2. Grey Brown (Fall)</option>
+					<option value="3">3. Beige Brown (Fall)</option>
+					<option value="4">4. Olive Green (Fall)</option>
+					<option value="5">5. Gold (Fall)</option>
+					<option value="6">6. Blue (Fall)</option>
+					<option value="7">7. Beige (Summer)</option>
+				</select>
+			)}
+		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
+			return( 
+				<select onChange={(e)=>this.selectTemplate(e.target.value)}>
+					<option value="1">1. Blue (Fall)</option>
+					<option value="2">2. Gold (Fall)</option>
+					<option value="3">3. Grey Original (Fall)</option>
+					<option value="4">4. Beige (Summer)</option>
+					<option value="5">5. Olive Green (Fall)</option>
+				</select>
+			)}
+		else{return null}
+	}
+
+	makeCustomizeNow(){
+		const {product_type} = this.state.product
+		if(product_type.includes('single') || product_type.includes('binary') || product_type.includes('inverted')){
+			if(this.state.parameter !== ''){return <button>Customize Now</button>}
+			else{null}
+		}
+		else{return <button>Customize Now</button>}
+	}
+
+	makeSelectionBorder(val){
+		const {product_type} = this.state.product
+		if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
+			if(val === this.state.selectedTemplate*1+2){
+				return <div style={{border:"3px solid red"}}></div>
+			}
+		}
+		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
+			if(val === this.state.selectedTemplate*1-1){
+				return <div style={{border:"3px solid red"}}></div>
+			}
+		}
+		else{return null}
+	}
+
+	render(){
 		const { product_thumbs, product_sku, product_desc, product_image, product_price, product_sale, product_shipping, product_tags,product_type } = this.state.product
 		const { normal8x10, normal12x18, normal16x20, normal18x24, normal24x36, sale8x10, sale12x18, sale16x20, sale18x24, sale24x36 } = this.state.printPrices;
 
@@ -75,11 +138,12 @@ class ProductDetails extends Component {
 				<div className="details-container">
 					<div className="details-image-container" style={{backgroundImage: `url(${this.state.selectedImage})`, backgroundSize: `cover`, backgroundPosition: `center`}}>
 					<div className="details-thumbnail-wrapper">
-						{this.state.imagesArray
-							? this.state.imagesArray.map((x,y)=>
-							<div onClick={()=>this.selectImage(x)} className="details-product-thumbnail" key={y} style={{backgroundImage: `url(${x})`, backgroundSize: `cover`, backgroundPosition: `center`}}>
-							{((this.state.selectedTemplate*1+1) === y  && (product_type.includes('single') || product_type.includes('binary') || product_type.includes('inverted'))) 
-							? <div style={{border:"3px solid red"}}></div>:null}</div>) 
+						{this.state.imagesArray ? this.state.imagesArray.map((x,y)=>
+							<div onClick={()=>this.selectImage(x)} className="details-product-thumbnail" 
+							key={y} style={{backgroundImage: `url(${x})`, 
+							backgroundSize: `cover`, backgroundPosition: `center`}}> 
+								{this.makeSelectionBorder(y)}
+							</div>) 
 							: null}
 					</div>
 					</div>
@@ -102,23 +166,17 @@ class ProductDetails extends Component {
 										<div><a>24 X 36 - </a><a class={sale24x36 ? `strikeout` : ``}>Price: ${normal24x36}</a>{sale24x36 ? <a>, Sale Price: {sale24x36}</a> : null}</div>
 									</div>
 							}
-							{product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted' || 
-								product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted' ?
-										<select onChange={(e)=>this.selectTemplate(e.target.value)}>
-											<option value="1">1. Dark Brown (Fall)</option>
-											<option value="2">2. Grey Brown (Fall)</option>
-											<option value="3">3. Beige Brown (Fall)</option>
-											<option value="4">4. Olive Green (Fall)</option>
-											<option value="5">5. Gold (Fall)</option>
-											<option value="6">6. Blue (Fall)</option>
-											<option value="7">7. Beige (Summer)</option>
-										</select> : null}
+							{this.makeDropdown()}
 							{product_shipping > 0 ? <div className="details-product-data">Shipping: ${product_shipping}</div> : null}
-							<div className="details-product-data">
+							{/* <div className="details-product-data">
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
+							</div>    ---   Jana Says she doesn't want the tags rendering on this page, even though I think they are dope   ---   */}
+							<div><Link to={`/products/${product_tags.tags[0]}`}><button>Return to Products</button></Link></div>
+							<div className="details-customize-button">
+								<Link to={ this.editorSwitch() }>
+									{this.makeCustomizeNow()}
+								</Link>
 							</div>
-							<div>																			<Link to={`/products/${product_tags.tags[0]}`}><button>Return to Products</button></Link></div>
-							<div className="details-customize-button"><Link to={ this.editorSwitch() }><button>Customize Now</button></Link></div>
 						</div>
 						: null}
 					</div>
