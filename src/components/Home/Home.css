@@ -4,10 +4,6 @@
 	justify-content: space-between;
 }
 
-.heros a {
-	margin: 30px 0px 30px 30px;
-}
-
 .heros div {
 	height: 400px;
 	background-size: cover;
@@ -17,11 +13,11 @@
 	color: #000;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	font-size: 24px;
+	font-size: 19px;
 	font-weight: bold;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-end;
 	text-align: center;
 	padding: 30px;
 	user-select: none;
@@ -33,19 +29,34 @@
 }
 
 .hero-1 {
-	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%), url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/blanket_banner.jpg) center;
+	background: url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/carousel/Front_Photo_3.jpg) center;
+	opacity:.9;
 }
 
 .hero-2 {
-	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%), url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/holiday_blanket_banner.jpg) center;
+	background: url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/holiday_blanket_banner.jpg) center;
+	opacity:.9;
 }
 
 .hero-3 {
- background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%), url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/journal_banner.jpg) center;
+ background: url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/carousel/Flat_Missionary_Journals.jpg) center;
+	opacity:.9;
 }
 
 .hero-4	 {
-	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%), url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/print_banner.jpg) center;
+	background: url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/print_banner.jpg) center;
+	opacity:.9;
+}
+
+.hero-5	 {
+	background: url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/carousel/Standing-Everyday_Journals.jpg) center;
+	opacity:.9;
+}
+ .home-tile{
+	 flex-direction:column;
+ }
+ #hero-text{
+	 height:100px;
  }
 
 @media only screen and (min-width: 800px) {
