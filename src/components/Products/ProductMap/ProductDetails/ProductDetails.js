@@ -147,7 +147,7 @@ class ProductDetails extends Component {
 	}
 
 	makeProductDescription(){
-		const {product_type} = this.state.product
+		const {product_type,product_price} = this.state.product
 		if(product_type==='journal_missionary' || product_type==='journal_everyday'){
 			return(
 			<div>
@@ -164,14 +164,14 @@ class ProductDetails extends Component {
 						minky fabric with an extremely soft feel. Blankets are made with
 						special color-fast technology that helps the dye last through repeated
 						washings.</p>
-				<p>	Size: 50” x 60”</p>
+				<p>	{product_price === 59.99 ? 'Size: 30” x 40”': 'Size: 50" x 60"'}</p>
 				<p>	After you have placed your order there is a 3-8 day turn around
 						production time before shipping.
-						You will be notied once your purchase has shipped.</p>
+						You will be notified once your purchase has shipped.</p>
 				<p>	PLEASE NOTE: After you have submitted your order we are
 						not liable for any mistakes in spelling, punctuation, capitalization
 						or grammatical errors.
-						All sales are nal on personalized products. Thank you!</p>
+						All sales are final on personalized products. Thank you!</p>
 			</div>)
 		}
 		else if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
@@ -187,11 +187,11 @@ class ProductDetails extends Component {
 						digital proof of your family tree in 2-4 days.
 						After you have approved the proof there is a 3-8 day turn around
 						production time before shipping.
-						You will be notied once your purchase has shipped.</p>
+						You will be notified once your purchase has shipped.</p>
 				<p>	PLEASE NOTE: After you have approved the digital proof we are
 						not liable for any mistakes in spelling, punctuation, capitalization
 						or grammatical errors.
-						All sales are nal on personalized products. Thank you!</p>
+						All sales are final on personalized products. Thank you!</p>
 			</div>)
 		}
 		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
@@ -206,11 +206,11 @@ class ProductDetails extends Component {
 						digital proof of your family tree in 2-4 days.
 						After you have approved the proof there is a 3-8 day turn around
 						production time before shipping.
-						You will be notied once your purchase has shipped.</p>
+						You will be notified once your purchase has shipped.</p>
 				<p>	PLEASE NOTE: After you have approved the digital proof we are
 						not liable for any mistakes in spelling, punctuation, capitalization
 						or grammatical errors.
-						All sales are nal on personalized products. Thank you!</p>
+						All sales are final on personalized products. Thank you!</p>
 			</div>)
 		}
 
@@ -258,7 +258,7 @@ class ProductDetails extends Component {
 										<div><a>24 X 36 - </a><a class={sale24x36 ? `strikeout` : ``}>Price: ${normal24x36}</a>{sale24x36 ? <a>, Sale Price: {sale24x36}</a> : null}</div>
 									</div>
 							}
-							<div><a>SKU: {product_sku}</a></div>
+							{/* <div><a>SKU: {product_sku}</a></div> */}
 							{this.makeProductDescription()}
 							{this.makeDropdown()}
 							{product_shipping > 0 ? <div>Shipping: ${product_shipping}</div> : null}
