@@ -51,6 +51,9 @@
 	transition: .25s;
 	cursor: default;
 	z-index: 3;
+	display:flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .menu-button:hover {
@@ -109,4 +112,22 @@
 	background: rgba(0,0,0,0.5);
 	border: none;
 	color: white;
+}
+
+@media only screen and (min-width:400px){
+.menu-button{
+height:50px;
+}	
+}
+
+@media only screen and (min-width:600px){
+	.menu-button{
+	height:60px;
+	}	
+}
+
+@media only screen and (min-width:800px){
+	.menu-button{
+	height:80px;
+	}	
 }

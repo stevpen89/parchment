@@ -55,3 +55,24 @@
 	font-size: 32px;
 	opacity: .5;
 }
+
+@media only screen and (min-width:400px){
+.parchment-logo{
+	height: auto; 
+	width: auto; 
+	max-width: 300px; 
+	max-height: 300px;}
+}
+
+
+@media only screen and (min-width:600px){
+	.parchment-logo{
+		max-width: 400px; 
+		max-height: 400px;}
+}
+
+@media only screen and (min-width:800px){
+	.parchment-logo{
+		max-width: 500px; 
+		max-height: 500px;}
+}

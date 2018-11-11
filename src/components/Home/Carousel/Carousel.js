@@ -10,7 +10,7 @@ class Carousel extends Component {
 	render() {
 		return (
 			<div className="carousel">
-				<img src="https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/logo.png" alt="parchment logo" /><br />
+				<img src="https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/logo.png" alt="parchment logo" className="parchment-logo"/><br />
 				<Link to="/products"><button>Order Now</button></Link>
 				<div className="down-arrow"><i class="fas fa-chevron-down"></i></div>
 			</div>

@@ -151,24 +151,24 @@ class ProductDetails extends Component {
 		if(product_type==='journal_missionary' || product_type==='journal_everyday'){
 			return(
 			<div>
-				<p>	Dimensions: 5.5” x 8”</p>
-				<p>	Pages: 240 Lined</p>
-				<p>	Ready to ship in 5-7 business days</p>
+				<p id="message-text">	Dimensions: 5.5” x 8”</p>
+				<p id="message-text">	Pages: 240 Lined</p>
+				<p id="message-text">	Ready to ship in 5-7 business days</p>
 			</div>)
 		}
 		else if(product_type==='blanket_holiday'){
 			return(
 			<div className="details-message">
-				<p>	Our custom holiday blankets make the perfect personalized
+				<p id="message-text">	Our custom holiday blankets make the perfect personalized
 						gift for Christmas. Fabric is 100% polyester
 						minky fabric with an extremely soft feel. Blankets are made with
 						special color-fast technology that helps the dye last through repeated
 						washings.</p>
-				<p>	{product_price === 59.99 ? 'Size: 30” x 40”': 'Size: 50" x 60"'}</p>
-				<p>	After you have placed your order there is a 3-8 day turn around
+				<p id="message-text">	{product_price === 59.99 ? 'Size: 30” x 40”': 'Size: 50" x 60"'}</p>
+				<p id="message-text">	After you have placed your order there is a 3-8 day turn around
 						production time before shipping.
 						You will be notified once your purchase has shipped.</p>
-				<p>	PLEASE NOTE: After you have submitted your order we are
+				<p id="message-text">	PLEASE NOTE: After you have submitted your order we are
 						not liable for any mistakes in spelling, punctuation, capitalization
 						or grammatical errors.
 						All sales are final on personalized products. Thank you!</p>
@@ -177,18 +177,18 @@ class ProductDetails extends Component {
 		else if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
 			return(
 			<div className="details-message">
-				<p>	Our custom family history blankets make the perfect personalized
+				<p id="message-text">	Our custom family history blankets make the perfect personalized
 						gift for weddings, birthdays, and anniversaries. Fabric is 100% polyester
 						minky fabric with an extremely soft feel. Blankets are made with
 						special color-fast technology that helps the dye last through repeated
 						washings. Available colors shown in listing photos.</p>
-				<p>	Size: 50” x 60”</p>
-				<p>	After you place your order, you will receive an email with a
+				<p id="message-text">	Size: 50” x 60”</p>
+				<p id="message-text">	After you place your order, you will receive an email with a
 						digital proof of your family tree in 2-4 days.
 						After you have approved the proof there is a 3-8 day turn around
 						production time before shipping.
 						You will be notified once your purchase has shipped.</p>
-				<p>	PLEASE NOTE: After you have approved the digital proof we are
+				<p id="message-text">	PLEASE NOTE: After you have approved the digital proof we are
 						not liable for any mistakes in spelling, punctuation, capitalization
 						or grammatical errors.
 						All sales are final on personalized products. Thank you!</p>
@@ -197,17 +197,17 @@ class ProductDetails extends Component {
 		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
 			return(
 			<div className="details-message">
-				<p>	Our custom family history prints make the perfect personalized
+				<p id="message-text">	Our custom family history prints make the perfect personalized
 						gift for weddings, birthdays, and anniversaries. Printed on museum-quality
 						posters made on thick, durable, matte paper. A statement in any room.
 						These are printed on archival, acid-free paper.
 						Available colors shown in listing photos.</p>
-				<p>	After you place your order, you will receive an email with a
+				<p id="message-text">	After you place your order, you will receive an email with a
 						digital proof of your family tree in 2-4 days.
 						After you have approved the proof there is a 3-8 day turn around
 						production time before shipping.
 						You will be notified once your purchase has shipped.</p>
-				<p>	PLEASE NOTE: After you have approved the digital proof we are
+				<p id="message-text">	PLEASE NOTE: After you have approved the digital proof we are
 						not liable for any mistakes in spelling, punctuation, capitalization
 						or grammatical errors.
 						All sales are final on personalized products. Thank you!</p>
@@ -228,16 +228,17 @@ class ProductDetails extends Component {
 		return (
 			<div className="content">
 				<div className="details">
-					<div className="details-image-container" style={{backgroundImage: `url(${this.state.selectedImage})`, backgroundSize: `cover`, backgroundPosition: `center`}}>
-					<div className="details-thumbnail-wrapper">
-						{this.state.imagesArray ? this.state.imagesArray.map((x,y)=>
-							<div onClick={()=>this.selectImage(x)} className="details-product-thumbnail" 
-							key={y} style={{backgroundImage: `url(${x})`, 
-							backgroundSize: `cover`, backgroundPosition: `center`}}> 
-								{this.makeSelectionBorder(y)}
-							</div>) 
-							: null}
-					</div>
+					<div className="details-left-side">
+						<div className="details-image-container" style={{backgroundImage: `url(${this.state.selectedImage})`, backgroundSize: `contain`, backgroundPosition: `center`, backgroundRepeat:'no-repeat'}}></div>
+						<div className="details-thumbnail-wrapper">
+							{this.state.imagesArray ? this.state.imagesArray.map((x,y)=>
+								<div onClick={()=>this.selectImage(x)} className="details-product-thumbnail" 
+								key={y} style={{backgroundImage: `url(${x})`, 
+								backgroundSize: `cover`, backgroundPosition: `center`}}> 
+									{this.makeSelectionBorder(y)}
+								</div>) 
+								: null}
+						</div>
 					</div>
 					<div className="product-information">
 						{product_thumbs ? 
