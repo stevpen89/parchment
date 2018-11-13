@@ -55,6 +55,7 @@ app.post ( '/products/ordercount',   productsController.countOrders)
 
 //ORDERS ENDPOINTS
 app.post ( '/orders', ordersController.create );
+app.get  ( '/orders/retrieve/:id', ordersController.retrieve )
 
 //MAILGUN ENDPOINTS
 app.post(  '/api/mail',          mailgunController.send         );
