@@ -2,7 +2,6 @@
 	height:90vh;
 	width:90vw;
 	display:flex;
-	border:1px solid blue;
 
 }
 
@@ -13,14 +12,12 @@
 	display:flex;
 	justify-content: center;
 	align-items: center;
-	border:1px solid blue;
 
 }
 
 .holiday-blanket-image{
 	height:90%;
 	width:80%;
-	border:1px solid blue;
 
 } 
 
@@ -31,7 +28,6 @@
 	width:100%;
 	align-items: center;
 	justify-content: space-between;
-	border:1px solid blue;
 
 }
 
@@ -42,7 +38,6 @@
 	align-items: center;
 	height:10%;
 	width:80%;
-	border:1px solid blue;
 	margin:20px;
 }
 
@@ -59,7 +54,6 @@
 
 .finalize-wrapper button{
 	margin:30px;
-	background-color:chartreuse;
 	color: black;
 	font-size:25px;
 	font-weight: bold;
