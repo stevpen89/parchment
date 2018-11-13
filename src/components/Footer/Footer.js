@@ -10,7 +10,7 @@ class Footer extends Component {
 	render() {
 		return (
 			<div className="footer">
-				<a>© Parchment Goods 2018    | <Link to="/about" className="privacy-link">Privacy Policy</Link></a>
+				<a>© Parchment Goods 2018    | <Link to="/about" className="privacy-link">Privacy Policy</Link>  | <Link to="/contact" className="privacy-link">Contact Us</Link></a>
 			</div>
 		)
 	}

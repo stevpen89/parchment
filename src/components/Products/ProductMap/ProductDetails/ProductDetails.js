@@ -13,7 +13,8 @@ class ProductDetails extends Component {
 			imagesArray:'',
 			selectedTemplate: 1,
 			parameter:'',
-			journalCount:0
+			journalCount:0,
+			showDeets:false
 		}
 	}
 
@@ -119,7 +120,7 @@ class ProductDetails extends Component {
 	makeCustomizeNow(){
 		const {product_type} = this.state.product
 		if(product_type.includes('single') || product_type.includes('binary') || product_type.includes('inverted')){
-			if(this.state.parameter !== ''){return <button>Customize Now</button>}
+			if(this.state.parameter !== ''){return <div className="details-customize-button">Customize Now</div>}
 			else{
 				return null
 			}
@@ -127,7 +128,7 @@ class ProductDetails extends Component {
 		else{
 		if(product_type.includes('journal') && this.state.journalCount >= 485){return null}
 		else{
-			return <button>Customize Now</button>
+			return <div  className="details-customize-button">Customize Now</div>
 		}
 	}}
 
@@ -146,11 +147,16 @@ class ProductDetails extends Component {
 		else{return null}
 	}
 
+	detailsToggle(){
+		this.setState({showDeets:!this.state.showDeets})
+	}
+
 	makeProductDescription(){
 		const {product_type,product_price} = this.state.product
 		if(product_type==='journal_missionary' || product_type==='journal_everyday'){
 			return(
-			<div>
+			<div className="details-message">
+				<button className="hide-details" onClick={()=>this.detailsToggle()}>Hide Details...</button>
 				<p id="message-text">	Dimensions: 5.5” x 8”</p>
 				<p id="message-text">	Pages: 240 Lined</p>
 				<p id="message-text">	Ready to ship in 5-7 business days</p>
@@ -159,6 +165,7 @@ class ProductDetails extends Component {
 		else if(product_type==='blanket_holiday'){
 			return(
 			<div className="details-message">
+				<button className="hide-details" onClick={()=>this.detailsToggle()}>Hide Details...</button>
 				<p id="message-text">	Our custom holiday blankets make the perfect personalized
 						gift for Christmas. Fabric is 100% polyester
 						minky fabric with an extremely soft feel. Blankets are made with
@@ -177,6 +184,7 @@ class ProductDetails extends Component {
 		else if(product_type==='blanket_single' || product_type==='blanket_binary' || product_type==='blanket_inverted'){
 			return(
 			<div className="details-message">
+				<button className="hide-details" onClick={()=>this.detailsToggle()}>Hide Details...</button>
 				<p id="message-text">	Our custom family history blankets make the perfect personalized
 						gift for weddings, birthdays, and anniversaries. Fabric is 100% polyester
 						minky fabric with an extremely soft feel. Blankets are made with
@@ -197,6 +205,7 @@ class ProductDetails extends Component {
 		else if(product_type==='print_single' || product_type==='print_binary' || product_type==='print_inverted'){
 			return(
 			<div className="details-message">
+				<button className="hide-details" onClick={()=>this.detailsToggle()}>Hide Details...</button>
 				<p id="message-text">	Our custom family history prints make the perfect personalized
 						gift for weddings, birthdays, and anniversaries. Printed on museum-quality
 						posters made on thick, durable, matte paper. A statement in any room.
@@ -232,9 +241,9 @@ class ProductDetails extends Component {
 						<div className="details-image-container" style={{backgroundImage: `url(${this.state.selectedImage})`, backgroundSize: `contain`, backgroundPosition: `center`, backgroundRepeat:'no-repeat'}}></div>
 						<div className="details-thumbnail-wrapper">
 							{this.state.imagesArray ? this.state.imagesArray.map((x,y)=>
-								<div onClick={()=>this.selectImage(x)} className="details-product-thumbnail" 
+								<div onClick={()=>this.selectImage(x)} id="details-product-thumbnail" 
 								key={y} style={{backgroundImage: `url(${x})`, 
-								backgroundSize: `cover`, backgroundPosition: `center`}}> 
+								backgroundSize: `contain`, backgroundPosition: `center`, backgroundRepeat:'no-repeat'}}> 
 									{this.makeSelectionBorder(y)}
 								</div>) 
 								: null}
@@ -245,7 +254,7 @@ class ProductDetails extends Component {
 						<div>
 							<div><h1>{product_name}</h1></div>
 							<div><a>{product_desc}</a></div>
-							{ Object.keys(this.state.printPrices).length === 0 && this.state.printPrices.constructor === Object ? 
+							{/* { Object.keys(this.state.printPrices).length === 0 && this.state.printPrices.constructor === Object ? 
 									<div>
 										<div className={product_sale ? 'strikeout' : ''}>Price: ${product_price}</div>
 										{product_sale ? <div><a>Sale Price: ${product_sale}</a></div> : null}
@@ -258,20 +267,20 @@ class ProductDetails extends Component {
 										<div><a>18 X 24 - </a><a class={sale18x24 ? `strikeout` : ``}>Price: ${normal18x24}</a>{sale18x24 ? <a>, Sale Price: {sale18x24}</a> : null}</div>
 										<div><a>24 X 36 - </a><a class={sale24x36 ? `strikeout` : ``}>Price: ${normal24x36}</a>{sale24x36 ? <a>, Sale Price: {sale24x36}</a> : null}</div>
 									</div>
-							}
+							} */}
 							{/* <div><a>SKU: {product_sku}</a></div> */}
-							{this.makeProductDescription()}
+							{this.state.showDeets ? this.makeProductDescription() : <div className="details-customize-button" onClick={()=>this.detailsToggle()}>Show Details</div>}
 							{this.makeDropdown()}
 							{product_shipping > 0 ? <div>Shipping: ${product_shipping}</div> : null}
 							{/* <div>
 								{product_tags.tags.map((x,y)=><Link to={`/products/${x}`} className="details-tag" key={y}>{x}</Link>)}
 							</div>    ---   Jana Says she doesn't want the tags rendering on this page, even though I think they are dope   ---   */}
-							<div><Link to={`/products/${product_tags.tags[0]}`}><button className="return-to-products"><i class="fas fa-caret-left"></i>  Return to Products</button></Link></div>
-							<div className="details-customize-button">
-								<Link to={ this.editorSwitch() }>
+							<div className="customize-link-wrapper">
+								<Link className="customize-link" to={ this.editorSwitch() }>
 									{this.makeCustomizeNow()}
 								</Link>
 							</div>
+							<div><Link to={`/products/${product_tags.tags[0]}`}><button className="return-to-products"><i class="fas fa-caret-left"></i>  Return to Products</button></Link></div>
 						</div>
 						: null}
 					</div>

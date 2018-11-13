@@ -19,7 +19,10 @@
 
 .single-blanket input:focus{background: rgba(255,255,255,1)}
 
-.single-blanket {background-color: rgba(0,0,0,.1);}
+.single-blanket {
+	background-color: rgba(0,0,0,.1);
+	overflow:auto;
+}
 
 .single-blanket .single-blanket-content {
 	display:flex;
@@ -27,6 +30,7 @@
 	align-items: center;
 	justify-content: center;
 	height: 850px;
+	width:1600px;
 }
 
 .single-blanket .level1, .single-blanket .level2, .single-blanket .level3, .single-blanket .level4 {

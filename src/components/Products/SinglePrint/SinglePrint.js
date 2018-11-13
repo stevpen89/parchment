@@ -126,7 +126,7 @@ class SinglePrint extends Component {
 		return (
 			<div className="content">
 				<div className="single-blanket">
-					<div className="single-header"><h1>Enter in your family tree</h1></div>
+					<div className="single-header"><h1>Enter in your family tree<br/><h4 id="sub-header">(Scroll around if tree builder is not immediately visible)</h4></h1></div>
 					<div className="single-blanket-content">
 						<div className="level4">
 							<div className="single inner-level-4">

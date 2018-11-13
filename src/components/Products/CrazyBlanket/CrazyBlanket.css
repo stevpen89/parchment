@@ -2,6 +2,7 @@
 	padding-bottom: 40px;
 	width: 100%;
 	min-height: calc(100vh - 75px);
+	overflow:auto;
 }
 
 .size-selector-wrapper button, .login-alert button {

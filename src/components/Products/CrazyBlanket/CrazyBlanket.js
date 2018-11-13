@@ -135,7 +135,7 @@ class CrazyBlanket extends Component {
               /> : null
 						}) : null }
 						
-						<button onClick={() => this.writeToSession()}>Purchase</button>
+						<div className="save-div" onClick={() => this.writeToSession()}>Add to Cart</div>
           </div>
         </div>
 			)

@@ -1,6 +1,6 @@
 .footer {
 	height: 75px;
-	padding: 30px;
+	padding: 30px 15px;
 	color: white;
 	background-color: #222;
 }
@@ -8,10 +8,11 @@
 .footer a {
 	color: white;
 	white-space: pre;
+	font-size:10px;
 }
 
 .privacy-link {
-	padding: 5px 10px;
+	padding: 5px 5px;
 	transition: .25s;
 }
 
