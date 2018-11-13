@@ -141,7 +141,7 @@ class BinaryPrint extends Component {
 		return (
 			<div className="content">
         <div className="binary-blanket">
-          <div className="binary-header"><h1>Enter in your family tree</h1></div>
+          <div className="binary-header"><h1>Enter in your family tree<br/><h4 id="sub-header">(Scroll around if tree builder is not immediately visible)</h4></h1></div>
           <div className="binary-blanket-content">
             <div className="level4">
               <div className="binary-pair inner-level-4">

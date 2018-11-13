@@ -99,7 +99,8 @@
 .tag-wrapper {
   background: rgba(0, 0, 0, .1);
   height: 35px;
-  display: flex;
+	display: flex;
+	flex-wrap:wrap;
   align-items: center;
 }
 

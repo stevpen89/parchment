@@ -7,6 +7,8 @@
 }
 
 .journal-inputs a {
+	height:20px;
+	margin-bottom:10px;
 	text-transform: uppercase;
 	font-size: 18px;
 	letter-spacing: 1px;
@@ -14,13 +16,13 @@
 }
 
 .journal-inputs input {
+	text-indent: 10px;
+	border:3px solid red;
 	border-radius: 100px;
 	height: 45px;
 	width: 250px;
 	color: white;
 	background: #333;
-	padding: 0 20px;
-	margin: 10px;
 	font-size: 16px;
 	letter-spacing: 2px;
 	border: none;
@@ -49,11 +51,19 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 500px;
+	width: 300px;
 }
 
 .journal-input-name {
+	min-height:30px;
 	display: flex;
-	justify-content: center;
+	flex-direction:column;
+	justify-content: space-evenly;
+	align-items:center;
 	width: 100%;
+	margin:5px;
+}
+.journal-input-wrapper{
+	min-height:30px;
+	border:3px solid blue;
 }

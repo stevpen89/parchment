@@ -59,8 +59,6 @@ class Journal extends Component {
 							<div className="journal-input-divs">
 								<div class="journal-input-name">
 									<a>{x} </a>
-								</div>
-								<div>
 									<input onChange={(e) => this.handleChange(`input${i+1}`, e.target.value)} onBlur={(e) => this.updateInputArr(x, e.target.value)}/>	
 								</div>
 							</div>

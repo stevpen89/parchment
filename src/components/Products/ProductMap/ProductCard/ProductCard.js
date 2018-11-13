@@ -28,7 +28,7 @@ class ProductCard extends Component {
 		return(
 			<Link to={this.productDetailsSwitch()}>
 				<div className="product-card">
-					<div style={{background: `url(${product_image}) center`, backgroundSize: `cover`}} className="product-image">
+					<div style={{backgroundImage: `url(${product_image})`, backgroundSize:'cover', backgroundPosition:'center'}} className="product-image">
 					</div>
 					<div className="product-card-footer">
 						<div className="product-name">{product_name}</div>

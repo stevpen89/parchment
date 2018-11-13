@@ -1,4 +1,5 @@
 .contact-inputs {
+	border:1px solid red;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -9,7 +10,7 @@
 .contact-inputs input, .contact-inputs textarea {
 	border-radius: 100px;
 	height: 45px;
-	width: 500px;
+	width: 95%;
 	color: white;
 	background: #333;
 	padding: 0 20px;
@@ -22,7 +23,6 @@
 .contact-inputs textarea {
 	border-radius: 22.5px;
 	padding: 20px;
-	width: 500px;
 	height: 30vh;
 	resize: none;
 }

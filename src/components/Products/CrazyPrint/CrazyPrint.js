@@ -176,25 +176,25 @@ class CrazyPrint extends Component {
 					<div className="size-selector-wrapper">
 							<h1>{this.state.size}</h1>
 							<div className="size-selector">
-								<div onClick={()=>this.selectSize( '8x10')} className={size === '8x10' ? 'size-selected print-size size-8x10' : 'print-size size-8x10'}>
-									<a className={sale8x10 ? 'strikeout' : ''}>8 X 10 </a>
-									<a>${normal8x10}</a>{sale8x10 ? <a>${sale8x10}</a> : null}
+								<div onClick={()=>this.selectSize( '8x10')} className={size === '8x10' ? 'size-selected print-size sizer' : 'print-size sizer'}>
+									<a id="dimensions">8 X 10 </a>
+									<a className={sale8x10 ? 'strikeout' : ''}>${normal8x10}</a>{sale8x10 ? <a>${sale8x10}</a> : null}
 								</div>
-								<div onClick={()=>this.selectSize('12x18')} className={size === '12x18' ? 'size-selected print-size size-12x18' : 'print-size size-12x18'}>
-									<a className={sale12x18 ? 'strikeout' : ''}>12 X 18</a>
-									<a>${normal12x18}</a>{sale12x18 ? <a>${sale12x18}</a> : null}
+								<div onClick={()=>this.selectSize('12x18')} className={size === '12x18' ? 'size-selected print-size sizer' : 'print-size sizer'}>
+									<a id="dimensions">12 X 18</a>
+									<a className={sale12x18 ? 'strikeout' : ''}>${normal12x18}</a>{sale12x18 ? <a>${sale12x18}</a> : null}
 								</div>
-								<div onClick={()=>this.selectSize('16x20')} className={size === '16x20' ? 'size-selected print-size size-16x20' : 'print-size size-16x20'}>
-									<a className={sale16x20 ? 'strikeout' : ''}>16 X 20</a>
-									<a>${normal16x20}</a>{sale16x20 ? <a>${sale16x20}</a> : null}
+								<div onClick={()=>this.selectSize('16x20')} className={size === '16x20' ? 'size-selected print-size sizer' : 'print-size sizer'}>
+									<a id="dimensions">16 X 20</a>
+									<a className={sale16x20 ? 'strikeout' : ''}>${normal16x20}</a>{sale16x20 ? <a>${sale16x20}</a> : null}
 								</div>
-								<div onClick={()=>this.selectSize('18x24')} className={size === '18x24' ? 'size-selected print-size size-18x24' : 'print-size size-18x24'}>
-									<a className={sale18x24 ? 'strikeout' : ''}>18 X 24</a>
-									<a>${normal18x24}</a>{sale18x24 ? <a>${sale18x24}</a> : null}
+								<div onClick={()=>this.selectSize('18x24')} className={size === '18x24' ? 'size-selected print-size sizer' : 'print-size sizer'}>
+									<a id="dimensions">18 X 24</a>
+									<a className={sale18x24 ? 'strikeout' : ''}>${normal18x24}</a>{sale18x24 ? <a>${sale18x24}</a> : null}
 								</div>
-								<div onClick={()=>this.selectSize('24x36')} className={size === '24x36' ? 'size-selected print-size size-24x36' : 'print-size size-24x36'}>
-									<a className={sale24x36 ? 'strikeout' : ''}>24 X 36</a>
-									<a>${normal24x36}</a>{sale24x36 ? <a>${sale24x36}</a> : null}
+								<div onClick={()=>this.selectSize('24x36')} className={size === '24x36' ? 'size-selected print-size sizer' : 'print-size sizer'}>
+									<a id="dimensions">24 X 36</a>
+									<a className={sale24x36 ? 'strikeout' : ''}>${normal24x36}</a>{sale24x36 ? <a>${sale24x36}</a> : null}
 								</div>
 							</div>
 							<div className="save-div"><button onClick={() => this.writeToSession()} disabled={this.state.size !== 'Please select a size for your print' && this.props.match.params.sku > 0 ? false : true}>Add To Cart</button></div>
