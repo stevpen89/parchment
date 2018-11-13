@@ -51,27 +51,27 @@ export default class Tools extends Component {
 				<button onClick={()=>this.fetchOrder()}>Retrieve Order: GO!</button>
 				<div>
 					{familyTree ? 
-										<div className="level1-wrapper">{familyTree.map((x,y)=>{
+										<div className="admin-level1-wrapper">{familyTree.map((x,y)=>{
 							return 				x.parent_id === 0 ?
- 		<div className="level1">
+ 											<div className="admin-level1">
 												<div>{x.card_name}</div>
 												<div>{x.card_birth}</div>
 												<div>{x.card_death}</div>
 												<div>{x.spouse_name}</div>
 												<div>{x.spouse_birth}</div>
 												<div>{x.spouse_death}</div>
-												<div className="level2-wrapper">{familyTree.map((a,b)=>{
+												<div className="admin-level2-wrapper">{familyTree.map((a,b)=>{
 												return 	a.parent_id === x.card_id ?
-													<div className="level2">
+													<div className="admin-level2">
 														<div>{a.card_name}</div>
 														<div>{a.card_birth}</div>
 														<div>{a.card_death}</div>
 														<div>{a.spouse_name}</div>
 														<div>{a.spouse_birth}</div>
 														<div>{a.spouse_death}</div>
-														<div className="level3-wrapper">{familyTree.map((r,s)=>{
+														<div className="admin-level3-wrapper">{familyTree.map((r,s)=>{
 															return r.parent_id === a.card_id ?
-															<div className="level3">
+															<div className="admin-level3">
 																<div>{r.card_name}</div>
 																<div>{r.card_birth}</div>
 																<div>{r.card_death}</div>

@@ -1,11 +1,11 @@
-.level1-wrapper{
+.admin-level1-wrapper{
 	height:1000px;
 	width:1000px;
 	display:flex;
 	flex-wrap:wrap;
 
 }
-.level1{
+.admin-level1{
 	border:2px solid red;
 	width:100%;
 	height:100%;
@@ -15,7 +15,7 @@
 	align-items:center;
 
 }
-.level2-wrapper{
+.admin-level2-wrapper{
 	border:2px solid purple;
 	width:100%;
 	display:flex;
@@ -23,10 +23,10 @@
 	align-items: flex-start;
 	margin:5px;
 }
-.level2{
+.admin-level2{
 	border: 2px solid blue;
 }
-.level3-wrapper{
+.admin-level3-wrapper{
 	border:2px solid goldenrod;
 	width:100%;
 	display:flex;
@@ -36,7 +36,7 @@
 	margin:5px;
 
 }
-.level3{
+.admin-level3{
 	border:1px solid black;
 	margin:2px;
 	padding:2px;
