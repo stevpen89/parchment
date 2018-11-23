@@ -4,12 +4,20 @@
 	padding: calc(125px + 5vh) 50px;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-end;
 	flex-direction: column;
 	/* background: url(https://images.unsplash.com/photo-1527784281695-866fa715d9d8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bded84be13698c646b75dca4189a4c86&auto=format&fit=crop&w=1920&q=80) center; */
-	background: url(https://images.unsplash.com/photo-1527176930608-09cb256ab504?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=69fee3fae74c1151324d09aa5034e7b7&auto=format&fit=crop&w=1953&q=80) center;
+	background: url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/Home_Page_Photo.jpg) right;
 	background-size: cover;
 	position: relative;
+}
+.content-alignment{
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	height:100%;
+	width:33%;
 }
 
 .carousel img {
@@ -55,6 +63,13 @@
 	font-size: 32px;
 	opacity: .5;
 }
+#announcement{
+	margin:10px;
+	height:40%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
 .broken{
 	height: 300px;
 	width: 300px;
@@ -70,26 +85,63 @@
 		height: auto; 
 		width: auto; 
 		max-width: 300px; 
-		max-height: 300px;}
+		max-height: 300px;
 	}
+	.carousel{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items: center;
+	}
+	#announcement{
+		height: auto; 
+		width: auto; 
+		max-width: 300px; 
+		max-height: 300px;
+	}
+	.broken{
+		font-size:16px;
+	}
+}
 	
 @media only screen and (min-width:400px){
-.parchment-logo{
-	height: auto; 
-	width: auto; 
-	max-width: 300px; 
-	max-height: 300px;}
+	.parchment-logo{
+		height: auto; 
+		width: auto; 
+		max-width: 300px; 
+		max-height: 300px;
+	}
 }
 
 
 @media only screen and (min-width:600px){
 	.parchment-logo{
 		max-width: 400px; 
-		max-height: 400px;}
+		max-height: 400px;
+	}
 }
 
 @media only screen and (min-width:800px){
 	.parchment-logo{
 		max-width: 500px; 
-		max-height: 500px;}
+		max-height: 500px;
+	}
+	.content-alignment{
+		margin:0 100px 0 0
+	}
+	.carousel{
+		flex-direction:row;
+		justify-content: flex-end;
+		align-items: center;
+	}
+}
+@media only screen and (min-width:1200px){
+	.content-alignment{
+		margin:0 50px 0 0
+	}
+	.carousel{
+		flex-direction:row;
+		justify-content: flex-end;
+		align-items: center;
+	}
 }
