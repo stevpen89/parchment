@@ -34,6 +34,8 @@
     "mailgun-js": "^0.22.0",
     "massive": "^5.5.0",
     "moment": "^2.22.2",
+    "nodemon": "^1.18.6",
+    "npm": "^6.4.1",
     "rc-slider": "^8.6.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
