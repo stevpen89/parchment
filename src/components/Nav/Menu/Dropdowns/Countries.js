@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom'
 function Countries(props) {
 	return (
 		<select className="product-select" onChange={(e)=>props.history.push(`/products/journal/missionary/${e.target.value.toLowerCase()}`)}>
-			<option disabled selected value>Journal Country</option>
+			<option disabled selected value>Mission Country</option>
 			<option value="Albania">Albania</option>
 			<option value="Angola">Angola</option>
 			<option value="Argentina">Argentina</option>
