@@ -1,0 +1,25 @@
+.MJS-Wrapper{
+	display:flex;
+	flex-direction: column;
+}
+.MJS-Header{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.MJS-Header-Text{
+	font-weight: bold;
+	color:black;
+}
+.MJS-Body{
+	display: flex;
+	flex-direction: row;
+}
+.MJS-Body-Left{
+	height:100%;
+	width:50%;
+}
+.MJS-Body-Right{
+	height:100%;
+	width:50%;
+}

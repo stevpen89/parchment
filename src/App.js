@@ -18,6 +18,7 @@ import BabyBlanket    from './components/Products/BabyBlanket/BabyBlanket'
 import Journal        from './components/Products/Journal/Journal'
 import ProductDetails from './components/Products/ProductMap/ProductDetails/ProductDetails'
 import Admin          from './components/Admin/Admin'
+import MissionaryJournalSelector from './components/MissionaryJournalSelector/MissionaryJournalSelector'
 import Cart           from './components/Cart/Cart'
 import Checkout       from './components/Cart/Checkout/Checkout'
 
@@ -50,6 +51,7 @@ class App extends Component {
               <Route       path = "/product/:sku/holiday/customize"       component={Journal}/>
               <Route       path = "/product/:sku/journal/customize"       component={Journal}/>
               <Route       path = "/admin"                                component={Admin} />
+              <Route       path = "/missionaryJournalSelector"            component={MissionaryJournalSelector} />
               <Route       path = "/about"                                component={AboutUs} />
               <Route       path = "/contact"                              component={Contact} />
               <Route       path = "/cart"                                 component={Cart} />
