@@ -39,10 +39,14 @@ class Filters extends Component {
       this.unlisten();
   }
 
-  getProducts (tags) {
+  async getProducts (tags) {
+		// declare initial variables
     let tempTags = tags.slice(0);
-		let percentified = tempTags.map(x => `%${x}%`);
-		let fillTags = () => {
+		let percentified = tempTags.map(searchTerm => `%${searchTerm}%`);
+		let genericSearch = {tags: ["%generic%", "%%", "%%", "%%", "%%", "%%", "%%", "%%", "%%", "%%"]}
+
+		// add % before and after all tags in prep for SQL
+		const fillTags = () => {
 			if (percentified.length < 10) {
 				percentified.push('%%');
 				fillTags();
@@ -50,29 +54,29 @@ class Filters extends Component {
 		}
 		fillTags();
 		
-		axios.put('/products/search', {tags: percentified}).then(res => {
-			// data retrieved
-			let data = res.data
-			let stringifiedData = JSON.stringify(data)
-			let genericSearch = ["%generic%", "%%", "%%", "%%", "%%", "%%", "%%", "%%", "%%", "%%"]
+		// search for all products with the tags
+		let search = await axios.put('/products/search', {tags: percentified})
+		let products = search.data
+		let missionaryJournalFound = false
 
-			// if missionary journals are found, add generic journals to the results
-			if(stringifiedData.includes("journal_missionary")) {	
-				console.log('Search found misisonary journals')
-				axios
-				.put('/products/search', {tags: genericSearch})
-				.then(res =>res.data.map(product => data.push(product)))
+		// determine if results have any missionary journals
+		for (let i in products) {
+			if (products[i].product_type === 'journal_missionary') {
+				missionaryJournalFound = true
+				break
 			}
+		}
 
-			// if not, log no missionary journals found
-			else {
-				console.log('Search did not bring back any missionary journals')
-			}
+		// include results for generic journals if missionary journals are found
+		if (missionaryJournalFound) {
+			let genericResults = await axios.put('/products/search', genericSearch)
+			genericResults.data.map(product => products.push(product))
+			this.props.setProducts(products)
 
-			// send the data
-			console.log('Data being sent to props', data)
-			this.props.setProducts(data)
-		})
+		// if not, return results as usual
+		} else {
+			this.props.setProducts(products)
+		}
 
 	}
 
