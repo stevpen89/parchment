@@ -16,7 +16,7 @@ class Menu extends Component {
 							<Link to="/products">					                <li><i className="fas fa-shopping-basket">	</i> Products</li></Link>
 							<Link to="/products/blanket/family/history">	<li><i className="fas fa-bed">							</i> Family History Blankets</li></Link>
 							<Link to="/products/print/family/history">	  <li><i className="fas fa-image">						</i> Family History Prints</li></Link>
-							<Link to="/products/journal/missionary">	    <li><i className="fas fa-user-tie">				  </i> Missonary Journals</li></Link>
+							<Link to="/missionaryJournalSelector">	    	<li><i className="fas fa-user-tie">				  </i> Missonary Journals</li></Link>
 																														<li><i className="fas fa-globe-americas indented"></i><States/></li>
 																														<li><i className="fas fa-flag indented"></i><Countries/></li>
 							<Link to="/products/journal/everyday">	      <li><i className="fas fa-book-open">				</i> Everyday Journals</li></Link>

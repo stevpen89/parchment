@@ -1,0 +1,45 @@
+.MJS-Wrapper{
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content: flex-start;
+	height:100%;
+	width:100%;
+	min-height: calc(100vh - 100px);
+	padding: 90px 0 30px 0;
+
+}
+.MJS-Header{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height:20%;
+	width:50%;
+	min-width:230px;
+	margin:20px;
+}
+.MJS-Header-Text{
+	height:50px;
+	width:230px;
+	font-weight: bold;
+	color:black;
+	padding:10px;
+}
+.MJS-Body{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	height:66%;
+	width:66%;
+}
+.MJS-Body-Dropdown{
+	height:100%;
+	width:33%;
+	min-width:150px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	border:3px solid gray;
+	border-radius:25px;
+	overflow:hidden;
+}

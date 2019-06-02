@@ -39,17 +39,45 @@ class Filters extends Component {
       this.unlisten();
   }
 
-  getProducts (tags) {
+  async getProducts (tags) {
+		// declare initial variables
     let tempTags = tags.slice(0);
-		let percentified = tempTags.map(x => `%${x}%`);
-		let fillTags = () => {
+		let percentified = tempTags.map(searchTerm => `%${searchTerm}%`);
+		let genericSearch = {tags: ["%generic%", "%%", "%%", "%%", "%%", "%%", "%%", "%%", "%%", "%%"]}
+
+		// add % before and after all tags in prep for SQL
+		const fillTags = () => {
 			if (percentified.length < 10) {
 				percentified.push('%%');
 				fillTags();
 			}
 		}
-    fillTags();
-    axios.put('/products/search', {tags: percentified}).then(res => {this.props.setProducts(res.data)})
+		fillTags();
+		
+		// search for all products with the tags
+		let search = await axios.put('/products/search', {tags: percentified})
+		let products = search.data
+		let missionaryJournalFound = false
+
+		// determine if results have any missionary journals
+		for (let i in products) {
+			if (products[i].product_type === 'journal_missionary') {
+				missionaryJournalFound = true
+				break
+			}
+		}
+
+		// include results for generic journals if missionary journals are found
+		if (missionaryJournalFound) {
+			let genericResults = await axios.put('/products/search', genericSearch)
+			genericResults.data.map(product => products.push(product))
+			this.props.setProducts(products)
+
+		// if not, return results as usual
+		} else {
+			this.props.setProducts(products)
+		}
+
 	}
 
   routeChange () {
