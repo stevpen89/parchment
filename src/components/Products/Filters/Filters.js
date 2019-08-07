@@ -43,7 +43,6 @@ class Filters extends Component {
 		// declare initial variables
     let tempTags = tags.slice(0);
 		let percentified = tempTags.map(searchTerm => `%${searchTerm}%`);
-		let genericSearch = {tags: ["%generic%", "%%", "%%", "%%", "%%", "%%", "%%", "%%", "%%", "%%"]}
 
 		// add % before and after all tags in prep for SQL
 		const fillTags = () => {
@@ -56,27 +55,7 @@ class Filters extends Component {
 		
 		// search for all products with the tags
 		let search = await axios.put('/products/search', {tags: percentified})
-		let products = search.data
-		let missionaryJournalFound = false
-
-		// determine if results have any missionary journals
-		for (let i in products) {
-			if (products[i].product_type === 'journal_missionary') {
-				missionaryJournalFound = true
-				break
-			}
-		}
-
-		// include results for generic journals if missionary journals are found
-		if (missionaryJournalFound) {
-			let genericResults = await axios.put('/products/search', genericSearch)
-			genericResults.data.map(product => products.push(product))
-			this.props.setProducts(products)
-
-		// if not, return results as usual
-		} else {
-			this.props.setProducts(products)
-		}
+    	this.props.setProducts(search.data)
 
 	}
 

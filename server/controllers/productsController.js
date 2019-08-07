@@ -25,42 +25,40 @@ module.exports = {
 			.catch(err => console.log(`Error Message: ${err}`))
 	},
 
-	search: (req, res) => {
-		const db = req.app.get('db');
-		const {tags} = req.body;
-
-		db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
-			.then(product => res.status(200).send(product))
-			.catch(err => console.log(`Error Message: ${err}`))
-	},
-
 	// search: (req, res) => {
 	// 	const db = req.app.get('db');
 	// 	const {tags} = req.body;
-		
-	// 	db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
-	// 	.then(product => res.status(200).send(product))
-	// 	.catch(err => console.log(`Error Message: ${err}`))
 
-		// if (tags.includes('%journal%')) {
-		// 	let tempArr = [];
-		// 	db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
-		// 		.then(product => {
-		// 			product.map(x => tempArr.push(x));
-		// 			db.products.products_get_generic()
-		// 				.then(generic => {
-		// 					generic.map(x => tempArr.push(x));
-		// 					res.status(200).send(tempArr);
-		// 				})
-		// 		})
-		// 		.catch(err => console.log(`Error Message: ${err}`))
-		// }
-		// else {
-		// 	db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
-		// 		.then(product => res.status(200).send(product))
-		// 		.catch(err => console.log(`Error Message: ${err}`))
-		// }
+	// 	db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
+	// 		.then(product => res.status(200).send(product))
+	// 		.catch(err => console.log(`Error Message: ${err}`))
 	// },
+
+	search: async (req, res) => {
+		const db = req.app.get('db');
+		const {tags} = req.body;
+		const uniqueProducts = (prodArr) => {
+	     const uniqueProd = [];
+		 prodArr.forEach((p) => {
+			const i = uniqueProd.findIndex(x => x.product_sku == p.product_sku);
+			if(i <= -1){
+			  uniqueProd.push(p);
+			}
+		  });
+		  return uniqueProd;
+		}
+		try {
+			let products = await db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
+			if (products.some(p => p.product_tags.tags.includes('journal'))) {
+				const genericJournals = await db.products.products_get_generic();
+				const combined = [...products, ...genericJournals];
+	 		    return res.status(200).send(uniqueProducts(combined));
+			}
+	 		return res.status(200).send(uniqueProducts(products));
+		} catch (error) { 
+		  console.log(`Error Message: ${error}`);
+		}
+	},
 
 	readCart: (req, res) => {
 		req.session.cart ? res.status(200).send(req.session.cart) : res.status(200).send([]);
