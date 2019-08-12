@@ -5,6 +5,7 @@ import './App.css'
 import Nav            from './components/Nav/Nav'
 import Home           from './components/Home/Home'
 import Products       from './components/Products/Products'
+import ProductCategories from './components/Nav/ProductCategories/ProductCategories'
 import AboutUs        from './components/AboutUs/AboutUs'
 import Contact        from './components/Contact/Contact'
 import Footer         from './components/Footer/Footer'
@@ -31,6 +32,7 @@ class App extends Component {
             <Switch>
               <Route exact path = "/"                                     component={Home}    />
               <Route exact path = "/products"                             component={Products}/>
+              <Route exact path = "/products/categories"                  component={ProductCategories}/>
               <Route       path = "/products/:type"                       component={Products}/>
               <Route exact path = "/product/:sku/inverted"                component={ProductDetails}/>
               <Route exact path = "/product/:sku/binary"                  component={ProductDetails}/>

@@ -13,7 +13,7 @@ class Menu extends Component {
 					<div className="menu-content">
 						<ul>
 							<Link to="/">									                <li><i className="fas fa-home">							</i> Home</li></Link>
-							<Link to="/products">					                <li><i className="fas fa-shopping-basket">	</i> Products</li></Link>
+							<Link to="/products/categories">					    <li><i className="fas fa-shopping-basket">	</i> Products</li></Link>
 							<Link to="/products/blanket/family/history">	<li><i className="fas fa-bed">							</i> Family History Blankets</li></Link>
 							<Link to="/products/print/family/history">	  <li><i className="fas fa-image">						</i> Family History Prints</li></Link>
 							<Link to="/missionaryJournalSelector">	    	<li><i className="fas fa-user-tie">				  </i> Missonary Journals</li></Link>
