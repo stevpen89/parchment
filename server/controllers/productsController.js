@@ -49,7 +49,7 @@ module.exports = {
 		}
 		try {
 			let products = await db.products.products_get_tag([tags[0], tags[1], tags[2], tags[3], tags[4], tags[5], tags[6], tags[7], tags[8], tags[9]])
-			if (products.some(p => p.product_tags.tags.includes('journal'))) {
+			if (products.some(p => p.product_tags.tags.includes('missionary'))) {
 				const genericJournals = await db.products.products_get_generic();
 				const combined = [...products, ...genericJournals];
 	 		    return res.status(200).send(uniqueProducts(combined));

@@ -21,9 +21,10 @@
 	border:1px solid red;
 	height:70vh;
 	width:90%;
-}
-.ProdCat-Grid-Row{
-border:1px solid blue;
-height:50%;
-width:100%;
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content: space-evenly;
+	margin:5px;
+	padding:5px;
 }

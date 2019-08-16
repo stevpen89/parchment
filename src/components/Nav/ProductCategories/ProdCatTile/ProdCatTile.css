@@ -1,19 +1,32 @@
 .ProdCatTile-Wrapper{
-	background-color:orange;
-	height:100px;
-	width:100px;
+	border:2px dashed green;
+	height:30%;
+	width:300px;
+	margin:10px;
+	display:flex;
+	flex-direction:column;
+	justify-content: space-evenly;
+}
+.ProdCatTile-Header{
+	height:150px;
+	width:150px;
+	margin:5px;
 }
 .ProdCatTile-Upper{
- background-color:black;
- height:100px;
- width:100px;
-}
-.ProdCatTile-Image{
-
+	height:150px;
+	width:150px;
+	margin:5px;
 }
 .ProdCatTile-Lower{
-
+	height:150px;
+	width:150px;
+	margin:5px;
+}
+.ProdCatTile-Title{
+}
+.ProdCatTile-Image{
+	height:150px;
+	width:150px;
 }
 .ProdCatTile-Description{
-
 }

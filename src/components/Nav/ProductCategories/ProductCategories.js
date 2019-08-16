@@ -4,13 +4,11 @@ import './ProductCategories.css';
 import ProdCatTile from './ProdCatTile/ProdCatTile';
 
 const topRowData = [
-	{id:1,title:"Family History Blankets",img:"",desc:"test text"},
-	{id:2,title:"Family History Prints",img:"",desc:"test text"},
-	{id:3,title:"Holiday Blankets",img:"",desc:"test text"}]
-const bottomRowData = [
-	{id:4,title:"State Missionary Journals",img:"",desc:"test text"},
-	{id:5,title:"Country Missionary Journals",img:"",desc:"test text"},
-	{id:6,title:"Everyday Journals",img:"",desc:"test text"}]
+	{id:1,title:"Family History Blankets",img:"https://www.sunnyskyz.com/uploads/2018/12/65zli-cat-meme-1a.jpg",desc:"test text",routingString:"/products/blanket/family/history"},
+	{id:2,title:"Family History Prints",img:"https://www.sunnyskyz.com/uploads/2018/12/65zli-cat-meme-1a.jpg",desc:"test text",routingString:"/products/print/family/history"},
+	{id:3,title:"Holiday Blankets",img:"https://www.sunnyskyz.com/uploads/2018/12/65zli-cat-meme-1a.jpg",desc:"test text",routingString:"/products/blanket/holiday"},
+	{id:4,title:"Missionary Journals",img:"https://www.sunnyskyz.com/uploads/2018/12/65zli-cat-meme-1a.jpg",desc:"test text",routingString:"/missionaryJournalSelector"},
+	{id:5,title:"Everyday Journals",img:"https://www.sunnyskyz.com/uploads/2018/12/65zli-cat-meme-1a.jpg",desc:"test text",routingString:"/products/journal/everyday"}]
 
 
 class ProductCategories extends Component {
@@ -21,12 +19,7 @@ class ProductCategories extends Component {
 					Products
 				</div>
 				<div className="ProdCat-Grid">
-					<div className="ProdCat-Grid-Row">
 						{topRowData.map((x)=>{return <ProdCatTile {...x} key={x.id}/>})}
-					</div>
-					<div className="ProdCat-Grid-Row">
-						{bottomRowData.map((x)=>{return <ProdCatTile {...x} key={x.id}/>})}
-					</div>
 				</div>
 			</div>
 		)
