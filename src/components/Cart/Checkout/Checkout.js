@@ -36,7 +36,8 @@ class Checkout extends Component {
 		let total = sum + (hasShipping === true ? shipping : 0);
 		this.setState({total})
 		if (this.props.userCart.length <= 0) {this.props.history.push('/cart')}
-		hasShipping ? this.setState({containsJournal:true}) : null
+		// hasShipping ? this.setState({containsJournal:true}) : null
+		if (hasShipping === true){this.setState({containsJournal:true})}
 		this.countOrders()
 		let taxrate = .0575
 		let totalWithTax = total*(1 +taxrate)
