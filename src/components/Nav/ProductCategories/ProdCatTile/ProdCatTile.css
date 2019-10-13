@@ -1,32 +1,59 @@
 .ProdCatTile-Wrapper{
-	border:2px dashed green;
-	height:30%;
-	width:300px;
+	/* border:2px dashed green; */
+	height:100%;
+	width: 100%;
+	min-width:125px;
 	margin:10px;
 	display:flex;
 	flex-direction:column;
-	justify-content: space-evenly;
+	justify-content: center;
+	align-items: center;
+}
+.ProdCatTile-Wrapper div{
+	font-family: 'Open Sans Condensed', sans-serif;
+	letter-spacing: 2px;
 }
 .ProdCatTile-Header{
-	height:150px;
-	width:150px;
+	display:flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items:center;
+	height:10%;
+	width:95%;
 	margin:5px;
+	/* border:1px dotted red; */
+	color:black;
+	text-align:center;
+	
 }
 .ProdCatTile-Upper{
-	height:150px;
-	width:150px;
+	height:60%;
+	width:95%;
 	margin:5px;
+	/* border:1px dotted cyan; */
+	display:flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items:center;
 }
 .ProdCatTile-Lower{
-	height:150px;
-	width:150px;
+	display:flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items:center;
+	height:20%;
+	width:95%;
 	margin:5px;
+	/* border:1px dotted gold; */
+	color:black;
+	text-align:center;
 }
 .ProdCatTile-Title{
 }
 .ProdCatTile-Image{
-	height:150px;
-	width:150px;
+	height:100%;
+	max-width:95%;
+	border-radius:5px;
 }
 .ProdCatTile-Description{
 }
