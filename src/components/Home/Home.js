@@ -40,7 +40,7 @@ class Home extends Component {
 					<Link to="/products/blanket/holiday" className="product-link">
 						<div id="home-tile">
 							<div className="hero-2 home-banner"></div>
-							<div id="hero-text">Personalized Holiday Blankets</div>
+							<div id="hero-text">Personalized Blankets</div>
 						</div>
 					</Link>
 				</div>
