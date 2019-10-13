@@ -1,15 +1,16 @@
 .carousel {
 	margin-top: -5vh;
 	height: calc(105vh);
+	width:66%;
 	padding: calc(125px + 5vh) 50px;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
 	flex-direction: column;
-	/* background: url(https://images.unsplash.com/photo-1527784281695-866fa715d9d8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bded84be13698c646b75dca4189a4c86&auto=format&fit=crop&w=1920&q=80) center; */
 	background: url(https://s3-us-west-1.amazonaws.com/parchmentgoods/home-page/Home_Page_Photo.jpg) right;
 	background-size: cover;
 	position: relative;
+	border: 3px solid red;
 }
 .content-alignment{
 	display:flex;

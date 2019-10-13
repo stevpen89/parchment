@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Tools.css'
+/*eslint no-unused-expressions: ["error", {"allowTernary": true }]*/
 
 export default class Tools extends Component {
 	constructor(){
@@ -13,19 +14,19 @@ export default class Tools extends Component {
 		}
 	}
 
-	fetchOrder(){
-		const {orderNumber, returnedOrder, familyTree} = this.state
-		axios.get(`/orders/retrieve/${orderNumber}`).then((res)=>{
-			this.setState({returnedOrder:res.data})
-		}).then(()=>{
-			let details = {}
-			returnedOrder ? details = JSON.parse(returnedOrder[0].products) : null;
-			returnedOrder ? this.setState({familyTree:details[0].info.familyTree}) : null;
-		}).then(()=>{
-			returnedOrder ? console.log('family tree:', familyTree) : null;
-		})
+	// fetchOrder(){
+	// 	const {orderNumber, returnedOrder, familyTree} = this.state
+	// 	axios.get(`/orders/retrieve/${orderNumber}`).then((res)=>{
+	// 		this.setState({returnedOrder:res.data})
+	// 	}).then(()=>{
+	// 		let details = {}
+	// 		returnedOrder ? details = JSON.parse(returnedOrder[0].products) : null;
+	// 		returnedOrder ? this.setState({familyTree:details[0].info.familyTree}) : null;
+	// 	}).then(()=>{
+	// 		returnedOrder ? console.log('family tree:', familyTree) : null;
+	// 	})
 
-	}
+	// }
 
 
 
@@ -48,7 +49,7 @@ export default class Tools extends Component {
 		return (
 			<div>
 				<input onChange={e => this.handleChange(e.target.value,'orderNumber')}/>
-				<button onClick={()=>this.fetchOrder()}>Retrieve Order: GO!</button>
+				{/* <button onClick={()=>this.fetchOrder()}>Retrieve Order: GO!</button> */}
 				<div>
 					{familyTree ? 
 										<div className="admin-level1-wrapper">{familyTree.map((x,y)=>{
